@@ -1,0 +1,28 @@
+// Base Styles
+/* stylelint-disable */
+
+html {
+  box-sizing: border-box;
+  font-family: font-family(opensans);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* stylelint-enable */

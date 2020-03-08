@@ -1,0 +1,79 @@
+{
+  "name": "legion-merch",
+  "version": "0.1.0",
+  "description": "Legion Merch Online Web Store",
+  "main": "source/js/main.js",
+  "scripts": {
+    "start": "gulp",
+    "build": "cross-env NODE_ENV=production gulp build",
+    "deploy": "npm run build && gh-pages -d build",
+    "dist": "npm run build && gulp zip",
+    "lintspaces": "gulp lintspaces",
+    "stylelint": "stylelint \"source/sass/**/*.{scss,sass}\" --syntax scss",
+    "eslint": "eslint \"source/js/**/*.js\"",
+    "test": "npm run lintspaces && npm run stylelint && npm run eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:embyth/legion-merch.git"
+  },
+  "author": "Rostyslav Miniukov <miniukovrostyslav@gmail.com> (https://github.com/embyth)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/embyth/legion-merch/issues"
+  },
+  "homepage": "https://github.com/embyth/legion-merch#readme",
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "autoprefixer": "^9.7.4",
+    "browser-sync": "^2.26.7",
+    "cross-env": "^7.0.2",
+    "del": "^5.1.0",
+    "eslint": "^6.8.0",
+    "gh-pages": "^2.2.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^4.0.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^3.0.0",
+    "gulp-ignore": "^3.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-lintspaces": "^1.0.1",
+    "gulp-newer": "^1.4.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-svgstore": "^7.0.1",
+    "gulp-terser": "^1.2.0",
+    "gulp-ttf2woff": "^1.1.1",
+    "gulp-ttf2woff2": "^3.0.0",
+    "gulp-webp": "^4.0.1",
+    "gulp-zip": "^5.0.1",
+    "husky": "^4.2.3",
+    "imagemin-jpegoptim": "^6.0.0",
+    "stylelint": "^13.2.0",
+    "stylelint-config-standard": "^20.0.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.8.7",
+    "normalize.css": "^8.0.1",
+    "picturefill": "^3.0.3",
+    "svg4everybody": "^2.1.9"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test"
+    }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "IE 11",
+    "not dead",
+    "not OperaMini all"
+  ]
+}

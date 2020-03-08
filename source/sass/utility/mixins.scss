@@ -1,0 +1,79 @@
+/* stylelint-disable */
+// List Reset
+@mixin list-reset() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// Drop Shadow
+@mixin box-shadow($x: 0, $y: 0, $blur: 0, $dist: 0, $color: $black, $opacity: 0, $inset: false) {
+  @if $inset == true {
+    box-shadow: inset $x $y $blur $dist fade($color, $opacity);
+  }
+  @else {
+    box-shadow: $x $y $blur $dist fade($color, $opacity);
+  }
+}
+
+// Flex centerer
+@mixin flex-centerer() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Absolute position centerer
+@mixin centerer($width: null, $height: null, $direction: both) {
+  position: absolute;
+
+  @if not $width and not $height {
+    @if $direction == both {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    @else if $direction == vertical {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    @else {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  @else if $width and $height {
+    top: 50%;
+    left: 50%;
+    width: $width;
+    height: $height;
+    margin: -($width / 2) #{0 0} -($height / 2);
+  }
+  @else if not $height {
+    left: 50%;
+    width: $width;
+    margin-left: -($width / 2);
+  }
+  @else {
+    top: 50%;
+    height: $height;
+    margin-top: -($height / 2);
+  }
+}
+
+// Removing input background color for chrome autocomplete
+/* Change the transparent to any color ;) */
+@mixin chrome-input-bg-fix() {
+  @-webkit-keyframes autofill {
+    0%, 100% {
+      color: #666;
+      background: transparent;
+    }
+  }
+  input:-webkit-autofill {
+    -webkit-animation-delay: 1s; /* Safari support - any positive time runs instantly */
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+  }
+}
+/* stylelint-enable */

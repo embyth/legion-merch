@@ -1,0 +1,17 @@
+.container {
+  width: auto;
+  padding: padding(container-m);
+  margin: 0 auto;
+
+  @media ($tablet) {
+    position: relative;
+    width: auto;
+    padding: padding(container-t);
+  }
+
+  @media ($desktop) {
+    width: auto;
+    padding: padding(container-d);
+    max-width: $desktop-width;
+  }
+}

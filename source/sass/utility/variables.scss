@@ -1,0 +1,85 @@
+// Media BreakPoints
+$mobile-width: 320px;
+$mobile-l-width: 425px;
+$tablet-width: 768px;
+$desktop-width: 1150px;
+
+$mobile-l-max-width: ($tablet-width - 1);
+
+$retina-dpi: 144dpi;
+
+$mobile: "min-width: #{$mobile-width}";
+$mobile-l: "min-width: #{$mobile-l-width}";
+$tablet: "min-width: #{$tablet-width}";
+$desktop: "min-width: #{$desktop-width}";
+
+$mobile-l-only: "min-width: #{$mobile-l-width}) and (max-width: #{$mobile-l-max-width}";
+
+$retina: "min-resolution: #{$retina-dpi}";
+
+// Padding Variables
+$paddings: (
+  container-m: 0 30px,
+  container-t: 0 50px,
+  container-d: 0 50px,
+);
+
+// Font Variables
+$font-stack: (
+  opensans: ("Open Sans", tahoma, arial, sans-serif),
+);
+
+$font-weights: (
+  normal: 400,
+  regular: 400,
+);
+
+$line-height-base: 24px;
+
+$font-line-height: (
+  base: $line-height-base,
+);
+
+$font-size-base: 15px;
+
+$font-sizes: (
+  base: $font-size-base,
+);
+
+// Color Variables
+$black: #000000;
+$white: #ffffff;
+$gray-primary: #444444;
+$gray-secondary: #f1f1f1;
+$green-primary: #63d1bb;
+$green-primary--hover: #59d5bc;
+$green-secondary: #56c3b2;
+$green-secondary--hover: #46c1ae;
+
+$bg-color-body: $white;
+$bg-color-button: $white;
+$bg-color-button--hover: $gray-primary;
+$bg-color-button--active: $gray-primary;
+$bg-color-footer: $gray-secondary;
+$bg-color-icon: fade($black, 20%);
+$bg-color-promo: #f9f9f9;
+$bg-color-separate: #ececec;
+
+$border-color-button: $gray-primary;
+$border-color-input: $gray-primary;
+$border-color-input--hover: #62d1ba;
+$border-color-input--active: fade($border-color-input, 30%);
+$border-color-modal: #c6c6c6;
+
+$font-color-base: $gray-primary;
+$font-color-button: $font-color-base;
+$font-color-button--hover: $white;
+$font-color-button--active: fade($font-color-button--hover, 30%);
+$font-color-heading: $black;
+$font-color-label: $black;
+$font-color-legend: $green-primary;
+$font-color-mail: $green-secondary--hover;
+$font-color-menu: $black;
+$font-color-menu--hover: fade($font-color-menu, 60%);
+$font-color-menu--active: fade($font-color-menu, 30%);
+$font-color-section-title: $black;
