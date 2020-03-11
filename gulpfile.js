@@ -31,12 +31,16 @@ const
   ttf2woff = require('gulp-ttf2woff'),
   ttf2woff2 = require('gulp-ttf2woff2'),
 
+  // HTML
+  htmlmin = require('gulp-htmlmin'),
+  posthtml = require('gulp-posthtml'),
+  include = require('posthtml-include'),
+
   // Other
   browserSync = require('browser-sync').create('Local Server'),
   concat = require('gulp-concat'),
   sourcemap = require('gulp-sourcemaps'),
   lintspaces = require('gulp-lintspaces'),
-  htmlmin = require('gulp-htmlmin'),
   zip = require('gulp-zip'),
   gulpif = require('gulp-if');
 
@@ -75,9 +79,9 @@ let paths = {
     scripts: [
       // './node_modules/jquery/dist/jquery.min.js', // Optional jQuery plug-in (npm i --save-dev jquery)
       // './node_modules/bootstrap/dist/js/bootstrap.min.js', // Optional Bootstrap plug-in (npm i --save-dev bootstrap)
-      './node_modules/picturefill/dist/picturefill.min.js',
+      // './node_modules/picturefill/dist/picturefill.min.js',
       './node_modules/svg4everybody/dist/svg4everybody.min.js',
-      './node_modules/@babel/polyfill/dist/polyfill.min.js'
+      // './node_modules/@babel/polyfill/dist/polyfill.min.js'
     ],
     styles: [
       // './node_modules/bootstrap/dist/css/bootstrap.min.css', // Optional Bootstrap plug-in (npm i --save-dev bootstrap)
@@ -132,7 +136,7 @@ var quality = 80; // Responsive images quality
 
 // Image Optimization
 gulp.task('images', function () {
-  return gulp.src(paths.src.images.all + '**/*.{png,jpg,svg}')
+  return gulp.src([paths.src.images.all + '**/*.{png,jpg,svg}', '!source/img/logo/**/*.svg'])
     .pipe(newer(paths.dest.images.all))
     .pipe(imagemin([
       imagemin.optipng({ optimizationLevel: 3 }),
@@ -146,6 +150,23 @@ gulp.task('images', function () {
       })
     ]))
     .pipe(gulp.dest(paths.dest.images.all));
+});
+
+// Logo Min
+gulp.task('logo', function () {
+  return gulp.src('source/img/logo/**/*.svg')
+    .pipe(imagemin([
+      imagemin.optipng({ optimizationLevel: 3 }),
+      jpegoptim({ quality: quality, progressive: true }),
+      imagemin.svgo({
+        plugins: [
+          { removeViewBox: false },
+          { removeTitle: true },
+          { cleanupNumericValues: { floatPrecision: 1 } }
+        ]
+      })
+    ]))
+    .pipe(gulp.dest('build/img/logo/'));
 });
 
 // Converting images to WebP
@@ -204,6 +225,9 @@ gulp.task('copyfonts', function () {
 gulp.task('html', function () {
   return gulp.src(paths.src.root + '**/*.html')
     .pipe(newer(paths.dest.root))
+    .pipe(posthtml([
+      include()
+    ]))
     .pipe(gulpif(isProd,
       htmlmin({
         collapseInlineTagWhitespace: true,
@@ -312,7 +336,7 @@ gulp.task('watch', function () {
 });
 
 // Building project
-gulp.task('build', gulp.series('clean', gulp.parallel('fonts', 'copyfonts', 'html', 'vendorstyles', 'styles', 'vendorscripts', 'scripts', 'images', 'webp', 'svgsprite')));
+gulp.task('build', gulp.series('clean', gulp.parallel('fonts', 'copyfonts', 'vendorstyles', 'styles', 'vendorscripts', 'scripts', 'images', 'logo', 'webp', 'svgsprite'), 'html'));
 
 // Building project in dev mode and starting local server
 gulp.task('default', gulp.series('build', 'server', 'watch'));
