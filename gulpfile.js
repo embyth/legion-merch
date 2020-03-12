@@ -279,7 +279,7 @@ gulp.task('server', function (done) {
     ui: false,
     reloadOnRestart: true,
     // online: false, // Work offline without internet connection
-    // tunnel: true, tunnel: 'projectname', // Demonstration page: http://projectname.localtunnel.me
+    // tunnel: true, // tunnel: 'projectname', // Demonstration page: http://projectname.localtunnel.me
   });
 
   done();
