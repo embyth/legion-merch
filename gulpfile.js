@@ -161,6 +161,7 @@ gulp.task('logo', function () {
       imagemin.svgo({
         plugins: [
           { removeViewBox: false },
+          { removeDimensions: false },
           { removeTitle: true },
           { cleanupNumericValues: { floatPrecision: 1 } }
         ]
