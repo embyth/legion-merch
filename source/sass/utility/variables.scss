@@ -2,7 +2,7 @@
 $mobile-width: 320px;
 $mobile-l-width: 425px;
 $tablet-width: 768px;
-$desktop-width: 1150px;
+$desktop-width: 1366px;
 
 $mobile-l-max-width: ($tablet-width - 1);
 
@@ -19,67 +19,150 @@ $retina: "min-resolution: #{$retina-dpi}";
 
 // Padding Variables
 $paddings: (
-  container-m: 0 30px,
-  container-t: 0 50px,
-  container-d: 0 50px,
+  container-m: 0 15px,
+  container-t: 0 20px,
+  container-d: 0 20px,
 );
 
 // Font Variables
 $font-stack: (
-  opensans: ("Open Sans", tahoma, arial, sans-serif),
+  montserrat: ("Montserrat", "Tahoma", "Arial", sans-serif),
 );
 
 $font-weights: (
+  light: 300,
   normal: 400,
   regular: 400,
+  bold: 700,
 );
 
-$line-height-base: 24px;
+// Line Heights
+$line-height-12: 12px;
+$line-height-14: 14px;
+$line-height-16: 16px;
+$line-height-18: 18px;
+$line-height-20: 20px;
+$line-height-22: 22px;
+$line-height-24: 24px;
+$line-height-26: 26px;
+$line-height-28: 28px;
+$line-height-30: 30px;
+$line-height-32: 32px;
+$line-height-34: 34px;
+$line-height-36: 36px;
+$line-height-38: 38px;
+$line-height-40: 40px;
+$line-height-42: 42px;
+$line-height-44: 44px;
+$line-height-46: 46px;
+
 
 $font-line-height: (
-  base: $line-height-base,
+  base-m: $line-height-18,
+  base-t: $line-height-20,
+  base-d: $line-height-20,
+  cart-quantity: $line-height-16,
+  cart-empty-text: $line-height-26,
+  cart-empty-link: $line-height-26,
+  cart-remove-text: $line-height-20,
+  cart-item-name: $line-height-18,
+  cart-item-desc: $line-height-26,
+  cart-subtotal: $line-height-18,
+  cart-link: $line-height-18,
+  menu-dev: $line-height-16,
+  menu-link: $line-height-18,
+  search-label-m: $line-height-18,
+  search-label-t: $line-height-22,
+  search-label-d: $line-height-26,
+  search-input-m: $line-height-18,
+  search-input-t: $line-height-22,
+  search-input-d: $line-height-26,
 );
 
-$font-size-base: 15px;
+// Font Sizes
+$font-size-10: 10px;
+$font-size-12: 12px;
+$font-size-14: 14px;
+$font-size-16: 16px;
+$font-size-18: 18px;
+$font-size-20: 20px;
+$font-size-22: 22px;
+$font-size-24: 24px;
+$font-size-26: 26px;
+$font-size-28: 28px;
+$font-size-30: 30px;
+$font-size-32: 32px;
+$font-size-34: 34px;
+$font-size-36: 36px;
+$font-size-38: 38px;
+$font-size-40: 40px;
+$font-size-42: 42px;
 
 $font-sizes: (
-  base: $font-size-base,
+  base-m: $font-size-14,
+  base-t: $font-size-16,
+  base-d: $font-size-16,
+  cart-quantity: $font-size-12,
+  cart-empty-text: $font-size-16,
+  cart-empty-link: $font-size-14,
+  cart-remove-text: $font-size-10,
+  cart-item-name: $font-size-14,
+  cart-item-desc: $font-size-12,
+  cart-subtotal: $font-size-14,
+  cart-link: $font-size-14,
+  menu-dev: $font-size-12,
+  menu-link: $font-size-14,
+  search-label-m: $font-size-14,
+  search-label-t: $font-size-18,
+  search-label-d: $font-size-22,
+  search-input-m: $font-size-14,
+  search-input-t: $font-size-18,
+  search-input-d: $font-size-22,
 );
 
 // Color Variables
+// Define Color Vars
 $black: #000000;
 $white: #ffffff;
-$gray-primary: #444444;
-$gray-secondary: #f1f1f1;
-$green-primary: #63d1bb;
-$green-primary--hover: #59d5bc;
-$green-secondary: #56c3b2;
-$green-secondary--hover: #46c1ae;
+$dark: #111111;
+$red: #ff0000;
+$transparent: transparent;
 
+$gradient-start: rgba(250, 111, 152, 1);
+$gradient-stop: rgba(255, 189, 55, 1);
+
+// Background Colors
 $bg-color-body: $white;
-$bg-color-button: $white;
-$bg-color-button--hover: $gray-primary;
-$bg-color-button--active: $gray-primary;
-$bg-color-footer: $gray-secondary;
-$bg-color-icon: fade($black, 20%);
-$bg-color-promo: #f9f9f9;
-$bg-color-separate: #ececec;
+$bg-color-body--index: $dark;
+$bg-color-svg: $dark;
+$bg-color-svg--index: $white;
+$bg-color-cart: $white;
+$bg-color-cart--index: $dark;
+$bg-color-hamburger: $dark;
+$bg-color-hamburger--index: $white;
+$bg-color-header: $white;
+$bg-color-header--index: $transparent;
+$bg-color-menu: $white;
+$bg-color-menu--index: $dark;
+$bg-color-overlay: rgba($black, 0.3);
+$bg-color-search: $white;
+$bg-color-search--index: $dark;
+$bg-color-input: $transparent;
 
-$border-color-button: $gray-primary;
-$border-color-input: $gray-primary;
-$border-color-input--hover: #62d1ba;
-$border-color-input--active: fade($border-color-input, 30%);
-$border-color-modal: #c6c6c6;
+// Border Colors
+$border-color-separator: $dark;
+$border-color-separator--index: $white;
+$border-color-input: $dark;
+$border-color-input--index: $white;
 
-$font-color-base: $gray-primary;
-$font-color-button: $font-color-base;
-$font-color-button--hover: $white;
-$font-color-button--active: fade($font-color-button--hover, 30%);
-$font-color-heading: $black;
-$font-color-label: $black;
-$font-color-legend: $green-primary;
-$font-color-mail: $green-secondary--hover;
-$font-color-menu: $black;
-$font-color-menu--hover: fade($font-color-menu, 60%);
-$font-color-menu--active: fade($font-color-menu, 30%);
-$font-color-section-title: $black;
+
+// Font Colors
+$font-color-base: $dark;
+$font-color-base--index: $white;
+$font-color-remove: $red;
+$font-color-link: $dark;
+$font-color-link--index: $white;
+$font-color-input: $dark;
+$font-color-input--index: $white;
+$font-color-label: $dark;
+$font-color-label--index: $white;
