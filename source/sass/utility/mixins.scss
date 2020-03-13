@@ -61,6 +61,188 @@
   }
 }
 
+// Glitch Logo Loader Effect
+@mixin svgGlitch($name, $intensity, $fillColor, $background, $fillHighlight1, $fillHighlight2, $fillHighlight3, $fillHighlight4, $width, $height) {
+
+  $steps: $intensity;
+
+  // Ensure the @keyframes are generated at the root level
+  @at-root {
+    // We need two different ones
+    @for $i from 1 through 3 {
+      @keyframes #{$name}-anim-#{$i} {
+        @for $i from 0 through $steps {
+          $top: random(100);
+          $bottom: random(101 - $top);
+          #{percentage($i*(1/$steps))} {
+            clip-path: inset(#{$top}% 0 #{$bottom}% 0);
+          }
+        }
+      }
+    }
+  }
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: $fillColor;
+    background: $background;
+    width: $width;
+    height: $height;
+  }
+
+  svg:nth-child(1) {
+    stroke: url(#gradient);
+  }
+
+  svg:nth-child(2) {
+    stroke: $fillHighlight2;
+    left: calc(50% - 2px);
+    animation: #{$name}-anim-1 2s infinite linear alternate-reverse;
+  }
+  svg:nth-child(3) {
+    stroke: $fillHighlight3;
+    left: calc(50% + 2px);
+    animation: #{$name}-anim-2 3s infinite linear alternate-reverse;
+  }
+  svg:nth-child(4) {
+    stroke: $fillHighlight4;
+    left: calc(50% + 1px);
+    animation: #{$name}-anim-3 2.5s infinite linear alternate-reverse;
+  }
+}
+
+// For mobile
+@mixin svgGlitchMobile($name, $intensity, $fillColor, $background, $fillHighlight1, $fillHighlight2, $fillHighlight3, $fillHighlight4, $width, $height) {
+
+  $steps: $intensity;
+
+  // Ensure the @keyframes are generated at the root level
+  @at-root {
+    // We need two different ones
+    @for $i from 1 through 3 {
+      @keyframes #{$name}-anim-#{$i} {
+        @for $i from 0 through $steps {
+          $top: random(100);
+          $bottom: random(101 - $top);
+          #{percentage($i*(1/$steps))} {
+            clip-path: inset(#{$top}% 0 #{$bottom}% 0);
+          }
+        }
+      }
+    }
+  }
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: $fillColor;
+    background: $background;
+    width: $width;
+    height: $height;
+  }
+
+  svg:nth-child(1) {
+    stroke: url(#gradient);
+  }
+
+  svg:nth-child(2) {
+    stroke: $fillHighlight2;
+    left: calc(50% - 1px);
+    animation: #{$name}-anim-1 2s infinite linear alternate-reverse;
+  }
+  svg:nth-child(3) {
+    stroke: $fillHighlight3;
+    left: calc(50% + 1px);
+    animation: #{$name}-anim-2 3s infinite linear alternate-reverse;
+  }
+  svg:nth-child(4) {
+    stroke: $fillHighlight4;
+    left: calc(50% + 0.5px);
+    animation: #{$name}-anim-3 2.5s infinite linear alternate-reverse;
+  }
+}
+
+// Close Button Effect
+@mixin close-button() {
+  border: 0;
+  background: 0 0;
+  font-size: 0;
+  line-height: 0;
+  margin-left: -5px;
+  margin-top: -5px;
+  width: 30px;
+  height: 25px;
+  padding: 5px;
+  position: relative;
+  cursor: pointer;
+  animation: spin-out-alt 0.6s ease;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    width: 20px;
+    height: 1px;
+    background-color: #111;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  &::after {
+    transform: translateY(-50%) rotate(135deg);
+  }
+
+  &:hover,
+  &:focus {
+    outline: 0;
+    animation: spin-alt .6s ease;
+
+    &::before,
+    &::after {
+      background: linear-gradient(to right, $gradient-start, $gradient-stop);
+    }
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+}
+
+// Link Effects
+@mixin link() {
+  position: relative;
+  transition: transform 0.3s ease;
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    background: linear-gradient(to right, $gradient-start, $gradient-stop);
+  }
+
+  &:hover,
+  &:focus {
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+}
+
 // Removing input background color for chrome autocomplete
 /* Change the transparent to any color ;) */
 @mixin chrome-input-bg-fix() {
