@@ -179,6 +179,7 @@
   height: 25px;
   padding: 5px;
   position: relative;
+  display: inline-block;
   cursor: pointer;
   animation: spin-out-alt 0.6s ease;
 
@@ -190,7 +191,7 @@
     left: 5px;
     width: 20px;
     height: 1px;
-    background-color: #111;
+    background-color: $bg-color-svg;
     transform: translateY(-50%) rotate(45deg);
   }
 
@@ -201,7 +202,7 @@
   &:hover,
   &:focus {
     outline: 0;
-    animation: spin-alt .6s ease;
+    animation: spin-alt 0.6s ease;
 
     &::before,
     &::after {
@@ -248,7 +249,7 @@
 @mixin chrome-input-bg-fix() {
   @-webkit-keyframes autofill {
     0%, 100% {
-      color: #666;
+      color: inherit;
       background: transparent;
     }
   }
