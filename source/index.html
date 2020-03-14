@@ -12,7 +12,7 @@
 <body class="page page--front page--no-js">
 
   <!-- Loader with Glitch Effect -->
-  <div class="loader">
+  <div class="loader" style="background-color: #000000;" aria-hidden="true">
     <svg version="1.1" class="loader__logo" xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1003 294" width="100%" height="100%">
       <defs>
@@ -64,7 +64,7 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
 
       <!-- Site Logo -->
       <div class="site-header__logo">
-        <a class="site-header__logo-link" href="index.html">
+        <a class="site-header__logo-link" href="index.html" aria-label="На главную страницу">
           <include src="build/img/logo/logo.svg"></include>
         </a>
       </div>
@@ -72,8 +72,8 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
 
       <!-- Front Page Hamburger -->
       <div class="site-header__hamburger">
-        <button class="site-header__toggler hamburger" type="button"
-          onclick="document.getElementById('site-nav').style.cssText = 'visibility: visible; left: 0;'; document.querySelector('.site-nav__overlay').style.cssText = 'visibility: visible; opacity: 1; z-index: 399;'">
+        <button class="site-header__toggler menu-toggler hamburger" type="button" title="Меню" aria-label="Открыть меню"
+          onclick="document.getElementById('site-nav').style.cssText = 'visibility: visible; left: 0; opacity: 1;'; document.querySelector('.site-nav__overlay').style.cssText = 'visibility: visible; opacity: 1; z-index: 399;'">
           <span class="hamburger--bar"></span>
           <span class="hamburger--bar"></span>
           <span class="hamburger--bar"></span>
@@ -85,15 +85,15 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
       <nav class="user-nav">
         <ul class="user-nav__list">
           <li class="user-nav__item">
-            <button class="user-nav__button" type="button"
-              onclick="document.getElementById('cart-pop').style.cssText = 'visibility: visible; right: 0;'; document.querySelector('.cart__overlay').style.cssText = 'visibility: visible; opacity: 1; z-index: 299;'">
+            <button class="user-nav__button" type="button" title="Корзина" aria-label="Показать корзину"
+              onclick="document.getElementById('cart-pop').style.cssText = 'visibility: visible; right: 0; opacity: 1;'; document.querySelector('.cart__overlay').style.cssText = 'visibility: visible; opacity: 1; z-index: 299;'">
               <svg class="user-nav__svg" width="20" height="20">
                 <use xlink:href="img/sprite.svg#icon-bag"></use>
               </svg>
             </button>
           </li>
           <li class="user-nav__item">
-            <button class="user-nav__button" type="button"
+            <button class="user-nav__button" type="button" title="Поиск" aria-label="Открыть окно поиска"
               onclick="document.getElementById('search-pop').style.cssText = 'visibility: visible; opacity: 1;'">
               <svg class="user-nav__svg" width="20" height="20">
                 <use xlink:href="img/sprite.svg#icon-search"></use>
@@ -101,15 +101,16 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
             </button>
           </li>
           <li class="user-nav__item">
-            <a class="user-nav__button" href="profile.html">
+            <a class="user-nav__button" href="profile.html" title="Профиль" aria-label="Перейти в свой профиль">
               <svg class="user-nav__svg" width="20" height="20">
                 <use xlink:href="img/sprite.svg#icon-account"></use>
               </svg>
             </a>
           </li>
           <li class="user-nav__item user-nav__item--hamburger">
-            <button class="user-nav__button user-nav__button--menu hamburger" type="button"
-              onclick="document.getElementById('site-nav').style.cssText = 'visibility: visible; left: 0;'; document.querySelector('.site-nav__overlay').style.cssText = 'visibility: visible; opacity: 1; z-index: 399;'">
+            <button class="user-nav__button user-nav__button--menu hamburger menu-toggler" type="button" title="Меню"
+              aria-label="Показать меню"
+              onclick="document.getElementById('site-nav').style.cssText = 'visibility: visible; left: 0; opacity: 1;'; document.querySelector('.site-nav__overlay').style.cssText = 'visibility: visible; opacity: 1; z-index: 399;'">
               <span class="hamburger--bar"></span>
               <span class="hamburger--bar"></span>
               <span class="hamburger--bar"></span>
@@ -132,8 +133,9 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
     <!-- // Background Image Wrapper -->
 
     <!-- Button Holder -->
-    <div class="button-holder" style="display: none;">
-      <a class="button button--primary" href="catalog.html">Каталог</a>
+    <div class="button-holder">
+      <a class="button button--secondary button--glitch" href="catalog.html"
+        aria-label="Перейти на страницу каталога">Каталог</a>
     </div>
     <!-- // Button Holder -->
 
@@ -150,7 +152,7 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
             <include src="build/img/logo/logo--legioner.svg"></include>
           </div>
 
-          <button class="site-nav__close-button" type="button"
+          <button class="site-nav__close-button" type="button" aria-label="Закрыть меню"
             onclick="document.getElementById('site-nav').style.cssText = 'visibility: hidden;'; document.querySelector('.site-nav__overlay').style.cssText = 'visibility: hidden;'"></button>
         </header>
         <!-- // Navigation Header -->
@@ -200,28 +202,32 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
           <div class="site-nav__socials socials">
             <ul class="socials__list">
               <li class="socials__item">
-                <a class="socials__link" href="https://instagram.com/legionco" target="_blank">
+                <a class="socials__link" href="https://instagram.com/legionco" target="_blank" title="Instagram"
+                  aria-label="Наш профиль в инстаграм">
                   <svg class="socials__svg" width="20" height="20">
                     <use xlink:href="img/sprite.svg#icon-instagram"></use>
                   </svg>
                 </a>
               </li>
               <li class="socials__item">
-                <a class="socials__link" href="https://vk.com/legionco" target="_blank">
+                <a class="socials__link" href="https://vk.com/legionco" target="_blank" title="VK"
+                  aria-label="Наша страница во вконтакте">
                   <svg class="socials__svg" width="20" height="20">
                     <use xlink:href="img/sprite.svg#icon-vk"></use>
                   </svg>
                 </a>
               </li>
               <li class="socials__item">
-                <a class="socials__link" href="https://t.me/legionco" target="_blank">
+                <a class="socials__link" href="https://t.me/legionco" target="_blank" title="Telegram"
+                  aria-label="Наш канал в телеграм">
                   <svg class="socials__svg" width="20" height="20">
                     <use xlink:href="img/sprite.svg#icon-telegram"></use>
                   </svg>
                 </a>
               </li>
               <li class="socials__item">
-                <a class="socials__link" href="https://youtube.com/wycc220" target="_blank">
+                <a class="socials__link" href="https://youtube.com/wycc220" target="_blank" title="YouTube"
+                  aria-label="Наш канал на ютьюб">
                   <svg class="socials__svg" width="20" height="20">
                     <use xlink:href="img/sprite.svg#icon-youtube"></use>
                   </svg>
@@ -233,14 +239,16 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
             <span class="site-nav__developer-text">Developer</span>
             <ul class="site-nav__developer-list">
               <li class="site-nav__developer-item">
-                <a class="site-nav__developer-link" href="https://github.com/embyth">
+                <a class="site-nav__developer-link" href="https://github.com/embyth" title="GitHub"
+                  aria-label="ГитХаб разработчика">
                   <svg class="site-nav__developer-svg" width="20" height="20">
                     <use xlink:href="img/sprite.svg#icon-github"></use>
                   </svg>
                 </a>
               </li>
               <li class="site-nav__developer-item">
-                <a class="site-nav__developer-link" href="https://t.me/embyth">
+                <a class="site-nav__developer-link" href="https://t.me/embyth" title="Telegram"
+                  aria-label="Телеграм разработчика">
                   <svg class="site-nav__developer-svg" width="20" height="20">
                     <use xlink:href="img/sprite.svg#icon-telegram"></use>
                   </svg>
@@ -263,7 +271,8 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
     <div class="search__inner">
       <form action="https://echo.htmlacademy.ru" method="get" class="search__form">
         <div class="search__input-group">
-          <input class="search__input" id="search-field" type="text" placeholder="Поиск">
+          <input class="search__input" id="search-field" name="search-query" type="text" placeholder="Поиск"
+            autocomplete="off" value aria-label="Поиск по магазину">
           <label class="search__label" for="search-field">Поиск</label>
         </div>
       </form>
@@ -285,7 +294,7 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
 
       <!-- Cart Header -->
       <header class="cart__header">
-        <button class="cart__close" type="button"
+        <button class="cart__close" type="button" aria-label="Скрыть корзину"
           onclick="document.getElementById('cart-pop').style.cssText = 'visibility: hidden;'; document.querySelector('.cart__overlay').style.cssText = 'visibility: hidden;'"></button>
         <p class="cart__item-quantity">
           <span class="cart__item-quantity--empty">пусто</span>
@@ -322,14 +331,15 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
               Количество:&nbsp;<span class="cart__item-quantity--value">1</span><br>
               Цена:&nbsp;<span class="cart__item-price--value">1000.00</span>&nbsp;₽
             </p>
-            <button class="cart__item-remove" type="button">Убрать</button>
+            <button class="cart__item-remove" type="button" aria-label="Убрать из корзины">Убрать</button>
           </div>
         </li>
 
         <li class="cart__item">
           <div class="cart__image-wrapper">
             <a class="cart__image-link" href="product.html">
-              <img class="cart__image" src="img/products/beast-t-front.jpg" alt="Худи черного цвета «Starina»">
+              <img class="cart__image" src="img/products/beast-t-front.jpg"
+                alt="Футболка черного цвета «Dont Make Me Beast»">
             </a>
           </div>
           <div class="cart__item-info">
@@ -341,7 +351,7 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
               Количество:&nbsp;<span class="cart__item-quantity--value">1</span><br>
               Цена:&nbsp;<span class="cart__item-price--value">1500.00</span>&nbsp;₽
             </p>
-            <button class="cart__item-remove" type="button">Убрать</button>
+            <button class="cart__item-remove" type="button" aria-label="Убрать из корзины">Убрать</button>
           </div>
         </li>
       </ul>
@@ -354,8 +364,9 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
           &nbsp;руб
         </p>
         <div class="cart__footer-buttons">
-          <a class="cart__footer-link" href="cart.html">В&nbsp;корзину</a>
-          <a class="cart__footer-link" href="404.html">Оформить&nbsp;<br>заказ</a>
+          <a class="cart__footer-link" href="cart.html" aria-label="Перейти на страницу корзины">В&nbsp;корзину</a>
+          <a class="cart__footer-link" href="404.html"
+            aria-label="Перейти на страницу оформления заказа">Оформить&nbsp;<br>заказ</a>
         </div>
       </footer>
       <!-- // Cart Footer -->
