@@ -1,0 +1,40 @@
+.showcase {
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  background-image: url("../img/legion-bg-mobile.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  @media ($tablet) {
+    background-image: url("../img/legion-bg-tablet.jpg");
+  }
+
+  @media ($desktop) {
+    background-image: url("../img/legion-bg-desktop.jpg");
+  }
+
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   background-image: url("../img/overlay_pattern.png");
+  // }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
