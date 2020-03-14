@@ -77,6 +77,9 @@ $font-line-height: (
   search-input-m: $line-height-18,
   search-input-t: $line-height-22,
   search-input-d: $line-height-26,
+  button-m: $line-height-14,
+  button-t: $line-height-16,
+  button-d: $line-height-20,
 );
 
 // Font Sizes
@@ -118,6 +121,9 @@ $font-sizes: (
   search-input-m: $font-size-14,
   search-input-t: $font-size-18,
   search-input-d: $font-size-22,
+  button-m: $font-size-12,
+  button-t: $font-size-14,
+  button-d: $font-size-18,
 );
 
 // Color Variables
@@ -128,8 +134,10 @@ $dark: #111111;
 $red: #ff0000;
 $transparent: transparent;
 
-$gradient-start: rgba(250, 111, 152, 1);
-$gradient-stop: rgba(255, 189, 55, 1);
+// $gradient-start: rgba(250, 111, 152, 1);
+// $gradient-stop: rgba(255, 189, 55, 1);
+$gradient-start: $white;
+$gradient-stop: $white;
 
 // Background Colors
 $bg-color-body: $white;
@@ -148,13 +156,16 @@ $bg-color-overlay: rgba($black, 0.3);
 $bg-color-search: $white;
 $bg-color-search--index: $dark;
 $bg-color-input: $transparent;
+$bg-color-button--light: $white;
+$bg-color-button--dark: $dark;
 
 // Border Colors
 $border-color-separator: $dark;
 $border-color-separator--index: $white;
 $border-color-input: $dark;
 $border-color-input--index: $white;
-
+$border-color-button--light: $white;
+$border-color-button--dark: $dark;
 
 // Font Colors
 $font-color-base: $dark;
@@ -166,3 +177,5 @@ $font-color-input: $dark;
 $font-color-input--index: $white;
 $font-color-label: $dark;
 $font-color-label--index: $white;
+$font-color-button--light: $white;
+$font-color-button--dark: $dark;
