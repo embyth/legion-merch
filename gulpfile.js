@@ -163,7 +163,8 @@ gulp.task('logo', function () {
           { removeViewBox: false },
           { removeDimensions: false },
           { removeTitle: true },
-          { cleanupNumericValues: { floatPrecision: 1 } }
+          { cleanupNumericValues: { floatPrecision: 1 } },
+          { cleanupIDs: { minify: false, } }
         ]
       })
     ]))
@@ -331,7 +332,7 @@ gulp.task('watch', function () {
   gulp.watch(paths.src.fonts + '**/*.{ttf,woff,woff2}').on('all', gulp.series('fonts', 'copyfonts', browserSync.reload));
   gulp.watch(paths.src.scripts + '**/*.js').on('all', gulp.series('scripts', browserSync.reload));
   gulp.watch(paths.src.styles + '**/*.{sass,scss}').on('all', gulp.series('styles'));
-  gulp.watch(paths.src.images.all + '**/*.{jpg,png,svg}').on('all', gulp.series('images', browserSync.reload));
+  gulp.watch(paths.src.images.all + '**/*.{jpg,png,svg}').on('all', gulp.series('images', 'logo', browserSync.reload));
   gulp.watch(paths.src.images.icons + '**/*.svg').on('all', gulp.series('svgsprite', browserSync.reload));
   gulp.watch(paths.src.images.content + '**/*.{png,jpg}').on('all', gulp.series('webp', browserSync.reload));
 });
