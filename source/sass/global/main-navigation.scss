@@ -1,0 +1,144 @@
+.site-nav {
+  @include scrollbar;
+
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow-y: auto;
+  z-index: 400;
+  background-color: $bg-color-menu;
+  opacity: 0;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+
+  @media ($tablet) {
+    max-width: 320px;
+    left: -100%;
+    transition: left 0.5s ease, visibility 0.5s ease;
+  }
+}
+
+.site-nav__inner {
+  padding: 15px;
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+
+  @media ($tablet) {
+    padding: 20px;
+  }
+}
+
+.site-nav__header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 65px;
+}
+
+.site-nav__close-button {
+  @include close-button;
+}
+
+.site-nav__menu {
+  margin-top: 30px;
+}
+
+.site-nav__list {
+  @include list-reset;
+
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.site-nav__item {
+  padding: 10px 0;
+
+  &--spacer {
+    padding: 25px 0;
+  }
+}
+
+.site-nav__item-link {
+  @include link;
+
+  color: $font-color-link;
+  font-size: font-size(menu-link);
+  line-height: font-lh(menu-link);
+  font-weight: font-weight(light);
+  appearance: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  background: none;
+}
+
+.site-nav__footer {
+  padding: 40px 0;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin-top: auto;
+
+  .socials {
+    padding: 0 45px;
+  }
+}
+
+.site-nav__developer {
+  width: 200px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.site-nav__developer-text {
+  margin: 0;
+  padding: 0;
+  color: $font-color-base;
+  font-weight: font-weight(light);
+  font-size: font-size(menu-dev);
+  line-height: font-lh(menu-dev);
+}
+
+.site-nav__developer-list {
+  @include list-reset;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100px;
+}
+
+.site-nav__developer-link {
+  &:hover,
+  &:focus {
+    outline: none;
+
+    .site-nav__developer-svg {
+      @include icon-glitch;
+    }
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+}
+
+.site-nav__developer-svg {
+  fill: $bg-color-svg;
+
+  @media ($tablet) {
+    width: 25px;
+    height: 25px;
+  }
+}
