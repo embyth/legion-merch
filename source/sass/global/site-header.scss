@@ -1,0 +1,25 @@
+.site-header {
+  position: fixed;
+  z-index: 200;
+  width: 100%;
+  background-color: $bg-color-header;
+}
+
+.site-header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-flow: row nowrap;
+}
+
+.site-header__hamburger {
+  padding: 10px;
+
+  @media ($tablet) {
+    padding: 15px;
+  }
+}
+
+.site-header__toggler {
+  padding: 5px;
+}
