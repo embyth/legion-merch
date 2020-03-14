@@ -14,6 +14,8 @@ html {
 
 body {
   margin: 0;
+
+  @include scrollbar;
 }
 
 img {
