@@ -1,0 +1,80 @@
+.hamburger {
+  display: inline-block;
+  width: 30px;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+  animation: hamburger-spin 0.4s ease;
+  appearance: none;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+  position: relative;
+  background: none;
+  border: 0;
+  cursor: pointer;
+
+  @media ($tablet) {
+    width: 35px;
+  }
+
+  &--bar {
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 20px;
+    height: 1px;
+    background-color: $bg-color-hamburger;
+    animation: spin-alt 0.4s ease;
+    transition: 0.3s transform linear, 0.3s top linear 0.3s, 0.3s opacity linear;
+
+    &:nth-child(1) {
+      top: 5px;
+    }
+
+    &:nth-child(2) {
+      top: 12px;
+      transition: width 0.2s;
+    }
+
+    &:nth-child(3) {
+      top: 19px;
+    }
+
+    @media ($tablet) {
+      width: 25px;
+    }
+  }
+
+  &:hover {
+    .hamburger--bar {
+      &:nth-child(2) {
+        width: calc(100% - 15px);
+        transition: width 0.3s;
+      }
+    }
+  }
+}
+
+.menu-toggler--opened {
+  animation: hamburger-spin-out 0.4s ease;
+  animation-delay: 0.2s;
+
+  .hamburger--bar {
+    transition: 0.2s transform linear 0.2s, 0.2s top linear, 0.2s opacity linear;
+
+    &:nth-child(1) {
+      top: 12px;
+      transform: rotate(45deg);
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+    }
+
+    &:nth-child(3) {
+      top: 12px;
+      transform: rotate(-45deg);
+    }
+  }
+}
