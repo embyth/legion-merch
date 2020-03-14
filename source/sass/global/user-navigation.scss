@@ -1,0 +1,68 @@
+.user-nav {
+  padding: 10px;
+
+  @media ($tablet) {
+    padding: 15px;
+  }
+}
+
+.user-nav__list {
+  @include list-reset;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-nav__item {
+  width: 100%;
+  margin-bottom: 15px;
+  display: inline-block;
+  height: auto;
+  line-height: 0;
+  position: relative;
+
+  @media ($tablet) {
+    margin-bottom: 20px;
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.user-nav__button {
+  border: none;
+  background-color: transparent;
+  display: inline-block;
+  cursor: pointer;
+  padding: 5px;
+  line-height: 0;
+
+  &:hover,
+  &:focus {
+    outline: none;
+
+    .user-nav__svg {
+      @include icon-glitch;
+    }
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+}
+
+.user-nav__svg {
+  fill: $bg-color-svg;
+
+  @media ($tablet) {
+    width: 25px;
+    height: auto;
+
+    &--account {
+      height: 31px;
+    }
+  }
+}
