@@ -2,8 +2,103 @@
   margin: 0;
   padding: 0;
   min-width: $mobile-width;
-  font-size: font-size(base);
-  line-height: font-lh(base);
+  font-size: font-size(base-m);
+  line-height: font-lh(base-m);
   color: $font-color-base;
   background-color: $bg-color-body;
+
+  &--front {
+    background-color: $bg-color-body--index;
+    color: $font-color-base--index;
+
+    .search {
+      background-color: $bg-color-search--index;
+    }
+
+    .search__label {
+      color: $font-color-label--index;
+    }
+
+    .search__input {
+      background-color: $transparent;
+      color: $font-color-input--index;
+      border-color: $border-color-input--index;
+    }
+
+    .search__close,
+    .cart__close,
+    .site-nav__close-button {
+      &::before,
+      &::after {
+        background-color: $bg-color-svg--index;
+      }
+    }
+
+    .site-header {
+      background-color: $bg-color-header--index;
+    }
+
+    .site-header__logo {
+      display: none;
+    }
+
+    .hamburger {
+      &--bar {
+        background-color: $bg-color-hamburger--index;
+      }
+    }
+
+    .user-nav__item--hamburger {
+      display: none;
+    }
+
+    .user-nav__item {
+      &:nth-last-child(-n+2) {
+        margin-bottom: 0;
+      }
+    }
+
+    .user-nav__button {
+      &:active {
+        &::before {
+          background-color: $bg-color-svg--index;
+        }
+      }
+    }
+
+    .site-nav__developer-svg,
+    .socials__svg,
+    .user-nav__svg {
+      fill: $bg-color-svg--index;
+    }
+
+    .cart {
+      background-color: $bg-color-cart--index;
+    }
+
+    .cart__footer-total,
+    .cart__header,
+    .cart__item {
+      border-color: $border-color-separator--index;
+    }
+
+    .cart__footer-link,
+    .cart__info-empty--link,
+    .cart__item-link,
+    .site-nav__item-link {
+      color: $font-color-link--index;
+    }
+
+    .cart__footer-total,
+    .cart__info-empty,
+    .cart__item-description,
+    .cart__item-quantity,
+    .site-nav__developer-text {
+      color: $font-color-base--index;
+    }
+
+    .site-nav {
+      background-color: $bg-color-menu--index;
+    }
+  }
 }
