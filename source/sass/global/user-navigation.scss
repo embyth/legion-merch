@@ -10,25 +10,54 @@
   @include list-reset;
 
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
 }
 
 .user-nav__item {
   width: 100%;
-  margin-bottom: 15px;
+  margin-right: 10px;
   display: inline-block;
   height: auto;
   line-height: 0;
   position: relative;
 
+  &--profile {
+    display: none;
+
+    @media ($tablet) {
+      display: block;
+    }
+  }
+
+  &--hamburger {
+    @media ($desktop) {
+      display: none;
+    }
+  }
+
   @media ($tablet) {
-    margin-bottom: 20px;
+    margin-right: 20px;
   }
 
   &:last-of-type {
-    margin-bottom: 0;
+    margin-right: 0;
+  }
+
+  @media ($desktop) {
+    &:nth-last-child(-n+2) {
+      margin-right: 0;
+    }
+  }
+}
+
+.user-nav__svg {
+  fill: $bg-color-svg;
+
+  @media ($tablet) {
+    width: 25px;
+    height: auto;
   }
 }
 
@@ -51,18 +80,5 @@
 
   &:active {
     opacity: 0.3;
-  }
-}
-
-.user-nav__svg {
-  fill: $bg-color-svg;
-
-  @media ($tablet) {
-    width: 25px;
-    height: auto;
-
-    &--account {
-      height: 31px;
-    }
   }
 }

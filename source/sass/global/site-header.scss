@@ -8,8 +8,33 @@
 .site-header__inner {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   flex-flow: row nowrap;
+}
+
+.site-header__logo {
+  margin-left: 15px;
+
+  @media ($tablet) {
+    margin-left: 20px;
+  }
+}
+
+.site-header__logo-link {
+  display: block;
+
+  &:hover,
+  &:focus {
+    outline: none;
+
+    svg {
+      @include icon-glitch;
+    }
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
 }
 
 .site-header__hamburger {
