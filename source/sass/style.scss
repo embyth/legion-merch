@@ -15,16 +15,18 @@
 /* === Function Elements === */
 @import "global/buttons";
 @import "global/animations";
+@import "global/overlay";
+@import "global/hamburger";
 
 /* === Global Elements === */
-@import "global/hamburger";
-@import "global/cart";
 @import "global/site-header";
+@import "global/site-footer";
 @import "global/main-content";
 @import "global/main-navigation";
-@import "global/overlay";
-@import "global/search";
 @import "global/user-navigation";
+@import "global/cart";
+@import "global/search";
+
 
 /* === Content == */
 @import "blocks/page";
