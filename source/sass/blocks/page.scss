@@ -7,7 +7,13 @@
   color: $font-color-base;
   background-color: $bg-color-body;
 
+  &--no-overflow {
+    overflow: hidden;
+  }
+
   &--front {
+    @include scrollbar-index;
+
     background-color: $bg-color-body--index;
     color: $font-color-base--index;
 
@@ -20,9 +26,14 @@
     }
 
     .search__input {
-      background-color: $transparent;
       color: $font-color-input--index;
       border-color: $border-color-input--index;
+
+      &:hover,
+      &:focus {
+        border-image: linear-gradient(to right, $gradient-start--index, $gradient-stop--index);
+        border-image-slice: 1;
+      }
     }
 
     .search__close,
@@ -30,16 +41,41 @@
     .site-nav__close-button {
       &::before,
       &::after {
-        background-color: $bg-color-svg--index;
+        background: linear-gradient(to right, $gradient-start--index, $gradient-stop--index);
       }
+    }
+
+    .site-nav {
+      @include scrollbar-index;
+
+      top: 0;
+      left: -100%;
+      z-index: 400;
+      opacity: 0;
+      background-color: $bg-color-menu--index;
+
+      &--open {
+        left: 0;
+        opacity: 1;
+      }
+    }
+
+    .site-nav__overlay {
+      display: block;
+      top: 0;
+      height: 100%;
+    }
+
+    .site-nav__menu {
+      margin-top: 30px;
     }
 
     .site-header {
       background-color: $bg-color-header--index;
     }
 
-    .site-header__logo {
-      display: none;
+    .site-header__inner {
+      align-items: flex-start;
     }
 
     .hamburger {
@@ -48,21 +84,20 @@
       }
     }
 
-    .user-nav__item--hamburger {
-      display: none;
+    .user-nav__list {
+      flex-flow: column nowrap;
     }
 
     .user-nav__item {
-      &:nth-last-child(-n+2) {
+      margin-bottom: 15px;
+      margin-right: 0;
+
+      &:last-child {
         margin-bottom: 0;
       }
-    }
 
-    .user-nav__button {
-      &:active {
-        &::before {
-          background-color: $bg-color-svg--index;
-        }
+      @media ($tablet) {
+        margin-bottom: 20px;
       }
     }
 
@@ -73,7 +108,15 @@
     }
 
     .cart {
+      @include scrollbar-index;
+
       background-color: $bg-color-cart--index;
+      top: 0;
+    }
+
+    .cart__overlay {
+      top: 0;
+      height: 100%;
     }
 
     .cart__footer-total,
@@ -87,6 +130,10 @@
     .cart__item-link,
     .site-nav__item-link {
       color: $font-color-link--index;
+
+      &::after {
+        background: linear-gradient(to right, $gradient-start--index, $gradient-stop--index);
+      }
     }
 
     .cart__footer-total,
@@ -96,9 +143,25 @@
     .site-nav__developer-text {
       color: $font-color-base--index;
     }
+  }
 
-    .site-nav {
-      background-color: $bg-color-menu--index;
+  &--inner {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .main-content {
+      margin-top: 65px;
+      padding: 0 15px;
+
+      @media ($tablet) {
+        padding: 0 20px;
+      }
+
+      @media ($desktop) {
+        padding-left: 340px;
+        padding-right: 20px;
+      }
     }
   }
 }
