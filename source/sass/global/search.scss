@@ -9,6 +9,11 @@
   visibility: hidden;
   opacity: 0;
   transition: visibility 0.3s ease, opacity 0.3s ease;
+
+  &--open {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 .search__inner {
@@ -69,7 +74,7 @@
   padding: 7px 30px 7px 15px;
   background-color: $bg-color-input;
   color: $font-color-input;
-  font-family: font-family(montserrat);
+  font-family: font-family(source);
   font-size: font-size(search-input-m);
   line-height: font-lh(search-input-m);
   font-weight: font-weight(regular);
