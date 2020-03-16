@@ -62,18 +62,10 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
   <header class="site-header" id="site-header">
     <div class="site-header__inner">
 
-      <!-- Site Logo -->
-      <div class="site-header__logo">
-        <a class="site-header__logo-link" href="index.html" aria-label="На главную страницу">
-          <include src="build/img/logo/logo.svg"></include>
-        </a>
-      </div>
-      <!-- // Site Logo -->
-
       <!-- Front Page Hamburger -->
       <div class="site-header__hamburger">
-        <button class="site-header__toggler menu-toggler hamburger" type="button" title="Меню" aria-label="Открыть меню"
-          onclick="document.getElementById('site-nav').style.cssText = 'visibility: visible; left: 0; opacity: 1;'; document.querySelector('.site-nav__overlay').style.cssText = 'visibility: visible; opacity: 1; z-index: 399;'">
+        <button class="site-header__toggler menu-toggler hamburger" type="button" title="Меню"
+          aria-label="Открыть меню">
           <span class="hamburger--bar"></span>
           <span class="hamburger--bar"></span>
           <span class="hamburger--bar"></span>
@@ -85,16 +77,16 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
       <nav class="user-nav">
         <ul class="user-nav__list">
           <li class="user-nav__item">
-            <button class="user-nav__button" type="button" title="Корзина" aria-label="Показать корзину"
-              onclick="document.getElementById('cart-pop').style.cssText = 'visibility: visible; right: 0; opacity: 1;'; document.querySelector('.cart__overlay').style.cssText = 'visibility: visible; opacity: 1; z-index: 299;'">
+            <button class="user-nav__button user-nav__button--cart" type="button" title="Корзина"
+              aria-label="Показать корзину">
               <svg class="user-nav__svg" width="20" height="20">
                 <use xlink:href="img/sprite.svg#icon-bag"></use>
               </svg>
             </button>
           </li>
           <li class="user-nav__item">
-            <button class="user-nav__button" type="button" title="Поиск" aria-label="Открыть окно поиска"
-              onclick="document.getElementById('search-pop').style.cssText = 'visibility: visible; opacity: 1;'">
+            <button class="user-nav__button user-nav__button--search" type="button" title="Поиск"
+              aria-label="Открыть окно поиска">
               <svg class="user-nav__svg" width="20" height="20">
                 <use xlink:href="img/sprite.svg#icon-search"></use>
               </svg>
@@ -106,15 +98,6 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
                 <use xlink:href="img/sprite.svg#icon-account"></use>
               </svg>
             </a>
-          </li>
-          <li class="user-nav__item user-nav__item--hamburger">
-            <button class="user-nav__button user-nav__button--menu hamburger menu-toggler" type="button" title="Меню"
-              aria-label="Показать меню"
-              onclick="document.getElementById('site-nav').style.cssText = 'visibility: visible; left: 0; opacity: 1;'; document.querySelector('.site-nav__overlay').style.cssText = 'visibility: visible; opacity: 1; z-index: 399;'">
-              <span class="hamburger--bar"></span>
-              <span class="hamburger--bar"></span>
-              <span class="hamburger--bar"></span>
-            </button>
           </li>
         </ul>
       </nav>
@@ -140,8 +123,7 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
     <!-- // Button Holder -->
 
     <!-- Main Navigation Bar -->
-    <div class="overlay site-nav__overlay"
-      onclick="document.getElementById('site-nav').style.cssText = 'visibility: hidden;'; document.querySelector('.site-nav__overlay').style.cssText = 'visibility: hidden;'">
+    <div class="overlay site-nav__overlay">
     </div>
     <aside class="site-nav" id="site-nav">
       <div class="site-nav__inner">
@@ -152,8 +134,7 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
             <include src="build/img/logo/logo--legioner.svg"></include>
           </div>
 
-          <button class="site-nav__close-button" type="button" aria-label="Закрыть меню"
-            onclick="document.getElementById('site-nav').style.cssText = 'visibility: hidden;'; document.querySelector('.site-nav__overlay').style.cssText = 'visibility: hidden;'"></button>
+          <button class="site-nav__close-button" type="button" aria-label="Закрыть меню"></button>
         </header>
         <!-- // Navigation Header -->
 
@@ -276,8 +257,7 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
           <label class="search__label" for="search-field">Поиск</label>
         </div>
       </form>
-      <button class="search__close" type="button"
-        onclick="document.getElementById('search-pop').style.cssText = 'visibility: hidden;'">
+      <button class="search__close" type="button">
         Закрыть окно поиска
       </button>
     </div>
@@ -285,17 +265,14 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
   <!-- // Search Pop-Up -->
 
   <!-- Cart Block -->
-  <div class="overlay cart__overlay"
-    onclick="document.getElementById('cart-pop').style.cssText = 'visibility: hidden;'; document.querySelector('.cart__overlay').style.cssText = 'visibility: hidden;'">
-  </div>
+  <div class="overlay cart__overlay"></div>
   <div class="cart" id="cart-pop">
     <!-- class 'cart--empty' if cart is empty -->
     <div class="cart__inner">
 
       <!-- Cart Header -->
       <header class="cart__header">
-        <button class="cart__close" type="button" aria-label="Скрыть корзину"
-          onclick="document.getElementById('cart-pop').style.cssText = 'visibility: hidden;'; document.querySelector('.cart__overlay').style.cssText = 'visibility: hidden;'"></button>
+        <button class="cart__close" type="button" aria-label="Скрыть корзину"></button>
         <p class="cart__item-quantity">
           <span class="cart__item-quantity--empty">пусто</span>
           <small class="cart__item-quantity--fill"><span class="cart__item-quantity--value">2</span>
@@ -329,7 +306,7 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
             <p class="cart__item-description">
               Размер:&nbsp;<span class="cart__item-size--value">Large</span><br>
               Количество:&nbsp;<span class="cart__item-quantity--value">1</span><br>
-              Цена:&nbsp;<span class="cart__item-price--value">1000.00</span>&nbsp;₽
+              Цена:&nbsp;<span class="cart__item-price--value">1000.00</span>&nbsp;&#8381;
             </p>
             <button class="cart__item-remove" type="button" aria-label="Убрать из корзины">Убрать</button>
           </div>
@@ -349,7 +326,7 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
             <p class="cart__item-description">
               Размер:&nbsp;<span class="cart__item-size--value">X-Large</span><br>
               Количество:&nbsp;<span class="cart__item-quantity--value">1</span><br>
-              Цена:&nbsp;<span class="cart__item-price--value">1500.00</span>&nbsp;₽
+              Цена:&nbsp;<span class="cart__item-price--value">1500.00</span>&nbsp;&#8381;
             </p>
             <button class="cart__item-remove" type="button" aria-label="Убрать из корзины">Убрать</button>
           </div>
@@ -388,6 +365,94 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
     }
   </script>
   <!-- Do Not Remove Script Above -->
+
+  <!-- Pop-Up Togglers (Do Not Remove) -->
+  <script>
+
+    // Search
+    var searchToggler = document.querySelector('.user-nav__button--search');
+    var searchBody = document.getElementById('search-pop');
+    var searchClose = document.querySelector('.search__close');
+    var searchField = document.getElementById('search-field');
+
+    searchToggler.addEventListener('click', function (event) {
+      event.preventDefault();
+      searchBody.classList.toggle('search--open');
+
+      window.setTimeout(function () {
+        searchField.focus();
+      }, 100);
+    });
+
+    searchClose.addEventListener('click', function (event) {
+      event.preventDefault();
+      searchBody.classList.toggle('search--open');
+    });
+
+    // Cart
+    var cartToggler = document.querySelector('.user-nav__button--cart');
+    var cartBody = document.getElementById('cart-pop');
+    var cartClose = document.querySelector('.cart__close');
+    var cartOverlay = document.querySelector('.cart__overlay');
+
+    cartToggler.addEventListener('click', function (event) {
+      event.preventDefault();
+      cartBody.classList.toggle('cart--open');
+      cartOverlay.classList.toggle('cart__overlay--visible');
+      document.body.classList.toggle('page--no-overflow');
+    });
+
+    cartClose.addEventListener('click', function (event) {
+      event.preventDefault();
+      cartBody.classList.toggle('cart--open');
+      cartOverlay.classList.toggle('cart__overlay--visible');
+      document.body.classList.toggle('page--no-overflow');
+    });
+
+    cartOverlay.addEventListener('click', function (event) {
+      event.preventDefault();
+      cartBody.classList.toggle('cart--open');
+      cartOverlay.classList.toggle('cart__overlay--visible');
+      document.body.classList.toggle('page--no-overflow');
+    });
+
+    if (cartBody.classList.contains('cart--open')) {
+      document.body.addEventListener('touchmove', function (event) {
+        preventDefault();
+      });
+    }
+
+    // Menu
+    var menuButton = document.querySelector('.menu-toggler');
+    var menuBody = document.querySelector('.site-nav');
+    var menuClose = document.querySelector('.site-nav__close-button');
+    var menuOverlay = document.querySelector('.site-nav__overlay');
+
+    menuButton.addEventListener('click', function (event) {
+      event.preventDefault();
+      menuBody.classList.toggle('site-nav--open');
+      menuOverlay.classList.toggle('site-nav__overlay--visible');
+      menuButton.classList.toggle('menu-toggler--opened');
+      document.body.classList.toggle('page--no-overflow');
+    });
+
+    menuOverlay.addEventListener('click', function (event) {
+      event.preventDefault();
+      menuButton.classList.toggle('menu-toggler--opened');
+      menuBody.classList.toggle('site-nav--open');
+      menuOverlay.classList.toggle('site-nav__overlay--visible');
+      document.body.classList.toggle('page--no-overflow');
+    });
+
+    menuClose.addEventListener('click', function (event) {
+      event.preventDefault();
+      menuButton.classList.toggle('menu-toggler--opened');
+      menuBody.classList.toggle('site-nav--open');
+      menuOverlay.classList.toggle('site-nav__overlay--visible');
+      document.body.classList.toggle('page--no-overflow');
+    });
+  </script>
+  <!-- // Pop-Up Togglers (Do Not Remove Script Above) -->
 
   <script src="js/svg4everybody.min.js"></script>
   <script src="js/main.min.js"></script>
