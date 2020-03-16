@@ -56,6 +56,7 @@
   }
 }
 
+/* stylelint-disable */
 .menu-toggler--opened {
   animation: hamburger-spin-out 0.4s ease;
   animation-delay: 0.2s;
@@ -78,3 +79,4 @@
     }
   }
 }
+/* stylelint-enable */

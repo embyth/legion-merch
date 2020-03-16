@@ -69,6 +69,15 @@
   width: 80px;
 }
 
+.site-footer__developer-svg {
+  fill: $bg-color-svg;
+
+  @media ($tablet) {
+    width: 25px;
+    height: 25px;
+  }
+}
+
 .site-footer__developer-link {
   &:hover,
   &:focus {
@@ -81,14 +90,5 @@
 
   &:active {
     opacity: 0.3;
-  }
-}
-
-.site-footer__developer-svg {
-  fill: $bg-color-svg;
-
-  @media ($tablet) {
-    width: 25px;
-    height: 25px;
   }
 }

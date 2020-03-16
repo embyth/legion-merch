@@ -16,6 +16,15 @@
   font-size: 0;
 }
 
+.socials__svg {
+  fill: $bg-color-svg;
+
+  @media ($tablet) {
+    width: 25px;
+    height: 25px;
+  }
+}
+
 .socials__link {
   &:hover,
   &:focus {
@@ -28,14 +37,5 @@
 
   &:active {
     opacity: 0.3;
-  }
-}
-
-.socials__svg {
-  fill: $bg-color-svg;
-
-  @media ($tablet) {
-    width: 25px;
-    height: 25px;
   }
 }
