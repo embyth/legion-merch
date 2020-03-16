@@ -215,7 +215,7 @@
   }
 }
 
-// Link Effects
+// Link Underline Animation
 @mixin link() {
   position: relative;
   transition: transform 0.3s ease;
@@ -234,6 +234,8 @@
 
   &:hover,
   &:focus {
+    font-weight: font-weight(regular);
+
     &::after {
       transform: scaleX(1);
     }
@@ -272,8 +274,29 @@
   animation: icon-glitch 0.3s infinite;
 }
 
-// Scroll Bar
+// Scroll Bar For Index Page
 @mixin scrollbar() {
+  $scrollbarBG: $white;
+  $thumbBG: $dark;
+  scrollbar-width: thin;
+  scrollbar-color: $thumbBG $scrollbarBG;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $scrollbarBG;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $thumbBG;
+    border: 1px solid $scrollbarBG;
+  }
+}
+
+// Scroll Bar
+@mixin scrollbar-index() {
   $scrollbarBG: $dark;
   $thumbBG: $white;
   scrollbar-width: thin;
