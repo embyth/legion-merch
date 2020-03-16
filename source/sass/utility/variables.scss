@@ -26,7 +26,7 @@ $paddings: (
 
 // Font Variables
 $font-stack: (
-  montserrat: ("Montserrat", "Tahoma", "Arial", sans-serif),
+  source: ("Source Code Pro", monospace),
 );
 
 $font-weights: (
@@ -64,11 +64,16 @@ $font-line-height: (
   cart-quantity: $line-height-16,
   cart-empty-text: $line-height-26,
   cart-empty-link: $line-height-26,
-  cart-remove-text: $line-height-20,
-  cart-item-name: $line-height-18,
-  cart-item-desc: $line-height-26,
-  cart-subtotal: $line-height-18,
-  cart-link: $line-height-18,
+  cart-remove-text-m: $line-height-20,
+  cart-item-name-m: $line-height-18,
+  cart-item-desc-m: $line-height-26,
+  cart-subtotal-m: $line-height-18,
+  cart-link-m: $line-height-18,
+  cart-remove-text: $line-height-22,
+  cart-item-name: $line-height-20,
+  cart-item-desc: $line-height-28,
+  cart-subtotal: $line-height-20,
+  cart-link: $line-height-20,
   menu-dev: $line-height-16,
   menu-link: $line-height-18,
   search-label-m: $line-height-18,
@@ -80,6 +85,7 @@ $font-line-height: (
   button-m: $line-height-14,
   button-t: $line-height-16,
   button-d: $line-height-20,
+  copyright: $line-height-16,
 );
 
 // Font Sizes
@@ -106,15 +112,20 @@ $font-sizes: (
   base-t: $font-size-16,
   base-d: $font-size-16,
   cart-quantity: $font-size-12,
-  cart-empty-text: $font-size-16,
-  cart-empty-link: $font-size-14,
-  cart-remove-text: $font-size-10,
-  cart-item-name: $font-size-14,
-  cart-item-desc: $font-size-12,
-  cart-subtotal: $font-size-14,
-  cart-link: $font-size-14,
+  cart-empty-text: $font-size-18,
+  cart-empty-link: $font-size-16,
+  cart-remove-text-m: $font-size-10,
+  cart-item-name-m: $font-size-14,
+  cart-item-desc-m: $font-size-12,
+  cart-subtotal-m: $font-size-14,
+  cart-link-m: $font-size-14,
+  cart-remove-text: $font-size-12,
+  cart-item-name: $font-size-16,
+  cart-item-desc: $font-size-14,
+  cart-subtotal: $font-size-16,
+  cart-link: $font-size-16,
   menu-dev: $font-size-12,
-  menu-link: $font-size-14,
+  menu-link: $font-size-16,
   search-label-m: $font-size-14,
   search-label-t: $font-size-18,
   search-label-d: $font-size-22,
@@ -124,6 +135,7 @@ $font-sizes: (
   button-m: $font-size-12,
   button-t: $font-size-14,
   button-d: $font-size-18,
+  copyright: $font-size-14,
 );
 
 // Color Variables
@@ -136,8 +148,11 @@ $transparent: transparent;
 
 // $gradient-start: rgba(250, 111, 152, 1);
 // $gradient-stop: rgba(255, 189, 55, 1);
-$gradient-start: $white;
-$gradient-stop: $white;
+$gradient-start: $dark;
+$gradient-stop: $dark;
+
+$gradient-start--index: $white;
+$gradient-stop--index: $white;
 
 // Background Colors
 $bg-color-body: $white;
@@ -158,6 +173,7 @@ $bg-color-search--index: $dark;
 $bg-color-input: $transparent;
 $bg-color-button--light: $white;
 $bg-color-button--dark: $dark;
+$bg-color-footer: $white;
 
 // Border Colors
 $border-color-separator: $dark;
@@ -179,3 +195,4 @@ $font-color-label: $dark;
 $font-color-label--index: $white;
 $font-color-button--light: $white;
 $font-color-button--dark: $dark;
+$font-color-footer: $dark;
