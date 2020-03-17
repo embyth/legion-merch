@@ -3,6 +3,7 @@ $mobile-width: 320px;
 $mobile-l-width: 425px;
 $tablet-width: 768px;
 $desktop-width: 1366px;
+$desktop-xl-width: 2560px;
 
 $mobile-l-max-width: ($tablet-width - 1);
 
@@ -12,6 +13,7 @@ $mobile: "min-width: #{$mobile-width}";
 $mobile-l: "min-width: #{$mobile-l-width}";
 $tablet: "min-width: #{$tablet-width}";
 $desktop: "min-width: #{$desktop-width}";
+$desktop-xl: "min-width: #{$desktop-xl-width}";
 
 $mobile-l-only: "min-width: #{$mobile-l-width}) and (max-width: #{$mobile-l-max-width}";
 
@@ -86,6 +88,10 @@ $font-line-height: (
   button-t: $line-height-16,
   button-d: $line-height-20,
   copyright: $line-height-16,
+  catalog-item-name-m: $line-height-18,
+  catalog-item-name-t: $line-height-18,
+  catalog-item-price-m: $line-height-18,
+  catalog-item-price-t: $line-height-18,
 );
 
 // Font Sizes
@@ -136,6 +142,10 @@ $font-sizes: (
   button-t: $font-size-14,
   button-d: $font-size-18,
   copyright: $font-size-14,
+  catalog-item-name-m: $font-size-14,
+  catalog-item-name-t: $font-size-14,
+  catalog-item-price-m: $font-size-14,
+  catalog-item-price-t: $font-size-14,
 );
 
 // Color Variables
@@ -196,3 +206,4 @@ $font-color-label--index: $white;
 $font-color-button--light: $white;
 $font-color-button--dark: $dark;
 $font-color-footer: $dark;
+$font-color-item-name: rgba($dark, 0.7);
