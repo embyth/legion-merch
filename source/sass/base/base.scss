@@ -2,6 +2,8 @@
 /* stylelint-disable */
 
 html {
+  @include scrollbar;
+
   box-sizing: border-box;
   font-family: font-family(source);
 }
@@ -14,8 +16,6 @@ html {
 
 body {
   margin: 0;
-
-  @include scrollbar;
 }
 
 img {
