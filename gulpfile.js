@@ -119,7 +119,10 @@ gulp.task('styles', function () {
 
 // Scripts & JS Libraries
 gulp.task('scripts', function () {
-  return gulp.src(paths.src.scripts + '**/*.js')
+  return gulp.src([
+    paths.src.scripts + 'lib/**/*.js',
+    paths.src.scripts + 'main.js'
+  ])
     .pipe(gulpif(isDev, sourcemap.init()))
     .pipe(babel())
     .pipe(concat('main.js'))
