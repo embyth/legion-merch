@@ -67,7 +67,7 @@
   <!-- Main Content -->
   <main class="main-content" id="main-content">
 
-    <h1 class="visually-hidden">Каталог одежды интернет-магазина Legion</h1>
+    <h1 class="visually-hidden">Толстовка черного цвета «Капитан Таер»</h1>
 
     <!-- Main Navigation Bar -->
     <div class="overlay site-nav__overlay"></div>
@@ -117,6 +117,88 @@
       </div>
     </aside>
     <!-- // Main Navigation Bar -->
+
+    <!-- Product Showcase -->
+    <section class="product">
+      <h2 class="visually-hidden">Информация о товаре</h2>
+      <div class="product__inner">
+
+        <ul class="breadcrumbs">
+          <li class="breadcrumbs__item">
+            <a href="index.html" class="breadcrumbs__link">Главная</a>
+          </li>
+          <li class="breadcrumbs__item">
+            <a href="catalog.html" class="breadcrumbs__link">Новинки</a>
+          </li>
+          <li class="breadcrumbs__item">Captain Taer</li>
+        </ul>
+
+        <!-- Images (Mobile Slider) -->
+        <div class="product__image-gallery swiper-container" id="slider">
+          <div class="swiper-wrapper">
+            <img src="img/products/taer-h-front.jpg" alt="Черное худи с белым логотипом Taer и черепом пирата"
+              class="swiper-slide">
+            <img src="img/products/black-h-back.jpg" alt="Задняя сторона худи" class="swiper-slide">
+            <img src="img/products/black-h-extra.jpg" alt="Приближенное фото худи" class="swiper-slide">
+          </div>
+        </div>
+        <!-- // Images -->
+
+        <!-- Mobile Image Slider Controls -->
+        <div class="slider__controls">
+          <span class="slider__controls-dot"></span>
+          <span class="slider__controls-dot"></span>
+          <span class="slider__controls-dot"></span>
+        </div>
+        <!-- // Mobile Image Slider Controls -->
+
+        <div class="product__info">
+          <h3 class="product__name">Captain Taer</h3>
+          <strong class="product__price"><span class="product__price--value">2000</span>&nbsp;&#8381;</strong>
+          <p class="product__description">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum, voluptas! Omnis pariatur vitae exercitationem
+            delectus corporis? Cumque ullam omnis obcaecati repellat eaque exercitationem ex impedit culpa dolore
+            provident odio magnam iusto sed nesciunt quas eveniet, accusantium velit magni architecto quidem beatae!
+            Sequi velit eius perspiciatis molestias id ad neque dolorem.
+          </p>
+          <ul class="product__care-info">
+            <li>80%&nbsp;Хлопок, 20%&nbsp;Полиэстер</li>
+            <li>Можно стирать в машинке при 30 градусах</li>
+          </ul>
+
+          <!-- Add Product To Bag Form -->
+          <form action="https://echo.htmlacademy.ru" method="post" class="product__add-bag">
+            <div class="product__size-select">
+              <label class="visually-hidden" for="product-size">Выбрать размер</label>
+              <select class="product__size" name="product-size" id="product-size">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="xlarge">X-Large</option>
+                <option value="xxlarge">XX-Large</option>
+              </select>
+              <svg class="product__select-svg" width="15" height="15">
+                <use xlink:href="img/sprite.svg#icon-caret"></use>
+              </svg>
+            </div>
+            <button class="product__submit button button--primary button--glitch" name="submit" value="Add to Bag"
+              type="submit">В корзину</button>
+          </form>
+          <!-- // Add Product To Bag Form -->
+
+          <ul class="product__helpers">
+            <li class="product__helper-item">
+              <a href="size-tables.html" class="product__link">Таблица&nbsp;размеров</a>
+            </li>
+            <li class="product__helper-item">
+              <a href="delivery.html" class="product__link">Доставка&nbsp;&amp;&nbsp;Возврат</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+    <!-- //Product Showcase -->
 
   </main>
   <!-- // Main Content -->

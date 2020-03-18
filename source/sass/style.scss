@@ -3,6 +3,9 @@
 @import "utility/mixins";
 @import "utility/functions";
 
+/* === Libraries === */
+@import "lib/swiper";
+
 /* === Typography === */
 @import "base/font-face";
 @import "base/base";
@@ -34,3 +37,5 @@
 @import "blocks/socials";
 @import "blocks/button-holder";
 @import "blocks/catalog";
+@import "blocks/product";
+@import "blocks/breadcrumbs";
