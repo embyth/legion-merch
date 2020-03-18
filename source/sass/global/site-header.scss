@@ -23,6 +23,11 @@
 .site-header__logo-link {
   display: block;
 
+  svg {
+    stroke: $black;
+    stroke-width: 1.5px;
+  }
+
   &:hover,
   &:focus {
     outline: none;
