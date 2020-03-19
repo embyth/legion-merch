@@ -9,7 +9,7 @@
   <title>Продукт — LEGION</title>
 </head>
 
-<body class="page page--inner page--no-js">
+<body class="page page--inner page--no-js preload">
 
   <!-- Site Header -->
   <header class="site-header" id="site-header">
@@ -141,18 +141,23 @@
             <img src="img/products/black-h-back.jpg" alt="Задняя сторона худи" class="swiper-slide">
             <img src="img/products/black-h-extra.jpg" alt="Приближенное фото худи" class="swiper-slide">
           </div>
+
+          <!-- Mobile Image Slider Controls -->
+          <div class="product__gallery-controls"></div>
+          <!-- // Mobile Image Slider Controls -->
         </div>
         <!-- // Images -->
 
-        <!-- Mobile Image Slider Controls -->
-        <div class="slider__controls">
-          <span class="slider__controls-dot"></span>
-          <span class="slider__controls-dot"></span>
-          <span class="slider__controls-dot"></span>
-        </div>
-        <!-- // Mobile Image Slider Controls -->
-
         <div class="product__info">
+          <ul class="breadcrumbs">
+            <li class="breadcrumbs__item">
+              <a href="index.html" class="breadcrumbs__link">Главная</a>
+            </li>
+            <li class="breadcrumbs__item">
+              <a href="catalog.html" class="breadcrumbs__link">Новинки</a>
+            </li>
+            <li class="breadcrumbs__item">Captain Taer</li>
+          </ul>
           <h3 class="product__name">Captain Taer</h3>
           <strong class="product__price"><span class="product__price--value">2000</span>&nbsp;&#8381;</strong>
           <p class="product__description">
@@ -188,10 +193,10 @@
 
           <ul class="product__helpers">
             <li class="product__helper-item">
-              <a href="size-tables.html" class="product__link">Таблица&nbsp;размеров</a>
+              <a href="size-tables.html" class="product__helper-link">Таблица&nbsp;размеров</a>
             </li>
             <li class="product__helper-item">
-              <a href="delivery.html" class="product__link">Доставка&nbsp;&amp;&nbsp;Возврат</a>
+              <a href="delivery.html" class="product__helper-link">Доставка&nbsp;&amp;&nbsp;Возврат</a>
             </li>
           </ul>
         </div>
@@ -375,7 +380,6 @@
 
   <!-- Pop-Up Togglers (Do Not Remove) -->
   <script>
-
     // Search
     var searchToggler = document.querySelector('.user-nav__button--search');
     var searchBody = document.getElementById('search-pop');
@@ -385,6 +389,7 @@
     searchToggler.addEventListener('click', function (event) {
       event.preventDefault();
       searchBody.classList.toggle('search--open');
+      document.body.classList.toggle('page--no-overflow');
 
       window.setTimeout(function () {
         searchField.focus();
@@ -394,6 +399,7 @@
     searchClose.addEventListener('click', function (event) {
       event.preventDefault();
       searchBody.classList.toggle('search--open');
+      document.body.classList.toggle('page--no-overflow');
     });
 
     // Cart
@@ -467,6 +473,7 @@
     var cartBody = document.getElementById('cart-pop');
     var cartOverlay = document.querySelector('.cart__overlay');
     var menuOverlay = document.querySelector('.site-nav__overlay');
+    var productInfo = document.querySelector('.product__info');
 
     var siteHeaderHeight = document.querySelector('.site-header').clientHeight;
     var siteFooterHeight = document.querySelector('.site-footer').clientHeight;
@@ -477,6 +484,10 @@
     cartOverlay.style.height = cartHeight + 'px';
     cartBody.style.height = cartHeight + 'px';
 
+    if (viewportWidth >= 1366) {
+      productInfo.style.height = viewportHeight - siteHeaderHeight - siteFooterHeight + 'px';
+    }
+
     if (viewportWidth > 1366) {
       var height = viewportHeight - siteHeaderHeight - siteFooterHeight;
     } else {
@@ -485,7 +496,6 @@
 
     menuBody.style.height = height + 'px';
     menuOverlay.style.height = height + 'px';
-
 
     window.addEventListener('resize', () => {
       var siteHeaderHeight = document.querySelector('.site-header').clientHeight;
@@ -496,6 +506,10 @@
       var cartHeight = viewportHeight - siteHeaderHeight;
       cartOverlay.style.height = cartHeight + 'px';
       cartBody.style.height = cartHeight + 'px';
+
+      if (viewportWidth >= 1366) {
+        productInfo.style.height = viewportHeight - siteHeaderHeight - siteFooterHeight + 'px';
+      }
 
       if (viewportWidth > 1366) {
         var height = viewportHeight - siteHeaderHeight - siteFooterHeight;
