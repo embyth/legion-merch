@@ -92,6 +92,13 @@ $font-line-height: (
   catalog-item-name-t: $line-height-18,
   catalog-item-price-m: $line-height-18,
   catalog-item-price-t: $line-height-18,
+  breadcrumbs: $line-height-18,
+  breadcrumbs-t: $line-height-20,
+  product-name: $line-height-24,
+  product-price: $line-height-22,
+  product-desc: $line-height-20,
+  product-helper: $line-height-18,
+  product-helper-t: $line-height-20,
 );
 
 // Font Sizes
@@ -146,6 +153,16 @@ $font-sizes: (
   catalog-item-name-t: $font-size-14,
   catalog-item-price-m: $font-size-14,
   catalog-item-price-t: $font-size-14,
+  breadcrumbs: $font-size-14,
+  breadcrumbs-t: $font-size-16,
+  product-name: $font-size-20,
+  product-price: $font-size-18,
+  product-desc: $font-size-14,
+  product-size: $font-size-14,
+  product-submit: $font-size-14,
+  product-submit-d: $font-size-16,
+  product-helper: $font-size-14,
+  product-helper-t: $font-size-16,
 );
 
 // Color Variables
@@ -154,6 +171,7 @@ $black: #000000;
 $white: #ffffff;
 $dark: #111111;
 $red: #ff0000;
+$light-grey: #cccccc;
 $transparent: transparent;
 
 // $gradient-start: rgba(250, 111, 152, 1);
@@ -169,6 +187,7 @@ $bg-color-body: $white;
 $bg-color-body--index: $dark;
 $bg-color-svg: $dark;
 $bg-color-svg--index: $white;
+$bg-color-svg--hover: $white;
 $bg-color-cart: $white;
 $bg-color-cart--index: $dark;
 $bg-color-hamburger: $dark;
@@ -181,15 +200,20 @@ $bg-color-overlay: rgba($black, 0.3);
 $bg-color-search: $white;
 $bg-color-search--index: $dark;
 $bg-color-input: $transparent;
+$bg-color-input--add-bag: $dark;
+$bg-color-input--select: $white;
+$bg-color-input--select-hover: $dark;
 $bg-color-button--light: $white;
 $bg-color-button--dark: $dark;
 $bg-color-footer: $white;
+$bg-color-gallery-bullet: $light-grey;
 
 // Border Colors
 $border-color-separator: $dark;
 $border-color-separator--index: $white;
 $border-color-input: $dark;
 $border-color-input--index: $white;
+$border-color-input--select: $dark;
 $border-color-button--light: $white;
 $border-color-button--dark: $dark;
 
@@ -201,9 +225,17 @@ $font-color-link: $dark;
 $font-color-link--index: $white;
 $font-color-input: $dark;
 $font-color-input--index: $white;
+$font-color-input--select: $dark;
+$font-color-input--select-hover: $white;
+$font-color-input--add-bag: $white;
 $font-color-label: $dark;
 $font-color-label--index: $white;
 $font-color-button--light: $white;
 $font-color-button--dark: $dark;
 $font-color-footer: $dark;
 $font-color-item-name: rgba($dark, 0.7);
+$font-color-breadcrumbs: rgba($black, 0.6);
+$font-color-breadcrumbs--link: $dark;
+$font-color-product-name: $dark;
+$font-color-product-price: $dark;
+$font-color-product-desc: $dark;
