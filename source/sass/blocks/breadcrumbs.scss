@@ -15,6 +15,7 @@
   font-weight: font-weight(light);
   color: $font-color-breadcrumbs;
   text-transform: capitalize;
+  display: inline-block;
 
   &::after {
     content: "/\2002";
@@ -27,6 +28,12 @@
   }
 
   @media ($tablet) {
+    &::after {
+      content: "/";
+    }
+  }
+
+  @media ($desktop) {
     font-size: font-size(breadcrumbs-t);
     line-height: font-lh(breadcrumbs-t);
   }
