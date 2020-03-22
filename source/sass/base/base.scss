@@ -2,7 +2,7 @@
 /* stylelint-disable */
 
 html {
-  @include scrollbar;
+  @include scrollbar-body;
 
   box-sizing: border-box;
   font-family: font-family(source);
