@@ -99,6 +99,16 @@ $font-line-height: (
   product-desc: $line-height-20,
   product-helper: $line-height-18,
   product-helper-t: $line-height-20,
+  page-title: $line-height-28,
+  page-title-t: $line-height-32,
+  team-text: $line-height-22,
+  team-name: $line-height-20,
+  error-text-m: $line-height-24,
+  error-text-t: $line-height-28,
+  error-text-d: $line-height-32,
+  error-404-m: 1.2,
+  error-404-t: 1.2,
+  error-404-d: 50vh,
 );
 
 // Font Sizes
@@ -163,6 +173,16 @@ $font-sizes: (
   product-submit-d: $font-size-16,
   product-helper: $font-size-14,
   product-helper-t: $font-size-16,
+  page-title: $font-size-24,
+  page-title-t: $font-size-28,
+  team-text: $font-size-14,
+  team-name: $font-size-18,
+  error-text-m: $font-size-12,
+  error-text-t: $font-size-14,
+  error-text-d: $font-size-16,
+  error-404-m: 10em,
+  error-404-t: 15em,
+  error-404-d: 40vh,
 );
 
 // Color Variables
@@ -172,15 +192,19 @@ $white: #ffffff;
 $dark: #111111;
 $red: #ff0000;
 $light-grey: #cccccc;
+$dark-grey: #343434;
+$dark-black: #1a1a1a;
 $transparent: transparent;
 
-// $gradient-start: rgba(250, 111, 152, 1);
-// $gradient-stop: rgba(255, 189, 55, 1);
+// Gradients
 $gradient-start: $dark;
 $gradient-stop: $dark;
 
 $gradient-start--index: $white;
 $gradient-stop--index: $white;
+
+$gradient-start--error: $dark-black;
+$gradient-stop--error: $dark-grey;
 
 // Background Colors
 $bg-color-body: $white;
@@ -239,3 +263,7 @@ $font-color-breadcrumbs--link: $dark;
 $font-color-product-name: $dark;
 $font-color-product-price: $dark;
 $font-color-product-desc: $dark;
+$font-color-page-title: $dark;
+$font-color-error-404: $dark-grey;
+$font-color-error-404--hover: $dark-black;
+$font-color-error-text: $white;

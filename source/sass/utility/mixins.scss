@@ -275,6 +275,27 @@
 }
 
 // Scroll Bar For Index Page
+@mixin scrollbar-body() {
+  $scrollbarBG: $white;
+  $thumbBG: $dark;
+  scrollbar-width: thin;
+  scrollbar-color: $thumbBG $scrollbarBG;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $scrollbarBG;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $thumbBG;
+    border: 0px solid $scrollbarBG;
+  }
+}
+
+// Scroll Bar For Index Page
 @mixin scrollbar() {
   $scrollbarBG: $white;
   $thumbBG: $dark;
@@ -336,7 +357,6 @@
     filter: blur($spread);
     background: linear-gradient(270deg, $colorA, $colorB);
     background-size: 200% 200%;
-    animation: animateGlow $duration ease infinite;
   }
 }
 
