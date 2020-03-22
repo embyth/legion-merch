@@ -9,7 +9,6 @@
   @media ($tablet) {
     .breadcrumbs {
       display: none;
-      margin-bottom: 20px;
     }
   }
 }
@@ -80,6 +79,7 @@
     .breadcrumbs {
       display: block;
       width: 100%;
+      margin-bottom: 30px;
     }
   }
 
@@ -211,7 +211,7 @@
 
   &:focus {
     + .product__select-svg {
-      transform: translate(0, -50%) rotate(180deg);
+      transform: translate(0, -50%) rotate(90deg);
     }
   }
 }
@@ -278,7 +278,7 @@
   font-size: font-size(product-helper);
   line-height: font-size(product-helper);
 
-  @media ($tablet) {
+  @media ($desktop) {
     font-size: font-size(product-helper-t);
     line-height: font-size(product-helper-t);
   }
