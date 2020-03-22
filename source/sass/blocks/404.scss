@@ -1,0 +1,128 @@
+.error {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(-225deg, $gradient-start--error, $gradient-stop--error);
+  cursor: default;
+  user-select: none;
+  overflow: hidden;
+}
+
+.error__subtitle {
+  color: $font-color-error-text;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: font-size(error-text-m);
+  line-height: font-lh(error-text-m);
+  font-weight: font-weight(light);
+  text-align: center;
+  margin: 0;
+  padding: 0 20px;
+
+  @media ($tablet) {
+    letter-spacing: 10px;
+    font-size: font-size(error-text-t);
+    line-height: font-lh(error-text-t);
+  }
+
+  @media ($desktop) {
+    letter-spacing: 15px;
+    font-size: font-size(error-text-d);
+    line-height: font-lh(error-text-d);
+  }
+}
+
+.error__title {
+  --x-shadow: 0;
+  --y-shadow: 0;
+  --x: 50%;
+  --y: 50%;
+
+  font-size: font-size(error-404-m);
+  line-height: font-lh(error-404-m);
+  transition: all 0.2s ease;
+  position: relative;
+  font-weight: font-weight(bold);
+  color: $font-color-error-404;
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+
+  @media ($tablet) {
+    font-size: font-size(error-404-t);
+    line-height: font-lh(error-404-t);
+  }
+
+  @media ($desktop) {
+    font-size: font-size(error-404-d);
+    line-height: font-lh(error-404-d);
+    width: auto;
+    padding: 50px 100px;
+  }
+
+  &:hover {
+    transition: all 0.2s ease;
+    text-shadow: var(--x-shadow) var(--y-shadow) 10px $font-color-error-404--hover;
+  }
+
+  p {
+    position: absolute;
+    display: block;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    padding: inherit;
+    background-image: radial-gradient(circle closest-side, rgba(white, 0.05), transparent);
+    background-position: var(--x) var(--y);
+    background-repeat: no-repeat;
+    text-shadow: none;
+    -webkit-background-clip: text; /* stylelint-disable-line */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.1s ease;
+  }
+}
+
+.error__buttons {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+
+  .button {
+    min-width: 130px;
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @media ($tablet) {
+    margin-bottom: 0;
+
+    .button {
+      min-width: 150px;
+    }
+  }
+
+  @media ($desktop) {
+    .button {
+      min-width: 250px;
+      margin-right: 50px;
+    }
+  }
+}
