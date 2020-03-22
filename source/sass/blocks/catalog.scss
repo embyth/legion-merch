@@ -39,9 +39,12 @@
   font-weight: font-weight(light);
   font-size: font-size(catalog-item-name-m);
   line-height: font-lh(catalog-item-name-m);
-  margin: 5px 0;
+  margin: 8px 0;
   color: $font-color-item-name;
   text-transform: capitalize;
+  display: inline-block;
+
+  @include link;
 
   @media ($tablet) {
     font-size: font-size(catalog-item-name-t);
@@ -70,7 +73,6 @@
   }
 
   @media ($tablet) {
-    min-height: 310px;
     justify-content: space-between;
   }
 }
@@ -100,6 +102,7 @@
   font-size: font-size(catalog-item-price-m);
   line-height: font-lh(catalog-item-price-m);
   color: $font-color-base;
+  display: block;
 
   @media ($tablet) {
     font-size: font-size(catalog-item-price-t);
