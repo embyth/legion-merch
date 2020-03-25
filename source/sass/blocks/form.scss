@@ -1,15 +1,4 @@
 .form {
-  &--signup,
-  &--login,
-  &--restore,
-  &--contact {
-    @media ($desktop) {
-      .page-title {
-        padding-left: 50px;
-      }
-    }
-  }
-
   &--open {
     position: relative;
     z-index: 50;

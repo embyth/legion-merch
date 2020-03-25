@@ -14,4 +14,8 @@
     font-size: font-size(page-title-t);
     line-height: font-lh(page-title-t);
   }
+
+  @media ($desktop) {
+    padding-left: 50px;
+  }
 }
