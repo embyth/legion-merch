@@ -170,4 +170,10 @@
       display: flex;
     }
   }
+
+  &--cart {
+    .user-nav__item:first-of-type {
+      display: none;
+    }
+  }
 }
