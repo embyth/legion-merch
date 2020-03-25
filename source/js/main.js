@@ -195,11 +195,113 @@ Array.prototype.forEach.call(glitchButtons, function (el) {
 });
 
 // Select Focus Behavior
-let selectSize = document.querySelector('.product__size');
+let selectSize = document.querySelectorAll('.product__size, .form__select');
 
 if (selectSize) {
-  selectSize.addEventListener('change', function () {
-    selectSize.blur();
+  Array.prototype.forEach.call(selectSize, function (el) {
+    el.addEventListener('change', function () {
+      el.blur();
+    });
+  });
+}
+
+// Select And Label Behavior
+let selectField = document.querySelector('.form__select');
+let selectLabel = document.querySelector('.form__label--select');
+
+if (selectField) {
+  let selectOptions = selectField.getElementsByTagName('option');
+
+  selectField.addEventListener('click', function () {
+    for (var i = 1; i < selectOptions.length; i++) {
+      if (selectOptions[i].selected) {
+        selectLabel.style.cssText = `
+          top: 0;
+          transform: none;
+          cursor: default;
+        `;
+      }
+    }
+  });
+}
+
+// TextArea Auto Hieght Setter
+let messageField = document.getElementById('user-message');
+
+if (messageField) {
+  let inputHeight = document.querySelector('input').offsetHeight;
+  messageField.style.height = inputHeight + 'px';
+
+  messageField.addEventListener('input', function () {
+    messageField.style.height = (messageField.scrollHeight) + 1 + 'px';
+  });
+}
+
+// Error Input Style Handler
+if (document.querySelector('.form__form-field')) {
+  inputErrorHandler();
+}
+
+function inputErrorHandler() {
+  let submitted = false;
+
+  // On submit, run evaluation and prevent if necessary
+  const form = document.querySelector('.form__form-field');
+  form.onsubmit = () => {
+    submitted = true;
+    setTimeout(() => {
+      submitted = false;
+    }, 0);
+  };
+
+  // Iterate over fields in form
+  let invalidOnSubmit = false;
+
+  let field = form.querySelectorAll('input, textarea, select');
+  for (let i = 1; i < field.length; i++) {
+
+    Array.from(field, el => el.addEventListener('invalid', function () {
+
+      if (submitted && !invalidOnSubmit) {
+        invalidOnSubmit = true;
+        setTimeout(() => {
+          invalidOnSubmit = false;
+        }, 1000);
+
+        el.focus();
+      }
+
+      el.classList.add('form__input--error');
+
+      // Reset invalid state & error message on `input` event, trigger validation check
+      const inputHandler = () => {
+        el.classList.remove('form__input--error');
+        el.checkValidity();
+      };
+      el.oninput = inputHandler;
+    }));
+  }
+}
+
+// Password Reset Toggler
+let passwordRestoreBody = document.getElementById('form-restore');
+let loginBody = document.getElementById('form-login');
+let passwordRestoreCaller = document.querySelector('.form__restore--caller');
+let passwordRestoreClose = document.querySelector('.form__restore--close');
+
+if (passwordRestoreCaller) {
+  passwordRestoreCaller.addEventListener('click', function (event) {
+    event.preventDefault();
+    passwordRestoreBody.classList.toggle('form--open');
+    passwordRestoreBody.classList.toggle('form--hide');
+    loginBody.classList.toggle('form--hide');
+  });
+
+  passwordRestoreClose.addEventListener('click', function (event) {
+    event.preventDefault();
+    passwordRestoreBody.classList.toggle('form--open');
+    passwordRestoreBody.classList.toggle('form--hide');
+    loginBody.classList.toggle('form--hide');
   });
 }
 
