@@ -84,6 +84,12 @@ $font-line-height: (
   search-input-m: $line-height-18,
   search-input-t: $line-height-22,
   search-input-d: $line-height-26,
+  form-label-m: $line-height-18,
+  form-label-t: $line-height-22,
+  form-label-d: $line-height-24,
+  form-input-m: $line-height-18,
+  form-input-t: $line-height-22,
+  form-input-d: $line-height-24,
   button-m: $line-height-14,
   button-t: $line-height-16,
   button-d: $line-height-20,
@@ -155,6 +161,12 @@ $font-sizes: (
   search-input-m: $font-size-14,
   search-input-t: $font-size-18,
   search-input-d: $font-size-22,
+  form-label-m: $font-size-14,
+  form-label-t: $font-size-18,
+  form-label-d: $font-size-18,
+  form-input-m: $font-size-14,
+  form-input-t: $font-size-18,
+  form-input-d: $font-size-18,
   button-m: $font-size-12,
   button-t: $font-size-14,
   button-d: $font-size-18,
@@ -238,6 +250,7 @@ $border-color-separator--index: $white;
 $border-color-input: $dark;
 $border-color-input--index: $white;
 $border-color-input--select: $dark;
+$border-color-input--error: $red;
 $border-color-button--light: $white;
 $border-color-button--dark: $dark;
 

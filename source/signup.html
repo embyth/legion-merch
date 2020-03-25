@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/normalize.min.css">
   <link rel="stylesheet" href="css/style.min.css">
-  <title>Регистрация — LEGION</title>
+  <title>Регистрация – LEGION</title>
 </head>
 
-<body class="page page--inner page--no-js">
+<body class="page page--inner page--no-js preload">
 
   <!-- Site Header -->
   <header class="site-header" id="site-header">
@@ -117,6 +117,43 @@
       </div>
     </aside>
     <!-- // Main Navigation Bar -->
+
+    <section class="form form--signup">
+      <h2 class="page-title">Регистрация</h2>
+
+      <form class="form__form-field" action="https://echo.htmlacademy.ru" method="post">
+        <fieldset>
+          <div class="form__fieldset">
+            <div class="form__input-group">
+              <input class="form__input" id="user-name" name="user-name" type="text" placeholder="Имя"
+                autocomplete="off" autocapitalize="words" aria-label="Ваше имя" required>
+              <label class="form__label" for="user-name">Имя</label>
+            </div>
+            <div class="form__input-group">
+              <input class="form__input" id="user-surname" name="user-surname" type="text" placeholder="Фамилия"
+                autocomplete="off" autocapitalize="words" aria-label="Ваша фамилия" required>
+              <label class="form__label" for="user-surname">Фамилия</label>
+            </div>
+            <div class="form__input-group">
+              <input class="form__input" id="user-email" name="user-email" type="email" placeholder="Эл. почта"
+                autocapitalize="off" aria-label="Ваша электронная почта" required>
+              <label class="form__label" for="user-email">Эл. почта</label>
+            </div>
+            <div class="form__input-group">
+              <input class="form__input" id="user-password" name="user-password" type="password" placeholder="Пароль"
+                aria-label="Придумайте пароль" required>
+              <label class="form__label" for="user-password">Пароль</label>
+            </div>
+          </div>
+        </fieldset>
+        <div class="form__button-group">
+          <button class="form__button button button--primary button--glitch" type="submit"
+            value="Create Accaunt">Вступить в
+            легион</button>
+          <a class="form__link" href="login.html">Уже есть аккаунт?</a>
+        </div>
+      </form>
+    </section>
 
   </main>
   <!-- // Main Content -->
@@ -290,142 +327,6 @@
     </div>
   </div>
   <!-- // Cart Block -->
-
-  <!-- Pop-Up Togglers (Do Not Remove) -->
-  <script>
-
-    // Search
-    var searchToggler = document.querySelector('.user-nav__button--search');
-    var searchBody = document.getElementById('search-pop');
-    var searchClose = document.querySelector('.search__close');
-    var searchField = document.getElementById('search-field');
-
-    searchToggler.addEventListener('click', function (event) {
-      event.preventDefault();
-      searchBody.classList.toggle('search--open');
-
-      window.setTimeout(function () {
-        searchField.focus();
-      }, 100);
-    });
-
-    searchClose.addEventListener('click', function (event) {
-      event.preventDefault();
-      searchBody.classList.toggle('search--open');
-    });
-
-    // Cart
-    var cartToggler = document.querySelector('.user-nav__button--cart');
-    var cartBody = document.getElementById('cart-pop');
-    var cartClose = document.querySelector('.cart__close');
-    var cartOverlay = document.querySelector('.cart__overlay');
-
-    cartToggler.addEventListener('click', function (event) {
-      event.preventDefault();
-      cartBody.classList.toggle('cart--open');
-      cartOverlay.classList.toggle('cart__overlay--visible');
-      document.body.classList.toggle('page--no-overflow');
-    });
-
-    cartClose.addEventListener('click', function (event) {
-      event.preventDefault();
-      cartBody.classList.toggle('cart--open');
-      cartOverlay.classList.toggle('cart__overlay--visible');
-      document.body.classList.toggle('page--no-overflow');
-    });
-
-    cartOverlay.addEventListener('click', function (event) {
-      event.preventDefault();
-      cartBody.classList.toggle('cart--open');
-      cartOverlay.classList.toggle('cart__overlay--visible');
-      document.body.classList.toggle('page--no-overflow');
-    });
-
-    if (cartBody.classList.contains('cart--open')) {
-      document.body.addEventListener('touchmove', function (event) {
-        preventDefault();
-      });
-    }
-
-    // Menu
-    var menuButton = document.querySelector('.menu-toggler');
-    var menuBody = document.querySelector('.site-nav');
-    var menuClose = document.querySelector('.site-nav__close-button');
-    var menuOverlay = document.querySelector('.site-nav__overlay');
-
-    menuButton.addEventListener('click', function (event) {
-      event.preventDefault();
-      menuBody.classList.toggle('site-nav--open');
-      menuOverlay.classList.toggle('site-nav__overlay--visible');
-      menuButton.classList.toggle('menu-toggler--opened');
-      document.body.classList.toggle('page--no-overflow');
-    });
-
-    menuOverlay.addEventListener('click', function (event) {
-      event.preventDefault();
-      menuButton.classList.toggle('menu-toggler--opened');
-      menuBody.classList.toggle('site-nav--open');
-      menuOverlay.classList.toggle('site-nav__overlay--visible');
-      document.body.classList.toggle('page--no-overflow');
-    });
-
-    menuClose.addEventListener('click', function (event) {
-      event.preventDefault();
-      menuButton.classList.toggle('menu-toggler--opened');
-      menuBody.classList.toggle('site-nav--open');
-      menuOverlay.classList.toggle('site-nav__overlay--visible');
-      document.body.classList.toggle('page--no-overflow');
-    });
-  </script>
-  <!-- // Pop-Up Togglers (Do Not Remove Script Above) -->
-
-  <!-- Height Setter Script For Overlays And Pop-Ups Elements (Inner Pages) -->
-  <script>
-    var menuBody = document.querySelector('.site-nav');
-    var cartBody = document.getElementById('cart-pop');
-    var cartOverlay = document.querySelector('.cart__overlay');
-    var menuOverlay = document.querySelector('.site-nav__overlay');
-
-    var siteHeaderHeight = document.querySelector('.site-header').clientHeight;
-    var siteFooterHeight = document.querySelector('.site-footer').clientHeight;
-    var viewportWidth = window.innerWidth;
-    var viewportHeight = window.innerHeight;
-
-    var cartHeight = viewportHeight - siteHeaderHeight;
-    cartOverlay.style.height = cartHeight + 'px';
-    cartBody.style.height = cartHeight + 'px';
-
-    if (viewportWidth > 1366) {
-      var height = viewportHeight - siteHeaderHeight - siteFooterHeight;
-    } else {
-      var height = viewportHeight - siteHeaderHeight;
-    }
-
-    menuBody.style.height = height + 'px';
-    menuOverlay.style.height = height + 'px';
-
-
-    window.addEventListener('resize', () => {
-      var siteHeaderHeight = document.querySelector('.site-header').clientHeight;
-      var siteFooterHeight = document.querySelector('.site-footer').clientHeight;
-      var viewportWidth = window.innerWidth;
-      var viewportHeight = window.innerHeight;
-
-      var cartHeight = viewportHeight - siteHeaderHeight;
-      cartOverlay.style.height = cartHeight + 'px';
-      cartBody.style.height = cartHeight + 'px';
-
-      if (viewportWidth > 1366) {
-        var height = viewportHeight - siteHeaderHeight - siteFooterHeight;
-      } else {
-        var height = viewportHeight - siteHeaderHeight;
-      }
-
-      menuBody.style.height = height + 'px';
-      menuOverlay.style.height = height + 'px';
-    });
-  </script>
-  <!-- // Height Setter For Overlays -->
 
   <script src="js/svg4everybody.min.js"></script>
   <script src="js/main.min.js"></script>
