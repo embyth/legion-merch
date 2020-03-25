@@ -84,6 +84,7 @@
 
   display: flex;
   flex-flow: column nowrap;
+  padding-bottom: 25px;
 }
 
 .site-nav__item {
@@ -170,5 +171,44 @@
 
   &:active {
     opacity: 0.3;
+  }
+}
+
+.site-nav__client-list {
+  @include list-reset;
+
+  display: none;
+  flex-flow: column nowrap;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.site-nav__client-item {
+  padding: 10px 0;
+
+  &:last-of-type {
+    padding-bottom: 0;
+  }
+
+  .site-nav__item-link {
+    &:not([href]) {
+      font-weight: font-weight(regular);
+      cursor: default;
+      position: relative;
+
+      &:hover,
+      &:focus,
+      &:active {
+        opacity: 1;
+      }
+
+      &::before {
+        content: "– ";
+      }
+
+      &::after {
+        content: none;
+      }
+    }
   }
 }

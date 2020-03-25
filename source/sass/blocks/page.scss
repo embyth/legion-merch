@@ -164,4 +164,10 @@
       }
     }
   }
+
+  &--customer-care {
+    .site-nav__client-list {
+      display: flex;
+    }
+  }
 }

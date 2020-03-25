@@ -79,6 +79,7 @@
   line-height: font-lh(search-input-m);
   font-weight: font-weight(regular);
   border: none;
+  border-radius: 0;
   border-bottom: 1px solid $border-color-input;
   appearance: none;
   transition: border-color 0.3s;

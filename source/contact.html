@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/normalize.min.css">
   <link rel="stylesheet" href="css/style.min.css">
-  <title>Связь с нами — LEGION</title>
+  <title>Связь с нами – LEGION</title>
 </head>
 
-<body class="page page--inner page--no-js">
+<body class="page page--inner page--customer-care page--no-js preload">
 
   <!-- Site Header -->
   <header class="site-header" id="site-header">
@@ -106,6 +106,23 @@
             </li>
             <li class="site-nav__item">
               <a href="contact.html" class="site-nav__item-link">Клиентам</a>
+              <ul class="site-nav__client-list">
+                <li class="site-nav__client-item">
+                  <a class="site-nav__item-link">Связь с нами</a>
+                </li>
+                <li class="site-nav__client-item">
+                  <a href="delivery.html" class="site-nav__item-link">Доставка&nbsp;&amp;&nbsp;Возврат</a>
+                </li>
+                <li class="site-nav__client-item">
+                  <a href="size-tables.html" class="site-nav__item-link">Таблица размеров</a>
+                </li>
+                <li class="site-nav__client-item">
+                  <a href="faq.html" class="site-nav__item-link">FAQ</a>
+                </li>
+                <li class="site-nav__client-item">
+                  <a href="public-offer.html" class="site-nav__item-link">Публичная оферта</a>
+                </li>
+              </ul>
             </li>
             <li class="site-nav__item">
               <a href="about.html" class="site-nav__item-link">О нас</a>
@@ -117,6 +134,53 @@
       </div>
     </aside>
     <!-- // Main Navigation Bar -->
+
+    <!-- Contact Form -->
+    <section class="form form--contact" id="form-contact">
+      <h2 class="page-title">Связаться с нами</h2>
+
+      <form class="form__form-field" action="https://echo.htmlacademy.ru" method="post">
+        <fieldset>
+          <div class="form__fieldset">
+            <div class="form__input-group">
+              <input class="form__input" id="user-name" name="user-name" type="text" placeholder="Имя"
+                autocomplete="off" autocapitalize="words" aria-label="Ваше имя" required>
+              <label class="form__label" for="user-name">Имя</label>
+            </div>
+            <div class="form__input-group">
+              <input class="form__input" id="user-email" name="user-email" type="email" placeholder="Эл. почта"
+                autocapitalize="off" aria-label="Ваша электронная почта" required>
+              <label class="form__label" for="user-email">Эл. почта</label>
+            </div>
+            <div class="form__input-group">
+              <select class="form__select" name="contact-reason" id="contact-reason" required>
+                <option disabled selected value></option>
+                <option value="order-status">Узнать Статус Заказа</option>
+                <option value="request-return">Запрос на Возврат</option>
+                <option value="cancel-change">Отмена или Изменение Заказа</option>
+                <option value="faulty-item">Ошибочный / Поврежденный Товар</option>
+                <option value="website-issue">Проблемы с сайтом</option>
+                <option value="other">Другое</option>
+              </select>
+              <label class="form__label form__label--select" for="contact-reason">Чем можем помочь?</label>
+              <svg class="form__select-svg" width="15" height="15">
+                <use xlink:href="img/sprite.svg#icon-caret"></use>
+              </svg>
+            </div>
+            <div class="form__input-group">
+              <textarea class="form__message" name="user-message" id="user-message" placeholder="Ваше сообщение"
+                required></textarea>
+              <label class="form__label" for="user-message">Ваше сообщение</label>
+            </div>
+          </div>
+        </fieldset>
+        <div class="form__button-group">
+          <button class="form__button button button--primary button--glitch" type="submit"
+            value="Login">Отправить</button>
+        </div>
+      </form>
+    </section>
+    <!-- // Contact Form -->
 
   </main>
   <!-- // Main Content -->
@@ -290,142 +354,6 @@
     </div>
   </div>
   <!-- // Cart Block -->
-
-  <!-- Pop-Up Togglers (Do Not Remove) -->
-  <script>
-
-    // Search
-    var searchToggler = document.querySelector('.user-nav__button--search');
-    var searchBody = document.getElementById('search-pop');
-    var searchClose = document.querySelector('.search__close');
-    var searchField = document.getElementById('search-field');
-
-    searchToggler.addEventListener('click', function (event) {
-      event.preventDefault();
-      searchBody.classList.toggle('search--open');
-
-      window.setTimeout(function () {
-        searchField.focus();
-      }, 100);
-    });
-
-    searchClose.addEventListener('click', function (event) {
-      event.preventDefault();
-      searchBody.classList.toggle('search--open');
-    });
-
-    // Cart
-    var cartToggler = document.querySelector('.user-nav__button--cart');
-    var cartBody = document.getElementById('cart-pop');
-    var cartClose = document.querySelector('.cart__close');
-    var cartOverlay = document.querySelector('.cart__overlay');
-
-    cartToggler.addEventListener('click', function (event) {
-      event.preventDefault();
-      cartBody.classList.toggle('cart--open');
-      cartOverlay.classList.toggle('cart__overlay--visible');
-      document.body.classList.toggle('page--no-overflow');
-    });
-
-    cartClose.addEventListener('click', function (event) {
-      event.preventDefault();
-      cartBody.classList.toggle('cart--open');
-      cartOverlay.classList.toggle('cart__overlay--visible');
-      document.body.classList.toggle('page--no-overflow');
-    });
-
-    cartOverlay.addEventListener('click', function (event) {
-      event.preventDefault();
-      cartBody.classList.toggle('cart--open');
-      cartOverlay.classList.toggle('cart__overlay--visible');
-      document.body.classList.toggle('page--no-overflow');
-    });
-
-    if (cartBody.classList.contains('cart--open')) {
-      document.body.addEventListener('touchmove', function (event) {
-        preventDefault();
-      });
-    }
-
-    // Menu
-    var menuButton = document.querySelector('.menu-toggler');
-    var menuBody = document.querySelector('.site-nav');
-    var menuClose = document.querySelector('.site-nav__close-button');
-    var menuOverlay = document.querySelector('.site-nav__overlay');
-
-    menuButton.addEventListener('click', function (event) {
-      event.preventDefault();
-      menuBody.classList.toggle('site-nav--open');
-      menuOverlay.classList.toggle('site-nav__overlay--visible');
-      menuButton.classList.toggle('menu-toggler--opened');
-      document.body.classList.toggle('page--no-overflow');
-    });
-
-    menuOverlay.addEventListener('click', function (event) {
-      event.preventDefault();
-      menuButton.classList.toggle('menu-toggler--opened');
-      menuBody.classList.toggle('site-nav--open');
-      menuOverlay.classList.toggle('site-nav__overlay--visible');
-      document.body.classList.toggle('page--no-overflow');
-    });
-
-    menuClose.addEventListener('click', function (event) {
-      event.preventDefault();
-      menuButton.classList.toggle('menu-toggler--opened');
-      menuBody.classList.toggle('site-nav--open');
-      menuOverlay.classList.toggle('site-nav__overlay--visible');
-      document.body.classList.toggle('page--no-overflow');
-    });
-  </script>
-  <!-- // Pop-Up Togglers (Do Not Remove Script Above) -->
-
-  <!-- Height Setter Script For Overlays And Pop-Ups Elements (Inner Pages) -->
-  <script>
-    var menuBody = document.querySelector('.site-nav');
-    var cartBody = document.getElementById('cart-pop');
-    var cartOverlay = document.querySelector('.cart__overlay');
-    var menuOverlay = document.querySelector('.site-nav__overlay');
-
-    var siteHeaderHeight = document.querySelector('.site-header').clientHeight;
-    var siteFooterHeight = document.querySelector('.site-footer').clientHeight;
-    var viewportWidth = window.innerWidth;
-    var viewportHeight = window.innerHeight;
-
-    var cartHeight = viewportHeight - siteHeaderHeight;
-    cartOverlay.style.height = cartHeight + 'px';
-    cartBody.style.height = cartHeight + 'px';
-
-    if (viewportWidth > 1366) {
-      var height = viewportHeight - siteHeaderHeight - siteFooterHeight;
-    } else {
-      var height = viewportHeight - siteHeaderHeight;
-    }
-
-    menuBody.style.height = height + 'px';
-    menuOverlay.style.height = height + 'px';
-
-
-    window.addEventListener('resize', () => {
-      var siteHeaderHeight = document.querySelector('.site-header').clientHeight;
-      var siteFooterHeight = document.querySelector('.site-footer').clientHeight;
-      var viewportWidth = window.innerWidth;
-      var viewportHeight = window.innerHeight;
-
-      var cartHeight = viewportHeight - siteHeaderHeight;
-      cartOverlay.style.height = cartHeight + 'px';
-      cartBody.style.height = cartHeight + 'px';
-
-      if (viewportWidth > 1366) {
-        var height = viewportHeight - siteHeaderHeight - siteFooterHeight;
-      } else {
-        var height = viewportHeight - siteHeaderHeight;
-      }
-
-      menuBody.style.height = height + 'px';
-      menuOverlay.style.height = height + 'px';
-    });
-  </script>
-  <!-- // Height Setter For Overlays -->
 
   <script src="js/svg4everybody.min.js"></script>
   <script src="js/main.min.js"></script>
