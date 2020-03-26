@@ -182,4 +182,133 @@
       display: none;
     }
   }
+
+  &--text {
+    main {
+      section {
+        @media ($desktop) {
+          padding-left: 50px;
+        }
+      }
+
+      h2 {
+        font-family: font-family(source);
+        font-size: font-size(page-title);
+        font-weight: font-weight(regular);
+        line-height: font-lh(page-title);
+        color: $font-color-page-title;
+        margin: 0;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        text-align: left;
+
+        @media ($tablet) {
+          margin-top: 20px;
+          font-size: font-size(page-title-t);
+          line-height: font-lh(page-title-t);
+        }
+
+        @media ($desktop) {
+          margin-bottom: 50px;
+        }
+      }
+
+      h3 {
+        font-family: font-family(source);
+        font-size: font-size(page-subtitle-m);
+        font-weight: font-weight(regular);
+        line-height: font-lh(page-subtitle-m);
+        color: $font-color-page-title;
+        margin: 40px 0 20px;
+
+        @media ($tablet) {
+          font-size: font-size(page-subtitle-t);
+          line-height: font-lh(page-subtitle-t);
+        }
+      }
+
+      a {
+        @include link;
+
+        color: $font-color-link;
+
+        &::after {
+          transform: scaleX(0.15);
+        }
+      }
+
+      ul {
+        list-style-type: disc;
+      }
+
+      ul,
+      ol {
+        font-family: font-family(source);
+        font-weight: font-weight(regular);
+        font-size: font-size(page-text-m);
+        line-height: font-lh(page-text-m);
+        padding: 0 0 0 27px;
+        margin: 20px 0;
+
+        ol,
+        ul {
+          margin: 0;
+          padding: 0 0 0 10px;
+        }
+
+        @media ($tablet) {
+          font-size: font-size(page-text-t);
+          line-height: font-lh(page-text-t);
+        }
+
+        @media ($desktop) {
+          font-size: font-size(page-text-d);
+          line-height: font-lh(page-text-d);
+        }
+      }
+
+      p {
+        font-family: font-family(source);
+        font-weight: font-weight(regular);
+        font-size: font-size(page-text-m);
+        line-height: font-lh(page-text-m);
+        margin: 20px 0;
+
+        @media ($tablet) {
+          font-size: font-size(page-text-t);
+          line-height: font-lh(page-text-t);
+        }
+
+        @media ($desktop) {
+          font-size: font-size(page-text-d);
+          line-height: font-lh(page-text-d);
+        }
+      }
+
+      ins,
+      b,
+      strong,
+      em,
+      i {
+        font-family: font-family(source);
+        font-size: font-size(page-text-m);
+        line-height: font-lh(page-text-m);
+
+        @media ($tablet) {
+          font-size: font-size(page-text-t);
+          line-height: font-lh(page-text-t);
+        }
+
+        @media ($desktop) {
+          font-size: font-size(page-text-d);
+          line-height: font-lh(page-text-d);
+        }
+      }
+
+      em,
+      i {
+        font-weight: font-weight(light);
+      }
+    }
+  }
 }
