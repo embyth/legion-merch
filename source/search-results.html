@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/normalize.min.css">
   <link rel="stylesheet" href="css/style.min.css">
-  <title>Поиск – LEGION</title>
+  <title>Результаты поиска – LEGION</title>
 </head>
 
 <body class="page page--inner page--search page--no-js preload">
@@ -120,14 +120,14 @@
 
     <!-- Search -->
     <section class="page-search">
-      <h2 class="page-title">Поиск: начните печатать</h2>
+      <h2 class="page-title">Результаты поиска по запросу «<span class="page-search__query-value">Starina</span>»</h2>
 
       <!-- Search Form Field -->
       <form action="https://echo.htmlacademy.ru" method="get" class="search__form">
         <div class="search__input-group">
           <input class="search__input" id="search-field" name="search-query" type="text" placeholder="Поиск"
-            autocomplete="off" value aria-label="Поиск по магазину" autofocus>
-          <label class="search__label" for="search-field">Я ищу...</label>
+            autocomplete="off" value="Starina" aria-label="Поиск по магазину">
+          <label class="search__label" for="search-field">Поиск</label>
         </div>
         <button class="page-search__submit" type="submit" aria-label="Начать поиск">
           <svg class="page-search__submit-svg" width="20" height="20">
@@ -136,6 +136,27 @@
         </button>
       </form>
       <!-- // Search Form Field -->
+
+      <!-- Search Results Wrapper -->
+      <div class="page-search__results">
+
+        <!-- Item -->
+        <article class="catalog__item">
+          <a class="catalog__link" href="product.html">
+            <div class="catalog__image-wrapper">
+              <img class="catalog__item-thumbnail" src="img/products/wycc-h-starina.jpg"
+                alt="Толстовка черного цвета «Не шути со Стариной»">
+            </div>
+            <h3 class="catalog__item-name">Starina</h3>
+            <strong class="catalog__item-price">
+              <span class="catalog__item-price--value">1000</span>&nbsp;&#8381;
+            </strong>
+          </a>
+        </article>
+        <!-- // Item -->
+
+      </div>
+      <!-- // Search Results Wrapper -->
 
     </section>
     <!-- // Search -->

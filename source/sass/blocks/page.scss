@@ -176,4 +176,10 @@
       display: none;
     }
   }
+
+  &--search {
+    .user-nav__item:nth-child(2) {
+      display: none;
+    }
+  }
 }
