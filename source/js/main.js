@@ -92,7 +92,7 @@ let searchBody = document.getElementById('search-pop');
 let searchClose = document.querySelector('.search__close');
 let searchField = document.getElementById('search-field');
 
-if (searchToggler) {
+if (searchBody) {
   searchToggler.addEventListener('click', function (event) {
     event.preventDefault();
     searchBody.classList.toggle('search--open');
@@ -116,7 +116,7 @@ let cartBody = document.getElementById('cart-pop');
 let cartClose = document.querySelector('.cart__close');
 let cartOverlay = document.querySelector('.cart__overlay');
 
-if (cartToggler) {
+if (cartBody) {
   cartToggler.addEventListener('click', function (event) {
     event.preventDefault();
     cartBody.classList.toggle('cart--open');
