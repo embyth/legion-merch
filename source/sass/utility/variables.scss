@@ -135,6 +135,18 @@ $font-line-height: (
   error-404-m: 1.2,
   error-404-t: 1.2,
   error-404-d: 50vh,
+  size-title-m: $line-height-20,
+  size-title-t: $line-height-22,
+  size-title-d: $line-height-24,
+  size-info-m: $line-height-22,
+  size-info-t: $line-height-24,
+  size-info-d: $line-height-26,
+  size-text-m: $line-height-22,
+  size-text-t: $line-height-24,
+  size-text-d: $line-height-26,
+  size-table-m: $line-height-20,
+  size-table-t: $line-height-22,
+  size-table-d: $line-height-24,
 );
 
 // Font Sizes
@@ -235,6 +247,21 @@ $font-sizes: (
   error-404-m: 10em,
   error-404-t: 15em,
   error-404-d: 40vh,
+  size-title-m: $font-size-14,
+  size-title-t: $font-size-16,
+  size-title-d: $font-size-18,
+  size-info-m: $font-size-16,
+  size-info-t: $font-size-16,
+  size-info-d: $font-size-18,
+  size-text-m: $font-size-14,
+  size-text-t: $font-size-14,
+  size-text-d: $font-size-16,
+  size-table-m: $font-size-12,
+  size-table-t: $font-size-14,
+  size-table-d: $font-size-16,
+  size-table-head-m: $font-size-10,
+  size-table-head-t: $font-size-12,
+  size-table-head-d: $font-size-14,
 );
 
 // Color Variables
@@ -283,6 +310,10 @@ $bg-color-button--light: $white;
 $bg-color-button--dark: $dark;
 $bg-color-footer: $white;
 $bg-color-gallery-bullet: $light-grey;
+$bg-color-size-title: $dark;
+$bg-color-size-row: $transparent;
+$bg-color-size-row--active: rgba($light-grey, 0.5);
+
 
 // Border Colors
 $border-color-separator: $dark;
@@ -293,6 +324,7 @@ $border-color-input--select: $dark;
 $border-color-input--error: $red;
 $border-color-button--light: $white;
 $border-color-button--dark: $dark;
+$border-color-size: $light-grey;
 
 // Font Colors
 $font-color-base: $dark;
@@ -317,6 +349,7 @@ $font-color-product-name: $dark;
 $font-color-product-price: $dark;
 $font-color-product-desc: $dark;
 $font-color-page-title: $dark;
+$font-color-size-title: $white;
 $font-color-error-404: $dark-grey;
 $font-color-error-404--hover: $dark-black;
 $font-color-error-text: $white;
