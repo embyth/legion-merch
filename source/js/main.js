@@ -305,6 +305,404 @@ if (passwordRestoreCaller) {
   });
 }
 
+// Size Table Product Type Switch
+let tshirtButton = document.getElementById('size-tshirt');
+let hoodieButton = document.getElementById('size-hoodie');
+let pantsButton = document.getElementById('size-pants');
+let tshirtBody = document.getElementById('tshirt-body');
+let hoodieBody = document.getElementById('hoodie-body');
+let pantsBody = document.getElementById('pants-body');
+
+if (tshirtButton) {
+  tshirtButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    hoodieButton.classList.remove('size__button--active');
+    pantsButton.classList.remove('size__button--active');
+    tshirtButton.classList.add('size__button--active');
+    hoodieBody.classList.remove('size__item--active');
+    pantsBody.classList.remove('size__item--active');
+    tshirtBody.classList.add('size__item--active');
+  });
+}
+
+if (hoodieButton) {
+  hoodieButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    pantsButton.classList.remove('size__button--active');
+    tshirtButton.classList.remove('size__button--active');
+    hoodieButton.classList.add('size__button--active');
+    pantsBody.classList.remove('size__item--active');
+    tshirtBody.classList.remove('size__item--active');
+    hoodieBody.classList.add('size__item--active');
+  });
+}
+
+if (pantsButton) {
+  pantsButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    tshirtButton.classList.remove('size__button--active');
+    hoodieButton.classList.remove('size__button--active');
+    pantsButton.classList.add('size__button--active');
+    tshirtBody.classList.remove('size__item--active');
+    hoodieBody.classList.remove('size__item--active');
+    pantsBody.classList.add('size__item--active');
+  });
+}
+
+// Size Table Size Switch
+let sizeSwitch = document.getElementById('size-switch');
+
+if (sizeSwitch) {
+
+  // Tshirt Section
+  let xsTshirtButton = document.getElementById('size-tshirt-xs');
+  let xsTshirtRow = document.getElementById('row-tshirt-xs');
+  let sTshirtButton = document.getElementById('size-tshirt-s');
+  let sTshirtRow = document.getElementById('row-tshirt-s');
+  let mTshirtButton = document.getElementById('size-tshirt-m');
+  let mTshirtRow = document.getElementById('row-tshirt-m');
+  let lTshirtButton = document.getElementById('size-tshirt-l');
+  let lTshirtRow = document.getElementById('row-tshirt-l');
+  let xlTshirtButton = document.getElementById('size-tshirt-xl');
+  let xlTshirtRow = document.getElementById('row-tshirt-xl');
+  let xxlTshirtButton = document.getElementById('size-tshirt-xxl');
+  let xxlTshirtRow = document.getElementById('row-tshirt-xxl');
+
+  xsTshirtButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    sTshirtButton.classList.remove('size__label--active');
+    mTshirtButton.classList.remove('size__label--active');
+    lTshirtButton.classList.remove('size__label--active');
+    xlTshirtButton.classList.remove('size__label--active');
+    xxlTshirtButton.classList.remove('size__label--active');
+    xsTshirtButton.classList.add('size__label--active');
+
+    sTshirtRow.classList.remove('size__table-row--active');
+    mTshirtRow.classList.remove('size__table-row--active');
+    lTshirtRow.classList.remove('size__table-row--active');
+    xlTshirtRow.classList.remove('size__table-row--active');
+    xxlTshirtRow.classList.remove('size__table-row--active');
+    xsTshirtRow.classList.add('size__table-row--active');
+  });
+
+  sTshirtButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    xsTshirtButton.classList.remove('size__label--active');
+    mTshirtButton.classList.remove('size__label--active');
+    lTshirtButton.classList.remove('size__label--active');
+    xlTshirtButton.classList.remove('size__label--active');
+    xxlTshirtButton.classList.remove('size__label--active');
+    sTshirtButton.classList.add('size__label--active');
+
+    xsTshirtRow.classList.remove('size__table-row--active');
+    mTshirtRow.classList.remove('size__table-row--active');
+    lTshirtRow.classList.remove('size__table-row--active');
+    xlTshirtRow.classList.remove('size__table-row--active');
+    xxlTshirtRow.classList.remove('size__table-row--active');
+    sTshirtRow.classList.add('size__table-row--active');
+  });
+
+  mTshirtButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    xsTshirtButton.classList.remove('size__label--active');
+    sTshirtButton.classList.remove('size__label--active');
+    lTshirtButton.classList.remove('size__label--active');
+    xlTshirtButton.classList.remove('size__label--active');
+    xxlTshirtButton.classList.remove('size__label--active');
+    mTshirtButton.classList.add('size__label--active');
+
+    xsTshirtRow.classList.remove('size__table-row--active');
+    sTshirtRow.classList.remove('size__table-row--active');
+    lTshirtRow.classList.remove('size__table-row--active');
+    xlTshirtRow.classList.remove('size__table-row--active');
+    xxlTshirtRow.classList.remove('size__table-row--active');
+    mTshirtRow.classList.add('size__table-row--active');
+  });
+
+  lTshirtButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    xsTshirtButton.classList.remove('size__label--active');
+    sTshirtButton.classList.remove('size__label--active');
+    mTshirtButton.classList.remove('size__label--active');
+    xlTshirtButton.classList.remove('size__label--active');
+    xxlTshirtButton.classList.remove('size__label--active');
+    lTshirtButton.classList.add('size__label--active');
+
+    xsTshirtRow.classList.remove('size__table-row--active');
+    sTshirtRow.classList.remove('size__table-row--active');
+    mTshirtRow.classList.remove('size__table-row--active');
+    xlTshirtRow.classList.remove('size__table-row--active');
+    xxlTshirtRow.classList.remove('size__table-row--active');
+    lTshirtRow.classList.add('size__table-row--active');
+  });
+
+  xlTshirtButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    xsTshirtButton.classList.remove('size__label--active');
+    sTshirtButton.classList.remove('size__label--active');
+    mTshirtButton.classList.remove('size__label--active');
+    lTshirtButton.classList.remove('size__label--active');
+    xxlTshirtButton.classList.remove('size__label--active');
+    xlTshirtButton.classList.add('size__label--active');
+
+    xsTshirtRow.classList.remove('size__table-row--active');
+    sTshirtRow.classList.remove('size__table-row--active');
+    mTshirtRow.classList.remove('size__table-row--active');
+    lTshirtRow.classList.remove('size__table-row--active');
+    xxlTshirtRow.classList.remove('size__table-row--active');
+    xlTshirtRow.classList.add('size__table-row--active');
+  });
+
+  xxlTshirtButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    xsTshirtButton.classList.remove('size__label--active');
+    sTshirtButton.classList.remove('size__label--active');
+    mTshirtButton.classList.remove('size__label--active');
+    lTshirtButton.classList.remove('size__label--active');
+    xlTshirtButton.classList.remove('size__label--active');
+    xxlTshirtButton.classList.add('size__label--active');
+
+    xsTshirtRow.classList.remove('size__table-row--active');
+    sTshirtRow.classList.remove('size__table-row--active');
+    mTshirtRow.classList.remove('size__table-row--active');
+    lTshirtRow.classList.remove('size__table-row--active');
+    xlTshirtRow.classList.remove('size__table-row--active');
+    xxlTshirtRow.classList.add('size__table-row--active');
+  });
+
+  // Hoodie Section
+  let xshoodieButton = document.getElementById('size-hoodie-xs');
+  let xshoodieRow = document.getElementById('row-hoodie-xs');
+  let shoodieButton = document.getElementById('size-hoodie-s');
+  let shoodieRow = document.getElementById('row-hoodie-s');
+  let mhoodieButton = document.getElementById('size-hoodie-m');
+  let mhoodieRow = document.getElementById('row-hoodie-m');
+  let lhoodieButton = document.getElementById('size-hoodie-l');
+  let lhoodieRow = document.getElementById('row-hoodie-l');
+  let xlhoodieButton = document.getElementById('size-hoodie-xl');
+  let xlhoodieRow = document.getElementById('row-hoodie-xl');
+  let xxlhoodieButton = document.getElementById('size-hoodie-xxl');
+  let xxlhoodieRow = document.getElementById('row-hoodie-xxl');
+
+  xshoodieButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    shoodieButton.classList.remove('size__label--active');
+    mhoodieButton.classList.remove('size__label--active');
+    lhoodieButton.classList.remove('size__label--active');
+    xlhoodieButton.classList.remove('size__label--active');
+    xxlhoodieButton.classList.remove('size__label--active');
+    xshoodieButton.classList.add('size__label--active');
+
+    shoodieRow.classList.remove('size__table-row--active');
+    mhoodieRow.classList.remove('size__table-row--active');
+    lhoodieRow.classList.remove('size__table-row--active');
+    xlhoodieRow.classList.remove('size__table-row--active');
+    xxlhoodieRow.classList.remove('size__table-row--active');
+    xshoodieRow.classList.add('size__table-row--active');
+  });
+
+  shoodieButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    xshoodieButton.classList.remove('size__label--active');
+    mhoodieButton.classList.remove('size__label--active');
+    lhoodieButton.classList.remove('size__label--active');
+    xlhoodieButton.classList.remove('size__label--active');
+    xxlhoodieButton.classList.remove('size__label--active');
+    shoodieButton.classList.add('size__label--active');
+
+    xshoodieRow.classList.remove('size__table-row--active');
+    mhoodieRow.classList.remove('size__table-row--active');
+    lhoodieRow.classList.remove('size__table-row--active');
+    xlhoodieRow.classList.remove('size__table-row--active');
+    xxlhoodieRow.classList.remove('size__table-row--active');
+    shoodieRow.classList.add('size__table-row--active');
+  });
+
+  mhoodieButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    xshoodieButton.classList.remove('size__label--active');
+    shoodieButton.classList.remove('size__label--active');
+    lhoodieButton.classList.remove('size__label--active');
+    xlhoodieButton.classList.remove('size__label--active');
+    xxlhoodieButton.classList.remove('size__label--active');
+    mhoodieButton.classList.add('size__label--active');
+
+    xshoodieRow.classList.remove('size__table-row--active');
+    shoodieRow.classList.remove('size__table-row--active');
+    lhoodieRow.classList.remove('size__table-row--active');
+    xlhoodieRow.classList.remove('size__table-row--active');
+    xxlhoodieRow.classList.remove('size__table-row--active');
+    mhoodieRow.classList.add('size__table-row--active');
+  });
+
+  lhoodieButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    xshoodieButton.classList.remove('size__label--active');
+    shoodieButton.classList.remove('size__label--active');
+    mhoodieButton.classList.remove('size__label--active');
+    xlhoodieButton.classList.remove('size__label--active');
+    xxlhoodieButton.classList.remove('size__label--active');
+    lhoodieButton.classList.add('size__label--active');
+
+    xshoodieRow.classList.remove('size__table-row--active');
+    shoodieRow.classList.remove('size__table-row--active');
+    mhoodieRow.classList.remove('size__table-row--active');
+    xlhoodieRow.classList.remove('size__table-row--active');
+    xxlhoodieRow.classList.remove('size__table-row--active');
+    lhoodieRow.classList.add('size__table-row--active');
+  });
+
+  xlhoodieButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    xshoodieButton.classList.remove('size__label--active');
+    shoodieButton.classList.remove('size__label--active');
+    mhoodieButton.classList.remove('size__label--active');
+    lhoodieButton.classList.remove('size__label--active');
+    xxlhoodieButton.classList.remove('size__label--active');
+    xlhoodieButton.classList.add('size__label--active');
+
+    xshoodieRow.classList.remove('size__table-row--active');
+    shoodieRow.classList.remove('size__table-row--active');
+    mhoodieRow.classList.remove('size__table-row--active');
+    lhoodieRow.classList.remove('size__table-row--active');
+    xxlhoodieRow.classList.remove('size__table-row--active');
+    xlhoodieRow.classList.add('size__table-row--active');
+  });
+
+  xxlhoodieButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    xshoodieButton.classList.remove('size__label--active');
+    shoodieButton.classList.remove('size__label--active');
+    mhoodieButton.classList.remove('size__label--active');
+    lhoodieButton.classList.remove('size__label--active');
+    xlhoodieButton.classList.remove('size__label--active');
+    xxlhoodieButton.classList.add('size__label--active');
+
+    xshoodieRow.classList.remove('size__table-row--active');
+    shoodieRow.classList.remove('size__table-row--active');
+    mhoodieRow.classList.remove('size__table-row--active');
+    lhoodieRow.classList.remove('size__table-row--active');
+    xlhoodieRow.classList.remove('size__table-row--active');
+    xxlhoodieRow.classList.add('size__table-row--active');
+  });
+
+  // Pants Section
+  let xspantsButton = document.getElementById('size-pants-xs');
+  let xspantsRow = document.getElementById('row-pants-xs');
+  let spantsButton = document.getElementById('size-pants-s');
+  let spantsRow = document.getElementById('row-pants-s');
+  let mpantsButton = document.getElementById('size-pants-m');
+  let mpantsRow = document.getElementById('row-pants-m');
+  let lpantsButton = document.getElementById('size-pants-l');
+  let lpantsRow = document.getElementById('row-pants-l');
+  let xlpantsButton = document.getElementById('size-pants-xl');
+  let xlpantsRow = document.getElementById('row-pants-xl');
+  let xxlpantsButton = document.getElementById('size-pants-xxl');
+  let xxlpantsRow = document.getElementById('row-pants-xxl');
+
+  xspantsButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    spantsButton.classList.remove('size__label--active');
+    mpantsButton.classList.remove('size__label--active');
+    lpantsButton.classList.remove('size__label--active');
+    xlpantsButton.classList.remove('size__label--active');
+    xxlpantsButton.classList.remove('size__label--active');
+    xspantsButton.classList.add('size__label--active');
+
+    spantsRow.classList.remove('size__table-row--active');
+    mpantsRow.classList.remove('size__table-row--active');
+    lpantsRow.classList.remove('size__table-row--active');
+    xlpantsRow.classList.remove('size__table-row--active');
+    xxlpantsRow.classList.remove('size__table-row--active');
+    xspantsRow.classList.add('size__table-row--active');
+  });
+
+  spantsButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    xspantsButton.classList.remove('size__label--active');
+    mpantsButton.classList.remove('size__label--active');
+    lpantsButton.classList.remove('size__label--active');
+    xlpantsButton.classList.remove('size__label--active');
+    xxlpantsButton.classList.remove('size__label--active');
+    spantsButton.classList.add('size__label--active');
+
+    xspantsRow.classList.remove('size__table-row--active');
+    mpantsRow.classList.remove('size__table-row--active');
+    lpantsRow.classList.remove('size__table-row--active');
+    xlpantsRow.classList.remove('size__table-row--active');
+    xxlpantsRow.classList.remove('size__table-row--active');
+    spantsRow.classList.add('size__table-row--active');
+  });
+
+  mpantsButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    xspantsButton.classList.remove('size__label--active');
+    spantsButton.classList.remove('size__label--active');
+    lpantsButton.classList.remove('size__label--active');
+    xlpantsButton.classList.remove('size__label--active');
+    xxlpantsButton.classList.remove('size__label--active');
+    mpantsButton.classList.add('size__label--active');
+
+    xspantsRow.classList.remove('size__table-row--active');
+    spantsRow.classList.remove('size__table-row--active');
+    lpantsRow.classList.remove('size__table-row--active');
+    xlpantsRow.classList.remove('size__table-row--active');
+    xxlpantsRow.classList.remove('size__table-row--active');
+    mpantsRow.classList.add('size__table-row--active');
+  });
+
+  lpantsButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    xspantsButton.classList.remove('size__label--active');
+    spantsButton.classList.remove('size__label--active');
+    mpantsButton.classList.remove('size__label--active');
+    xlpantsButton.classList.remove('size__label--active');
+    xxlpantsButton.classList.remove('size__label--active');
+    lpantsButton.classList.add('size__label--active');
+
+    xspantsRow.classList.remove('size__table-row--active');
+    spantsRow.classList.remove('size__table-row--active');
+    mpantsRow.classList.remove('size__table-row--active');
+    xlpantsRow.classList.remove('size__table-row--active');
+    xxlpantsRow.classList.remove('size__table-row--active');
+    lpantsRow.classList.add('size__table-row--active');
+  });
+
+  xlpantsButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    xspantsButton.classList.remove('size__label--active');
+    spantsButton.classList.remove('size__label--active');
+    mpantsButton.classList.remove('size__label--active');
+    lpantsButton.classList.remove('size__label--active');
+    xxlpantsButton.classList.remove('size__label--active');
+    xlpantsButton.classList.add('size__label--active');
+
+    xspantsRow.classList.remove('size__table-row--active');
+    spantsRow.classList.remove('size__table-row--active');
+    mpantsRow.classList.remove('size__table-row--active');
+    lpantsRow.classList.remove('size__table-row--active');
+    xxlpantsRow.classList.remove('size__table-row--active');
+    xlpantsRow.classList.add('size__table-row--active');
+  });
+
+  xxlpantsButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    xspantsButton.classList.remove('size__label--active');
+    spantsButton.classList.remove('size__label--active');
+    mpantsButton.classList.remove('size__label--active');
+    lpantsButton.classList.remove('size__label--active');
+    xlpantsButton.classList.remove('size__label--active');
+    xxlpantsButton.classList.add('size__label--active');
+
+    xspantsRow.classList.remove('size__table-row--active');
+    spantsRow.classList.remove('size__table-row--active');
+    mpantsRow.classList.remove('size__table-row--active');
+    lpantsRow.classList.remove('size__table-row--active');
+    xlpantsRow.classList.remove('size__table-row--active');
+    xxlpantsRow.classList.add('size__table-row--active');
+  });
+}
+
 // Product Images Slider
 /* eslint-disable */
 let swiper = Swiper;
