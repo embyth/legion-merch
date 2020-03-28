@@ -42,7 +42,9 @@ const
   sourcemap = require('gulp-sourcemaps'),
   lintspaces = require('gulp-lintspaces'),
   zip = require('gulp-zip'),
-  gulpif = require('gulp-if');
+  gulpif = require('gulp-if'),
+  realFavicon = require('gulp-real-favicon'),
+  fs = require('fs');
 
 // Project Settings
 
@@ -62,7 +64,8 @@ let paths = {
     images: {
       all: './source/img/',
       content: './source/img/content/',
-      icons: './source/img/icons/'
+      icons: './source/img/icons/',
+      fav: './source/img/logo/logo--favicon.svg',
     }
   },
   dest: {
@@ -72,7 +75,9 @@ let paths = {
     fonts: './build/fonts/',
     images: {
       all: './build/img/',
-      content: './build/img/content/'
+      content: './build/img/content/',
+      fav: './build/img/fav/',
+      favFiles: '/img/fav/',
     }
   },
   vendor: {
@@ -329,6 +334,104 @@ gulp.task('lintspaces', function () {
     .pipe(lintspaces.reporter());
 });
 
+// FavIcon
+// File where the favicon markups are stored
+var FAVICON_DATA_FILE = 'faviconData.json';
+
+// Generate the icons. This task takes a few seconds to complete.
+// You should run it at least once to create the icons. Then,
+// you should run it whenever RealFaviconGenerator updates its
+// package (see the check-for-favicon-update task below).
+gulp.task('generate-favicon', function (done) {
+  realFavicon.generateFavicon({
+    masterPicture: paths.src.images.fav,
+    dest: paths.dest.images.fav,
+    iconsPath: paths.dest.images.favFiles,
+    design: {
+      ios: {
+        pictureAspect: 'backgroundAndMargin',
+        backgroundColor: '#ffffff',
+        margin: '32%',
+        assets: {
+          ios6AndPriorIcons: false,
+          ios7AndLaterIcons: false,
+          precomposedIcons: false,
+          declareOnlyDefaultIcon: true
+        }
+      },
+      desktopBrowser: {
+        design: 'raw'
+      },
+      windows: {
+        pictureAspect: 'noChange',
+        backgroundColor: '#da532c',
+        onConflict: 'override',
+        assets: {
+          windows80Ie10Tile: false,
+          windows10Ie11EdgeTiles: {
+            small: false,
+            medium: true,
+            big: false,
+            rectangle: false
+          }
+        }
+      },
+      androidChrome: {
+        pictureAspect: 'noChange',
+        themeColor: '#ffffff',
+        manifest: {
+          display: 'standalone',
+          orientation: 'notSet',
+          onConflict: 'override',
+          declared: true
+        },
+        assets: {
+          legacyIcon: false,
+          lowResolutionIcons: false
+        }
+      },
+      safariPinnedTab: {
+        pictureAspect: 'silhouette',
+        themeColor: '#5bbad5'
+      }
+    },
+    settings: {
+      scalingAlgorithm: 'Mitchell',
+      errorOnImageTooSmall: false,
+      readmeFile: false,
+      htmlCodeFile: false,
+      usePathAsIs: false
+    },
+    markupFile: FAVICON_DATA_FILE
+  }, function () {
+    done();
+  });
+});
+
+// Inject the favicon markups in your HTML pages. You should run
+// this task whenever you modify a page. You can keep this task
+// as is or refactor your existing HTML pipeline.
+gulp.task('inject-favicon-markups', function () {
+  return gulp.src(paths.dest.root + '**/*.html')
+    .pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
+    .pipe(gulp.dest(paths.dest.root));
+});
+
+// Check for updates on RealFaviconGenerator (think: Apple has just
+// released a new Touch icon along with the latest version of iOS).
+// Run this task from time to time. Ideally, make it part of your
+// continuous integration system.
+gulp.task('check-for-favicon-update', function () {
+  var currentVersion = JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).version;
+  realFavicon.checkForUpdates(currentVersion, function (err) {
+    if (err) {
+      throw err;
+    }
+  });
+});
+
+gulp.task('favicon', gulp.series('generate-favicon', 'inject-favicon-markups'));
+
 // Watching files
 gulp.task('watch', function () {
   gulp.watch(paths.src.root + '*.html').on('all', gulp.series('html', browserSync.reload));
@@ -341,7 +444,7 @@ gulp.task('watch', function () {
 });
 
 // Building project
-gulp.task('build', gulp.series('clean', gulp.parallel('fonts', 'copyfonts', 'vendorstyles', 'styles', 'vendorscripts', 'scripts', 'images', 'logo', 'webp', 'svgsprite'), 'html'));
+gulp.task('build', gulp.series('clean', gulp.parallel('fonts', 'copyfonts', 'vendorstyles', 'styles', 'vendorscripts', 'scripts', 'images', 'logo', 'webp', 'svgsprite'), 'html', 'favicon'));
 
 // Building project in dev mode and starting local server
 gulp.task('default', gulp.series('build', 'server', 'watch'));
