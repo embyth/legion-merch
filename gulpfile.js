@@ -434,7 +434,7 @@ gulp.task('favicon', gulp.series('generate-favicon', 'inject-favicon-markups'));
 
 // Watching files
 gulp.task('watch', function () {
-  gulp.watch(paths.src.root + '*.html').on('all', gulp.series('html', browserSync.reload));
+  gulp.watch(paths.src.root + '*.html').on('all', gulp.series('html', 'inject-favicon-markups', browserSync.reload));
   gulp.watch(paths.src.fonts + '**/*.{ttf,woff,woff2}').on('all', gulp.series('fonts', 'copyfonts', browserSync.reload));
   gulp.watch(paths.src.scripts + '**/*.js').on('all', gulp.series('scripts', browserSync.reload));
   gulp.watch(paths.src.styles + '**/*.{sass,scss}').on('all', gulp.series('styles'));
