@@ -96,7 +96,12 @@ if (searchBody) {
   searchToggler.addEventListener('click', function (event) {
     event.preventDefault();
     searchBody.classList.toggle('search--open');
-    document.body.classList.toggle('page--no-overflow');
+
+    if (!document.body.classList.contains('page--no-overflow')) {
+      document.body.classList.add('page--no-overflow');
+    } else {
+      document.body.classList.remove('page--no-overflow');
+    }
 
     window.setTimeout(function () {
       searchField.focus();
@@ -106,7 +111,9 @@ if (searchBody) {
   searchClose.addEventListener('click', function (event) {
     event.preventDefault();
     searchBody.classList.toggle('search--open');
-    document.body.classList.toggle('page--no-overflow');
+    if (document.body.classList.contains('page--no-overflow')) {
+      document.body.classList.remove('page--no-overflow');
+    }
   });
 }
 
@@ -121,21 +128,29 @@ if (cartBody) {
     event.preventDefault();
     cartBody.classList.toggle('cart--open');
     cartOverlay.classList.toggle('cart__overlay--visible');
-    document.body.classList.toggle('page--no-overflow');
+    if (!document.body.classList.contains('page--no-overflow')) {
+      document.body.classList.add('page--no-overflow');
+    } else {
+      document.body.classList.remove('page--no-overflow');
+    }
   });
 
   cartClose.addEventListener('click', function (event) {
     event.preventDefault();
     cartBody.classList.toggle('cart--open');
     cartOverlay.classList.toggle('cart__overlay--visible');
-    document.body.classList.toggle('page--no-overflow');
+    if (document.body.classList.contains('page--no-overflow')) {
+      document.body.classList.remove('page--no-overflow');
+    }
   });
 
   cartOverlay.addEventListener('click', function (event) {
     event.preventDefault();
     cartBody.classList.toggle('cart--open');
     cartOverlay.classList.toggle('cart__overlay--visible');
-    document.body.classList.toggle('page--no-overflow');
+    if (document.body.classList.contains('page--no-overflow')) {
+      document.body.classList.remove('page--no-overflow');
+    }
   });
 
   if (document.body.classList.contains('page--inner')) {
@@ -157,7 +172,11 @@ if (menuButton) {
     menuBody.classList.toggle('site-nav--open');
     menuOverlay.classList.toggle('site-nav__overlay--visible');
     menuButton.classList.toggle('menu-toggler--opened');
-    document.body.classList.toggle('page--no-overflow');
+    if (!document.body.classList.contains('page--no-overflow')) {
+      document.body.classList.add('page--no-overflow');
+    } else {
+      document.body.classList.remove('page--no-overflow');
+    }
   });
 
   menuOverlay.addEventListener('click', function (event) {
@@ -165,7 +184,9 @@ if (menuButton) {
     menuButton.classList.toggle('menu-toggler--opened');
     menuBody.classList.toggle('site-nav--open');
     menuOverlay.classList.toggle('site-nav__overlay--visible');
-    document.body.classList.toggle('page--no-overflow');
+    if (document.body.classList.contains('page--no-overflow')) {
+      document.body.classList.remove('page--no-overflow');
+    }
   });
 
   if (menuClose) {
@@ -174,7 +195,9 @@ if (menuButton) {
       menuButton.classList.toggle('menu-toggler--opened');
       menuBody.classList.toggle('site-nav--open');
       menuOverlay.classList.toggle('site-nav__overlay--visible');
-      document.body.classList.toggle('page--no-overflow');
+      if (document.body.classList.contains('page--no-overflow')) {
+        document.body.classList.remove('page--no-overflow');
+      }
     });
   }
 
@@ -224,6 +247,22 @@ if (selectField) {
     }
   });
 }
+
+// Select Disable Text Adder
+let sizeOptions = document.querySelector('.product__size');
+
+if (sizeOptions) {
+  sizeOptions = sizeOptions.getElementsByTagName('option');
+
+  Array.prototype.forEach.call(sizeOptions, function (option) {
+    if (option.disabled) {
+      let optionText = option.textContent;
+      option.textContent = optionText + ' - Распродано';
+      return;
+    }
+  });
+}
+
 
 // TextArea Auto Hieght Setter
 let messageField = document.getElementById('user-message');
