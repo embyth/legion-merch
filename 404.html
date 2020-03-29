@@ -1,0 +1,28 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="css/normalize.min.css"><link rel="stylesheet" href="css/style.min.css"><title>404 – LEGION</title><link rel="apple-touch-icon" sizes="180x180" href="/img/fav/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/fav/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/fav/favicon-16x16.png">
+<link rel="manifest" href="/img/fav/site.webmanifest">
+<link rel="mask-icon" href="/img/fav/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/img/fav/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/img/fav/mstile-144x144.png">
+<meta name="msapplication-config" content="/img/fav/browserconfig.xml">
+<meta name="theme-color" content="#ffffff"></head><body class="page page--404 page--no-js preload"><h1 class="visually-hidden">Страницу не найдено</h1><section class="error"><p class="error__subtitle">Упс, похоже здесь ничего нету!</p><h2 class="error__title"><p>404</p>404</h2><div class="error__buttons"><a href="index.html" class="button button--secondary button--glitch">Главная</a><a href="catalog.html" class="button button--secondary button--glitch">Каталог</a></div></section><script>const title = document.querySelector('.error__title')
+    // Inner Text Light
+    document.onmousemove = function (e) {
+      let x = e.pageX - window.innerWidth / 2;
+      let y = e.pageY - window.innerHeight / 2;
+      title.style.setProperty('--x', x + 'px')
+      title.style.setProperty('--y', y + 'px')
+    }
+    // Outer Text Shadow
+    title.onmousemove = function (e) {
+      let x = e.pageX - window.innerWidth / 2;
+      let y = e.pageY - window.innerHeight / 2;
+      let rad = Math.atan2(y, x).toFixed(2);
+      let length = Math.round(Math.sqrt((Math.pow(x, 2)) + (Math.pow(y, 2))) / 10);
+      let x_shadow = Math.round(length * Math.cos(rad));
+      let y_shadow = Math.round(length * Math.sin(rad));
+      title.style.setProperty('--x-shadow', - x_shadow + 'px')
+      title.style.setProperty('--y-shadow', - y_shadow + 'px')
+    }</script><script src="js/svg4everybody.min.js"></script><script src="js/main.min.js"></script></body></html>
