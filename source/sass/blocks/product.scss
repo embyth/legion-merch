@@ -196,6 +196,10 @@
   option {
     color: $font-color-input--select;
     background: $bg-color-input--select;
+
+    &:disabled {
+      color: rgba($font-color-input--select, 0.3);
+    }
   }
 
   &:hover,
