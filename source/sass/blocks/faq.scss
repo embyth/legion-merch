@@ -1,0 +1,113 @@
+.faq__list {
+  @include list-reset;
+
+  width: 100%;
+
+  @media ($desktop) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+.faq__item {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  margin-bottom: 20px;
+
+  a {
+    @include link;
+
+    color: $font-color-link;
+
+    &::after {
+      transform: scaleX(0.15);
+    }
+  }
+}
+
+.faq__question {
+  background: none;
+  border: none;
+  border-radius: 0;
+  text-align: left;
+  cursor: pointer;
+  padding: 10px 30px 10px 0;
+  margin: 0;
+  display: block;
+  appearance: none;
+  position: relative;
+  border-bottom: 1px solid $border-color-button--dark;
+  font-size: font-size(faq-question-m);
+  line-height: font-lh(faq-question-m);
+  font-weight: font-weight(light);
+
+  &:hover,
+  &:focus {
+    outline: none;
+    font-weight: font-weight(regular);
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) rotate(-180deg);
+    width: 15px;
+    height: 1px;
+    background-color: $dark;
+    transition: transform 0.3s ease;
+  }
+
+  &::after {
+    transform: translateY(-50%) rotate(-90deg);
+  }
+
+  @media ($tablet) {
+    font-size: font-size(faq-question-t);
+    line-height: font-lh(faq-question-t);
+  }
+
+  @media ($desktop) {
+    font-size: font-size(faq-question-d);
+    line-height: font-lh(faq-question-d);
+  }
+}
+
+.faq__answer {
+  max-height: 0;
+  box-sizing: content-box;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0;
+  margin: 0;
+  font-size: font-size(faq-answer-m);
+  line-height: font-lh(faq-answer-m);
+  font-weight: font-weight(regular);
+
+  @media ($tablet) {
+    font-size: font-size(faq-answer-t);
+    line-height: font-lh(faq-answer-t);
+  }
+
+  @media ($desktop) {
+    font-size: font-size(faq-answer-d);
+    line-height: font-lh(faq-answer-d);
+  }
+}
+
+.faq__item--active {
+  .faq__question {
+    &::before,
+    &::after {
+      transform: translateY(-50%) rotate(0);
+    }
+  }
+
+  .faq__answer {
+    max-height: var(--height);
+    padding: 10px 0;
+  }
+}

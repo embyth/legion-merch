@@ -147,6 +147,12 @@ $font-line-height: (
   size-table-m: $line-height-20,
   size-table-t: $line-height-22,
   size-table-d: $line-height-24,
+  faq-question-m: $line-height-22,
+  faq-question-t: $line-height-22,
+  faq-question-d: $line-height-26,
+  faq-answer-m: $line-height-22,
+  faq-answer-t: $line-height-22,
+  faq-answer-d: $line-height-24,
 );
 
 // Font Sizes
@@ -262,6 +268,12 @@ $font-sizes: (
   size-table-head-m: $font-size-10,
   size-table-head-t: $font-size-12,
   size-table-head-d: $font-size-14,
+  faq-question-m: $font-size-16,
+  faq-question-t: $font-size-16,
+  faq-question-d: $font-size-18,
+  faq-answer-m: $font-size-14,
+  faq-answer-t: $font-size-14,
+  faq-answer-d: $font-size-16,
 );
 
 // Color Variables

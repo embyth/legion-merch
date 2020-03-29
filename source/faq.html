@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+  <title>FAQs – LEGION</title>
+</head>
+
+<body class="page page--inner page--customer-care page--no-js preload">
+
+  <!-- Site Header -->
+  <header class="site-header" id="site-header">
+    <div class="site-header__inner">
+
+      <!-- Site Logo -->
+      <div class="site-header__logo">
+        <a class="site-header__logo-link" href="index.html" aria-label="На главную страницу">
+          <include src="build/img/logo/logo.svg"></include>
+        </a>
+      </div>
+      <!-- // Site Logo -->
+
+      <!-- User Navigation -->
+      <nav class="user-nav">
+        <ul class="user-nav__list">
+          <li class="user-nav__item">
+            <button class="user-nav__button user-nav__button--cart" type="button" title="Корзина"
+              aria-label="Показать корзину">
+              <svg class="user-nav__svg" width="20" height="20">
+                <use xlink:href="img/sprite.svg#icon-bag"></use>
+              </svg>
+            </button>
+          </li>
+          <li class="user-nav__item">
+            <button class="user-nav__button user-nav__button--search" type="button" title="Поиск"
+              aria-label="Открыть окно поиска">
+              <svg class="user-nav__svg" width="20" height="20">
+                <use xlink:href="img/sprite.svg#icon-search"></use>
+              </svg>
+            </button>
+          </li>
+          <li class="user-nav__item user-nav__item--profile">
+            <a class="user-nav__button" href="profile.html" title="Профиль" aria-label="Перейти в свой профиль">
+              <svg class="user-nav__svg" width="20" height="20">
+                <use xlink:href="img/sprite.svg#icon-account"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="user-nav__item user-nav__item--hamburger">
+            <button class="user-nav__button user-nav__button--menu hamburger menu-toggler" type="button" title="Меню"
+              aria-label="Показать меню">
+              <span class="hamburger--bar"></span>
+              <span class="hamburger--bar"></span>
+              <span class="hamburger--bar"></span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <!-- // User Navigation -->
+    </div>
+  </header>
+  <!-- // Site Header -->
+
+  <!-- Main Navigation Bar -->
+  <div class="overlay site-nav__overlay"></div>
+  <aside class="site-nav" id="site-nav">
+    <div class="site-nav__inner">
+
+      <!-- Navigation Links -->
+      <nav class="site-nav__menu">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a href="catalog.html" class="site-nav__item-link">Новинки</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="catalog.html" class="site-nav__item-link">Футболки</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="catalog.html" class="site-nav__item-link">Худи</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="catalog.html" class="site-nav__item-link">Аксессуары</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="catalog.html" class="site-nav__item-link">Подарочные карты</a>
+          </li>
+          <li class="site-nav__item site-nav__item--spacer">
+            <a href="catalog.html" class="site-nav__item-link">Коллекции</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="search.html" class="site-nav__item-link">Поиск</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="cart.html" class="site-nav__item-link">Корзина</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="login.html" class="site-nav__item-link">Войти&nbsp;/&nbsp;Регистрация</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="contact.html" class="site-nav__item-link">Клиентам</a>
+            <ul class="site-nav__client-list">
+              <li class="site-nav__client-item">
+                <a href="contact.html" class="site-nav__item-link">Связь с нами</a>
+              </li>
+              <li class="site-nav__client-item">
+                <a href="delivery.html" class="site-nav__item-link">Доставка&nbsp;&amp;&nbsp;Возврат</a>
+              </li>
+              <li class="site-nav__client-item">
+                <a href="size-tables.html" class="site-nav__item-link">Таблица размеров</a>
+              </li>
+              <li class="site-nav__client-item">
+                <a class="site-nav__item-link">FAQ</a>
+              </li>
+              <li class="site-nav__client-item">
+                <a href="public-offer.html" class="site-nav__item-link">Публичная оферта</a>
+              </li>
+            </ul>
+          </li>
+          <li class="site-nav__item">
+            <a href="about.html" class="site-nav__item-link">О нас</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- // Navigation Links -->
+
+    </div>
+  </aside>
+  <!-- // Main Navigation Bar -->
+
+  <!-- Main Content -->
+  <main class="main-content" id="main-content">
+
+    <h1 class="visually-hidden">Часто задаваемые вопросы интернет-магазина Legion</h1>
+
+    <!-- FAQ -->
+    <section class="faq">
+      <h2 class="page-title">FAQs</h2>
+
+      <ul class="faq__list">
+        <li class="faq__item">
+          <button class="faq__question" type="button" aria-expanded="false">Какие способы оплаты вы принимаете?</button>
+          <p class="faq__answer" aria-hidden="true">Мы принимаем следующие платежи:<br>
+            <b>Qiwi</b><br>
+            <b>WebMoney</b><br>
+            <b>Yandex.Money</b><br>
+            <b>Все основные кредитные и дебетовые карты.</b><br>
+            Цены, указанные в нашем интернет-магазине, указаны в рублях. Ваш банк или компания, выпускающая кредитные
+            карты, конвертирует сумму в местную валюту, если вы живете за пределами России. Мы используем безопасный
+            сервер, чтобы ваши платежные данные оставались в безопасности.<br>
+            Мы также принимаем подарочные карты Visa, но вам нужно будет зарегистрировать свою карту, прежде чем
+            покупать онлайн.<br>
+            Мы не принимаем платежи чеком или почтовым переводом.
+          </p>
+        </li>
+        <li class="faq__item">
+          <button class="faq__question" type="button" aria-expanded="false">У меня есть проблемы с оформлением
+            заказа</button>
+          <p class="faq__answer" aria-hidden="true">Если вы получаете сообщение об ошибке во время оплаты, убедитесь,
+            что вы используете последнюю версию своего веб-браузера. Если вы продолжаете получать сообщения об ошибках,
+            обратитесь в службу поддержки клиентов <a href="contact.html">здесь</a>.</p>
+        </li>
+        <li class="faq__item">
+          <button class="faq__question" type="button" aria-expanded="false">Когда появиться (название) вещь?</button>
+          <p class="faq__answer" aria-hidden="true">Чтобы сохранить LEGION уникальным, все наши продукты выпущены
+            ограниченным тиражом. Если вы ищете предыдущий товар, который сейчас распродан на нашем сайте, мы иногда на
+            нашем складе обнаруживаем скрытые драгоценности, которые продаем в нашем профиле <a
+              href="https://t.me/legionco" target="_blank">Telegram</a>.
+            К сожалению, эти распроданные товары не будут пополняться на веб-сайте или в магазинах.
+
+            Обязательно подпишитесь на нас в Telegram, VK или подпишитесь на нашу рассылку, чтобы первыми увидеть наши
+            новые продукты.</p>
+        </li>
+        <li class="faq__item">
+          <button class="faq__question" type="button" aria-expanded="false">Могу ли я сделать дизайн для ваших
+            вещей?</button>
+          <p class="faq__answer" aria-hidden="true">Большая часть наших художественных работ создается нами, однако мы
+            иногда используем дизайнеров-фрилансеров в наших моделях. Если вы хотите представить какую-либо работу на
+            рассмотрение, отправьте электронное письмо <a href="contact.html" target="_blank">здесь</a>. Пожалуйста,
+            включите ссылку на онлайн-портфолио, и мы свяжемся с вами. Любые дизайнерские возможности будут
+            рекламироваться на нашем сайте.</p>
+        </li>
+        <li class="faq__item">
+          <button class="faq__question" type="button" aria-expanded="false">Какие ваши заводские условия?</button>
+          <p class="faq__answer" aria-hidden="true">В Legion мы тесно сотрудничаем с нашими поставщиками, которые
+            постоянно стремятся к тому, чтобы вся наша продукция производилась на заводах с самыми высокими стандартами
+            условий труда. Их команды по обеспечению соответствия регулярно посещают фабрики, чтобы обеспечить
+            соблюдение и совершенствование международных стандартов, включая Oeko-tex и WRAP.</p>
+        </li>
+        <li class="faq__item">
+          <button class="faq__question" type="button" aria-expanded="false">Как получить у вас работу?</button>
+          <p class="faq__answer" aria-hidden="true">В настоящее время у нас нет свободных вакансий в Legion. Доступные
+            вакансии будут размещены на нашем сайте.</p>
+        </li>
+        <li class="faq__item">
+          <button class="faq__question" type="button" aria-expanded="false">Какая у вас валютная конвертация?</button>
+          <p class="faq__answer" aria-hidden="true">Все цены на нашем сайте, указаны в рублях. Банк,
+            выпустивший вашу кредитную карту, определяет точный курс обмена, с которого вы будете платить, но в целом он
+            должен соответствовать текущему курсу. Чтобы получить оценку текущего курса, перейдите по ссылке ниже:
+            <br>
+            <br>
+            <a href="https://cuex.com/ru" target="_blank">Cuex</a>
+            (Это приблизительная оценка, которая не находится под нашим контролем, поэтому это не гарантированные
+            тарифы)
+          </p>
+        </li>
+        <li class="faq__item">
+          <button class="faq__question" type="button" aria-expanded="false">Могу ли я размещать ваши вещи в моем
+            магазине?</button>
+          <p class="faq__answer" aria-hidden="true">
+            К сожалению, мы не поставляем нашу продукцию оптом.
+          </p>
+        </li>
+      </ul>
+
+    </section>
+    <!-- // FAQ -->
+
+  </main>
+  <!-- // Main Content -->
+
+  <!-- Site Footer -->
+  <footer class="site-footer" id="site-footer">
+    <p class="site-footer__copyright">
+      <span class="site-footer__copyright--symbol">&copy;</span>&nbsp;<span
+        class="site-footer__copyright--year">2020</span>&nbsp;Legion&nbsp;Merch
+    </p>
+    <div class="site-footer__socials socials">
+      <ul class="socials__list">
+        <li class="socials__item">
+          <a class="socials__link" href="https://instagram.com/legionco" target="_blank" title="Instagram"
+            aria-label="Наш профиль в инстаграм">
+            <svg class="socials__svg" width="20" height="20">
+              <use xlink:href="img/sprite.svg#icon-instagram"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="socials__item">
+          <a class="socials__link" href="https://vk.com/legionco" target="_blank" title="VK"
+            aria-label="Наша страница во вконтакте">
+            <svg class="socials__svg" width="20" height="20">
+              <use xlink:href="img/sprite.svg#icon-vk"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="socials__item">
+          <a class="socials__link" href="https://t.me/legionco" target="_blank" title="Telegram"
+            aria-label="Наш канал в телеграм">
+            <svg class="socials__svg" width="20" height="20">
+              <use xlink:href="img/sprite.svg#icon-telegram"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="socials__item">
+          <a class="socials__link" href="https://youtube.com/wycc220" target="_blank" title="YouTube"
+            aria-label="Наш канал на ютьюб">
+            <svg class="socials__svg" width="20" height="20">
+              <use xlink:href="img/sprite.svg#icon-youtube"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="site-footer__developer">
+      <span class="site-footer__developer-text">Developer</span>
+      <ul class="site-footer__developer-list">
+        <li class="site-footer__developer-item">
+          <a class="site-footer__developer-link" href="https://github.com/embyth" title="GitHub"
+            aria-label="ГитХаб разработчика" target="_blank">
+            <svg class="site-footer__developer-svg" width="20" height="20">
+              <use xlink:href="img/sprite.svg#icon-github"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="site-footer__developer-item">
+          <a class="site-footer__developer-link" href="https://t.me/embyth" title="Telegram"
+            aria-label="Телеграм разработчика" target="_blank">
+            <svg class="site-footer__developer-svg" width="20" height="20">
+              <use xlink:href="img/sprite.svg#icon-telegram"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+  <!-- // Site Footer -->
+
+  <!-- Search Pop-Up -->
+  <div class="search" id="search-pop">
+    <div class="search__inner">
+      <form action="https://echo.htmlacademy.ru" method="get" class="search__form">
+        <div class="search__input-group">
+          <input class="search__input" id="search-field" name="search-query" type="text" placeholder="Поиск"
+            autocomplete="off" value aria-label="Поиск по магазину">
+          <label class="search__label" for="search-field">Поиск</label>
+        </div>
+      </form>
+      <button class="search__close" type="button">
+        Закрыть окно поиска
+      </button>
+    </div>
+  </div>
+  <!-- // Search Pop-Up -->
+
+  <!-- Cart Block -->
+  <div class="overlay cart__overlay"></div>
+  <div class="cart" id="cart-pop">
+    <!-- class 'cart--empty' if cart is empty -->
+    <div class="cart__inner">
+
+      <!-- Cart Header -->
+      <header class="cart__header">
+        <button class="cart__close" type="button" aria-label="Скрыть корзину"></button>
+        <p class="cart__item-quantity">
+          <span class="cart__item-quantity--empty">пусто</span>
+          <small class="cart__item-quantity--fill"><span class="cart__item-quantity--value">2</span>
+            &nbsp;вещи</small>
+        </p>
+      </header>
+      <!-- // Cart Header -->
+
+      <!-- Cart Items List -->
+      <ul class="cart__list">
+
+        <!-- If Cart is Empty -->
+        <li class="cart__item cart__item--empty">
+          <p class="cart__info-empty">
+            Корзина пуста!<br>
+            <a class="cart__info-empty--link" href="catalog.html">Самое время начать покупки</a>
+          </p>
+        </li>
+        <!-- // If Cart is Empty -->
+
+        <li class="cart__item">
+          <div class="cart__image-wrapper">
+            <a class="cart__image-link" href="product.html">
+              <img class="cart__image" src="img/products/wycc-h-starina.jpg" alt="Худи черного цвета «Starina»">
+            </a>
+          </div>
+          <div class="cart__item-info">
+            <h3 class="cart__item-name">
+              <a class="cart__item-link" href="product.html">Starina</a>
+            </h3>
+            <p class="cart__item-description">
+              Размер:&nbsp;<span class="cart__item-size--value">Large</span><br>
+              Количество:&nbsp;<span class="cart__item-quantity--value">1</span><br>
+              Цена:&nbsp;<span class="cart__item-price--value">1000.00</span>&nbsp;&#8381;
+            </p>
+            <button class="cart__item-remove" type="button" aria-label="Убрать из корзины">Убрать</button>
+          </div>
+        </li>
+
+        <li class="cart__item">
+          <div class="cart__image-wrapper">
+            <a class="cart__image-link" href="product.html">
+              <img class="cart__image" src="img/products/beast-t-front.jpg"
+                alt="Футболка черного цвета «Dont Make Me Beast»">
+            </a>
+          </div>
+          <div class="cart__item-info">
+            <h3 class="cart__item-name">
+              <a class="cart__item-link" href="product.html">Dont make me beast</a>
+            </h3>
+            <p class="cart__item-description">
+              Размер:&nbsp;<span class="cart__item-size--value">X-Large</span><br>
+              Количество:&nbsp;<span class="cart__item-quantity--value">1</span><br>
+              Цена:&nbsp;<span class="cart__item-price--value">1500.00</span>&nbsp;&#8381;
+            </p>
+            <button class="cart__item-remove" type="button" aria-label="Убрать из корзины">Убрать</button>
+          </div>
+        </li>
+      </ul>
+      <!-- // Cart Items List -->
+
+      <!-- Cart Footer -->
+      <footer class="cart__footer">
+        <p class="cart__footer-total">
+          Всего&nbsp;|&nbsp;<span class="cart__footer-total--value">2500.00</span>
+          &nbsp;руб
+        </p>
+        <div class="cart__footer-buttons">
+          <a class="cart__footer-link" href="cart.html" aria-label="Перейти на страницу корзины">В&nbsp;корзину</a>
+          <a class="cart__footer-link" href="404.html"
+            aria-label="Перейти на страницу оформления заказа">Оформить&nbsp;<br>заказ</a>
+        </div>
+      </footer>
+      <!-- // Cart Footer -->
+    </div>
+  </div>
+  <!-- // Cart Block -->
+
+  <!-- Answers Trigger Script (do not remove) -->
+  <script>
+    let faq = document.querySelector('.faq');
+    let items = faq.querySelectorAll('.faq__item');
+    let buttons = faq.querySelectorAll('.faq__question');
+    let answers = faq.querySelectorAll('.faq__answer');
+
+    Array.prototype.forEach.call(answers, function (el) {
+      let thisHeight = el.scrollHeight;
+      el.style.setProperty('--height', thisHeight + 'px');
+    });
+
+    window.addEventListener('resize', function () {
+      Array.prototype.forEach.call(answers, function (el) {
+        let thisHeight = el.scrollHeight;
+        el.style.setProperty('--height', thisHeight + 'px');
+      });
+    })
+
+    function toggleAccordion() {
+      let thisItem = this.parentNode;
+
+      items.forEach(item => {
+        if (thisItem == item) {
+          // if this item is equal to the clicked item, open it.
+          thisItem.classList.toggle('faq__item--active');
+          if (thisItem.classList.contains('faq__item--active')) {
+            thisItem.querySelector('.faq__question').setAttribute('aria-expanded', 'true');
+            thisItem.querySelector('.faq__answer').setAttribute('aria-hidden', 'false');
+          } else {
+            thisItem.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
+            thisItem.querySelector('.faq__answer').setAttribute('aria-hidden', 'true');
+          }
+          return;
+        }
+        // otherwise, remove the open class
+        item.classList.remove('faq__item--active');
+      });
+    }
+
+    buttons.forEach(button => button.addEventListener('click', toggleAccordion));
+  </script>
+  <!-- // Answers Trigger Script -->
+
+  <script src="js/svg4everybody.min.js"></script>
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>
