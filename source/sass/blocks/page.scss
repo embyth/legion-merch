@@ -209,7 +209,7 @@
         }
 
         @media ($desktop) {
-          margin-bottom: 50px;
+          margin-bottom: 40px;
         }
       }
 
@@ -219,11 +219,12 @@
         font-weight: font-weight(regular);
         line-height: font-lh(page-subtitle-m);
         color: $font-color-page-title;
-        margin: 40px 0 20px;
+        margin: 20px 0 20px;
 
         @media ($tablet) {
           font-size: font-size(page-subtitle-t);
           line-height: font-lh(page-subtitle-t);
+          margin: 30px 0 20px;
         }
       }
 
