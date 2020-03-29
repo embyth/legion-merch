@@ -14,7 +14,9 @@
   }
 }
 
-.size__buttons {
+.size__product-type-switchers {
+  @include list-reset;
+
   width: 100%;
   display: flex;
   flex-flow: column nowrap;
@@ -32,13 +34,22 @@
   }
 }
 
-.size__button {
+.size__switch-wrapper {
   width: 100%;
   margin-bottom: 15px;
 
   &:last-child {
     margin-bottom: 0;
   }
+
+  @media ($tablet) {
+    width: 30%;
+    margin-bottom: 0;
+  }
+}
+
+.size__button {
+  width: 100%;
 
   &--active {
     background-color: $bg-color-button--dark;
@@ -55,11 +66,6 @@
         animation: none;
       }
     }
-  }
-
-  @media ($tablet) {
-    width: 30%;
-    margin-bottom: 0;
   }
 }
 

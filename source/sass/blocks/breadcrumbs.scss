@@ -28,6 +28,9 @@
   }
 
   @media ($tablet) {
+    font-size: font-size(breadcrumbs-t);
+    line-height: font-lh(breadcrumbs-t);
+
     &::after {
       content: "/";
     }
