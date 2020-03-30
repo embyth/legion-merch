@@ -2,39 +2,75 @@
   width: 100%;
   height: 100vh;
   z-index: 0;
-  background-image: url("../img/legion-bg-mobile.jpg");
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
   position: fixed;
   top: 0;
   left: 0;
 
-  @media ($tablet) {
-    background-image: url("../img/legion-bg-tablet.jpg");
+  &--slide1 {
+    background-image: url("../img/legion-bg-mobile.jpg");
+
+    @media ($tablet) {
+      background-image: url("../img/legion-bg-tablet.jpg");
+    }
+
+    @media ($desktop) {
+      background-image: url("../img/legion-bg-desktop.jpg");
+    }
   }
 
-  @media ($desktop) {
-    background-image: url("../img/legion-bg-desktop.jpg");
+  &--slide2 {
+    @media ($desktop) {
+      background-image: url("../img/legion-bg-desktop2.jpg");
+    }
   }
 
-  // &::before {
-  //   content: "";
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 100%;
-  //   background-image: url("../img/overlay_pattern.png");
-  // }
+  &--slide3 {
+    @media ($desktop) {
+      background-image: url("../img/legion-bg-desktop3.jpg");
+    }
+  }
 
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+  &--slide4 {
+    @media ($desktop) {
+      background-image: url("../img/legion-bg-desktop4.jpg");
+    }
+  }
+
+  &--slide5 {
+    @media ($desktop) {
+      background-image: url("../img/legion-bg-desktop5.jpg");
+    }
+  }
+
+  &--slide6 {
+    @media ($desktop) {
+      background-image: url("../img/legion-bg-desktop6.jpg");
+    }
+  }
+
+  .swiper-slide {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    // &::before {
+    //   content: "";
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   width: 100%;
+    //   height: 100%;
+    //   background-image: url("../img/overlay_pattern.png");
+    // }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
   }
 }
