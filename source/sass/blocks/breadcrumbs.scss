@@ -18,7 +18,7 @@
   display: inline-block;
 
   &::after {
-    content: "/\2002";
+    content: "\2002/\2002";
   }
 
   &:last-child {
@@ -32,7 +32,7 @@
     line-height: font-lh(breadcrumbs-t);
 
     &::after {
-      content: "/";
+      content: "\2002/\2002";
     }
   }
 
