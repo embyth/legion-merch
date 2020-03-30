@@ -5,6 +5,7 @@
 Legion Web Store 
 
 Author: [Rostyslav Miniukov](https://github.com/embyth/)
+[Project Demo](https://embyth.github.io/legion-merch/)
 
 ---
 
@@ -39,7 +40,7 @@ Author: [Rostyslav Miniukov](https://github.com/embyth/)
 └── README.md         # project documents
 ```
 
-[travis-image]: https://travis-ci.org/embyth/startup-gulp-template.svg?branch=master
-[travis-url]: https://travis-ci.org/embyth/startup-gulp-template
-[dependency-image]: https://david-dm.org/embyth/startup-gulp-template/dev-status.svg?style=flat-square
-[dependency-url]: https://david-dm.org/embyth/startup-gulp-template?type=dev
+[travis-image]: https://travis-ci.org/embyth/legion-merch.svg?branch=master
+[travis-url]: https://travis-ci.org/embyth/legion-merch
+[dependency-image]: https://david-dm.org/embyth/legion-merch/dev-status.svg?style=flat-square
+[dependency-url]: https://david-dm.org/embyth/legion-merch?type=dev
