@@ -839,6 +839,10 @@ function swiperIndex() {
           nextEl: '.bg-controls__button--next',
           prevEl: '.bg-controls__button--prev',
         },
+        a11y: {
+          prevSlideMessage: 'Предыдущее фото',
+          nextSlideMessage: 'Следующие фото',
+        },
       });
     }
   }
