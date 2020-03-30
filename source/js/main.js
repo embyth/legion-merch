@@ -742,6 +742,16 @@ if (sizeSwitch) {
   });
 }
 
+// Remove Hover Event After Click
+let controlButtons = document.querySelectorAll('.bg-controls__button');
+
+Array.prototype.forEach.call(controlButtons, function (button) {
+  button.addEventListener('mouseout', function () {
+    button.blur();
+  });
+  return;
+});
+
 // Product Images Slider
 /* eslint-disable */
 let swiper = Swiper;
@@ -805,5 +815,49 @@ window.addEventListener('load', function () {
 window.addEventListener('resize', function () {
   swiperMode();
 });
+
+// Index Page Images Background Showcase
+let isIndex = document.querySelector('.page--front');
+
+function swiperIndex() {
+  let desktopOnly = window.matchMedia('(min-width: 1366px)');
+  let initIndex = false;
+
+  if (desktopOnly.matches) {
+    if (!initIndex) {
+      initIndex = true;
+      swiper = new Swiper('.swiper-container', {
+        loop: true,
+        direction: 'vertical',
+        slidesPerView: 1,
+        speed: 700,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        navigation: {
+          nextEl: '.bg-controls__button--next',
+          prevEl: '.bg-controls__button--prev',
+        },
+      });
+    }
+  }
+}
+
+
+// On Load
+window.addEventListener('load', function () {
+  if (isIndex) {
+    swiperIndex();
+  }
+});
+
+// On Resize
+window.addEventListener('resize', function () {
+  if (isIndex) {
+    swiperIndex();
+  }
+});
+
 
 /* eslint-enable */
