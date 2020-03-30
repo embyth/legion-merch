@@ -5,6 +5,7 @@
 Legion Web Store 
 
 Author: [Rostyslav Miniukov](https://github.com/embyth/)
+
 [Project Demo](https://embyth.github.io/legion-merch/)
 
 ---
