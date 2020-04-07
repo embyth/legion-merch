@@ -2,6 +2,9 @@
   "extends": [
     "stylelint-config-standard"
   ],
+  "ignoreFiles": [
+    "source/**/*.html"
+  ],
   "rules": {
     "color-hex-case": "lower",
     "color-hex-length": "long",
