@@ -3,8 +3,9 @@
   height: 100vh;
   margin: 0 auto;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 999;
 
   @include svgGlitchMobile("legion-logo", 30, none, none, white, lime, magenta, aqua, 510px, auto);
@@ -34,4 +35,69 @@
       animation: dash 10s linear forwards;
     }
   }
+}
+
+.loading {
+  position: fixed;
+  top: calc(50% + 60px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0;
+  line-height: 0;
+  z-index: 999;
+
+  svg {
+    fill: $bg-color-svg--index;
+    // animation: loading-text 1.2s infinite 0s ease-in-out;
+    // animation-direction: alternate;
+    width: 60px;
+    height: auto;
+  }
+
+  @media ($tablet) {
+    top: calc(50% + 100px);
+
+    svg {
+      width: 100px;
+    }
+  }
+
+  @media ($desktop) {
+    top: calc(50% + 150px);
+  }
+}
+
+.lt-l {
+  opacity: 0;
+  animation: ld-in 3s 0s ease infinite;
+}
+
+.lt-o {
+  opacity: 0;
+  animation: ld-in 3s 0.1s ease infinite;
+}
+
+.lt-a {
+  opacity: 0;
+  animation: ld-in 3s 0.2s ease infinite;
+}
+
+.lt-d {
+  opacity: 0;
+  animation: ld-in 3s 0.3s ease infinite;
+}
+
+.lt-i {
+  opacity: 0;
+  animation: ld-in 3s 0.4s ease infinite;
+}
+
+.lt-n {
+  opacity: 0;
+  animation: ld-in 3s 0.5s ease infinite;
+}
+
+.lt-g {
+  opacity: 0;
+  animation: ld-in 3s 0.6s ease infinite;
 }
