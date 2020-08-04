@@ -413,16 +413,20 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
         document.querySelector('.loader').style.backgroundColor = "#000";
         showLoading = setTimeout(function () {
           animDone = true;
-          document.querySelector('.loading').style.cssText = "transition: all 1.5s ease; visibility: visible; opacity: 1;";
+          document.querySelector('.loading').style.cssText =
+            "transition: all 1.5s ease; visibility: visible; opacity: 1;";
         }, animTime);
       } else if (state == 'complete') {
         if (animDone) {
-          document.querySelector('.loader').style.cssText = "transition: all 1.5s ease, width 0s 1.5s; background-color: transparent; z-index: 1; width: 0;";
-          document.querySelector('.loading').style.cssText = "transition: all 0.8s ease; opacity: 0; visibility: hidden;";
+          document.querySelector('.loader').style.cssText =
+            "transition: all 1.5s ease, width 0s 1.5s; background-color: transparent; z-index: 1; width: 0;";
+          document.querySelector('.loading').style.cssText =
+            "transition: all 0.8s ease; opacity: 0; visibility: hidden;";
         } else {
           clearTimeout(showLoading);
           setTimeout(function () {
-            document.querySelector('.loader').style.cssText = "transition: all 1.5s ease, width 0s 1.5s; background-color: transparent; z-index: 1; width: 0;";
+            document.querySelector('.loader').style.cssText =
+              "transition: all 1.5s ease, width 0s 1.5s; background-color: transparent; z-index: 1; width: 0;";
             document.querySelector('.loading').style.cssText = "opacity: 0; visibility: hidden;";
           }, animTime);
         }
@@ -431,6 +435,7 @@ H581.3V66.1h194.3V227.9z M743.2,195.5v-97H613.8v97H743.2z M839.6,227.9h-32.4V66.
         }, animTime + 1000);
       }
     }
+
   </script>
   <!-- Do Not Remove Script Above -->
 

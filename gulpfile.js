@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 'use strict';
 
 // Plug in Modules
@@ -115,8 +116,13 @@ gulp.task('styles', function () {
       autoprefixer()
     ]))
     .pipe(gulp.dest(paths.dest.styles))
-    .pipe(csso({ forceMediaMerge: true, comments: false }))
-    .pipe(rename({ suffix: '.min' }))
+    .pipe(csso({
+      forceMediaMerge: true,
+      comments: false
+    }))
+    .pipe(rename({
+      suffix: '.min'
+    }))
     .pipe(gulpif(isDev, sourcemap.write('.')))
     .pipe(gulp.dest(paths.dest.styles))
     .pipe(gulpif(isDev, browserSync.stream()));
@@ -124,16 +130,15 @@ gulp.task('styles', function () {
 
 // Scripts & JS Libraries
 gulp.task('scripts', function () {
-  return gulp.src([
-    paths.src.scripts + 'lib/**/*.js',
-    paths.src.scripts + 'main.js'
-  ])
+  return gulp.src([paths.src.scripts + 'lib/**/*.js', paths.src.scripts + 'utils.js', paths.src.scripts + '!(main)*.js', paths.src.scripts + 'main.js'])
     .pipe(gulpif(isDev, sourcemap.init()))
     .pipe(babel())
     .pipe(concat('main.js'))
     .pipe(gulp.dest(paths.dest.scripts))
     .pipe(terser()) // Minify js (opt.)
-    .pipe(rename({ suffix: '.min' }))
+    .pipe(rename({
+      suffix: '.min'
+    }))
     .pipe(gulpif(isDev, sourcemap.write('.')))
     .pipe(gulp.dest(paths.dest.scripts));
 });
@@ -147,13 +152,25 @@ gulp.task('images', function () {
   return gulp.src([paths.src.images.all + '**/*.{png,jpg,svg}', '!source/img/logo/**/*.svg'])
     .pipe(newer(paths.dest.images.all))
     .pipe(imagemin([
-      imagemin.optipng({ optimizationLevel: 3 }),
-      jpegoptim({ quality: quality, progressive: true }),
+      imagemin.optipng({
+        optimizationLevel: 3
+      }),
+      jpegoptim({
+        quality: quality,
+        progressive: true
+      }),
       imagemin.svgo({
-        plugins: [
-          { removeViewBox: false },
-          { removeTitle: true },
-          { cleanupNumericValues: { floatPrecision: 1 } }
+        plugins: [{
+            removeViewBox: false
+          },
+          {
+            removeTitle: true
+          },
+          {
+            cleanupNumericValues: {
+              floatPrecision: 1
+            }
+          }
         ]
       })
     ]))
@@ -164,15 +181,33 @@ gulp.task('images', function () {
 gulp.task('logo', function () {
   return gulp.src('source/img/logo/**/*.svg')
     .pipe(imagemin([
-      imagemin.optipng({ optimizationLevel: 3 }),
-      jpegoptim({ quality: quality, progressive: true }),
+      imagemin.optipng({
+        optimizationLevel: 3
+      }),
+      jpegoptim({
+        quality: quality,
+        progressive: true
+      }),
       imagemin.svgo({
-        plugins: [
-          { removeViewBox: false },
-          { removeDimensions: false },
-          { removeTitle: true },
-          { cleanupNumericValues: { floatPrecision: 1 } },
-          { cleanupIDs: { minify: false, } }
+        plugins: [{
+            removeViewBox: false
+          },
+          {
+            removeDimensions: false
+          },
+          {
+            removeTitle: true
+          },
+          {
+            cleanupNumericValues: {
+              floatPrecision: 1
+            }
+          },
+          {
+            cleanupIDs: {
+              minify: false,
+            }
+          }
         ]
       })
     ]))
@@ -183,7 +218,9 @@ gulp.task('logo', function () {
 gulp.task('webp', function () {
   return gulp.src(paths.src.images.content + '**/*.{jpg,png}')
     .pipe(newer(paths.dest.images.content))
-    .pipe(webp({ quality: quality }))
+    .pipe(webp({
+      quality: quality
+    }))
     .pipe(gulp.dest(paths.dest.images.content));
 });
 
@@ -193,23 +230,40 @@ gulp.task('svgsprite', function (done) {
   return gulp.src(paths.src.images.icons + '**/*.svg')
     .pipe(imagemin([
       imagemin.svgo({
-        plugins: [
-          { removeViewBox: false },
-          { removeTitle: true },
-          { removeAttrs: { attrs: '(stroke|fill)' } },
-          { cleanupNumericValues: { floatPrecision: 1 } }
+        plugins: [{
+            removeViewBox: false
+          },
+          {
+            removeTitle: true
+          },
+          {
+            removeAttrs: {
+              attrs: '(stroke|fill)'
+            }
+          },
+          {
+            cleanupNumericValues: {
+              floatPrecision: 1
+            }
+          }
         ]
       })
     ]))
-    .pipe(rename({ prefix: 'icon-' }))
-    .pipe(svgstore({ inlineSvg: true }))
+    .pipe(rename({
+      prefix: 'icon-'
+    }))
+    .pipe(svgstore({
+      inlineSvg: true
+    }))
     .pipe(rename('sprite.svg'))
     .pipe(gulp.dest(paths.dest.images.all));
 });
 
 // Clean Images
 gulp.task('cleanimg', function () {
-  return del([paths.dest.images.all], { force: true });
+  return del([paths.dest.images.all], {
+    force: true
+  });
 });
 
 // Font Modules
@@ -256,7 +310,9 @@ gulp.task('vendorscripts', function (done) {
     .pipe(gulp.dest(paths.dest.scripts))
     .pipe(ignore.exclude('*.min.js'))
     .pipe(terser()) // Minify js (opt.)
-    .pipe(rename({ suffix: '.min' }))
+    .pipe(rename({
+      suffix: '.min'
+    }))
     .pipe(gulp.dest(paths.dest.scripts));
 });
 
@@ -268,7 +324,9 @@ gulp.task('vendorstyles', function (done) {
     .pipe(gulp.dest(paths.dest.styles))
     .pipe(ignore.exclude('*.min.css'))
     .pipe(csso())
-    .pipe(rename({ suffix: '.min' }))
+    .pipe(rename({
+      suffix: '.min'
+    }))
     .pipe(gulp.dest(paths.dest.styles));
 });
 
@@ -322,15 +380,17 @@ gulp.task('zip', function () {
 // Linting according to editorconfig
 gulp.task('lintspaces', function () {
   return gulp.src([
-    '*.json',
-    '*.md',
-    './gulpfile.js',
-    paths.src.root + '*.html',
-    paths.src.scripts + '**/*.js',
-    paths.src.images.all + '**/*.svg',
-    paths.src.styles + '**/*.{scss,sass}'
-  ])
-    .pipe(lintspaces({ editorconfig: '.editorconfig' }))
+      '*.json',
+      '*.md',
+      './gulpfile.js',
+      paths.src.root + '*.html',
+      paths.src.scripts + '**/*.js',
+      paths.src.images.all + '**/*.svg',
+      paths.src.styles + '**/*.{scss,sass}'
+    ])
+    .pipe(lintspaces({
+      editorconfig: '.editorconfig'
+    }))
     .pipe(lintspaces.reporter());
 });
 
