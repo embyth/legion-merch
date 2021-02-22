@@ -1,3 +1,4 @@
+# Файлы и папки операционной системы
 *.ai
 *.log
 *.pdf
@@ -8,9 +9,20 @@ Thumbs.db
 .DS_Store
 .idea
 layouts
+
+# Вспомогательные файлы
 build
 dist
 node_modules
 materials
+markup
+
+# Файлы редактора
 .history
-faviconData.json
+.idea
+*.sublime*
+.vscode
+
+# Файлы сборки
+public/bundle.js
+public/bundle.js.map
