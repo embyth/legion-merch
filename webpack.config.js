@@ -7,14 +7,14 @@ export default {
   entry: `./src/index.tsx`,
   output: {
     filename: `bundle.js`,
-    path: path.join(__dirname, `public`)
+    path: path.join(__dirname, `public`),
   },
   devServer: {
-    contentBase: path.join(__dirname, `public`),
+    contentBase: `public`,
     open: true,
     hot: true,
-    port: 1337,
     historyApiFallback: true,
+    port: 1337,
   },
   module: {
     rules: [
@@ -27,6 +27,9 @@ export default {
       }, {
         test: /\.(tsx|ts)?$/,
         loader: `ts-loader`,
+      }, {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
       },
     ],
   },

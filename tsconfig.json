@@ -7,15 +7,8 @@
     "target": "es2016",
     "jsx": "react",
     "allowSyntheticDefaultImports": false,
-    "lib": [
-      "DOM",
-    ],
+    "lib": ["DOM"]
   },
-  "include": [
-    "./src/**/*"
-  ],
-  "exclude": [
-    "./node_modules",
-    "./dist"
-  ]
+  "include": ["./src/**/*", "./src/custom.d.ts"],
+  "exclude": ["./node_modules", "./dist"]
 }
