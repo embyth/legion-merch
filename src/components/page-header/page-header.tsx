@@ -1,5 +1,9 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+
+import { getIsSideMenuOpen } from "../../store/app/selectors";
+import { ActionCreator } from "../../store/app/app";
 
 import { AppRoute, Pages } from "../../helpers/const";
 
@@ -7,20 +11,29 @@ import LegionLogo from "./logo.svg";
 
 interface PageHeaderProps {
   currentPage: string;
+  isSideMenuOpen: boolean;
+  onMenuOpenButtonClick(): void;
+  onMenuToggleButtonClick(): void;
 }
 
 const PageHeader: React.FC<PageHeaderProps> = ({
   currentPage,
+  isSideMenuOpen,
+  onMenuOpenButtonClick,
+  onMenuToggleButtonClick,
 }: PageHeaderProps) => (
   <header className="site-header" id="site-header">
     <div className="site-header__inner">
       {currentPage === Pages.MAIN ? (
         <div className="site-header__hamburger">
           <button
-            className="site-header__toggler menu-toggler hamburger"
+            className={`site-header__toggler menu-toggler hamburger ${
+              isSideMenuOpen && `menu-toggler--opened`
+            }`}
             type="button"
             title="Меню"
             aria-label="Открыть меню"
+            onClick={onMenuOpenButtonClick}
           >
             <span className="hamburger--bar"></span>
             <span className="hamburger--bar"></span>
@@ -77,22 +90,41 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               </svg>
             </a>
           </li>
-          <li className="user-nav__item user-nav__item--hamburger">
-            <button
-              className="user-nav__button user-nav__button--menu hamburger menu-toggler"
-              type="button"
-              title="Меню"
-              aria-label="Показать меню"
-            >
-              <span className="hamburger--bar"></span>
-              <span className="hamburger--bar"></span>
-              <span className="hamburger--bar"></span>
-            </button>
-          </li>
+          {currentPage !== Pages.MAIN && (
+            <li className="user-nav__item user-nav__item--hamburger">
+              <button
+                className={`user-nav__button user-nav__button--menu hamburger menu-toggler ${
+                  isSideMenuOpen && `menu-toggler--opened`
+                }`}
+                type="button"
+                title="Меню"
+                aria-label="Показать меню"
+                onClick={onMenuToggleButtonClick}
+              >
+                <span className="hamburger--bar"></span>
+                <span className="hamburger--bar"></span>
+                <span className="hamburger--bar"></span>
+              </button>
+            </li>
+          )}
         </ul>
       </nav>
     </div>
   </header>
 );
 
-export default PageHeader;
+const mapStateToProps = (state) => ({
+  isSideMenuOpen: getIsSideMenuOpen(state),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onMenuOpenButtonClick() {
+    dispatch(ActionCreator.openSideMenu());
+  },
+
+  onMenuToggleButtonClick() {
+    dispatch(ActionCreator.changeSideMenuState());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PageHeader);

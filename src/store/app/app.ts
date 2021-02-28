@@ -15,13 +15,26 @@ export const initialState: InitialStateInterface = {
 
 export const ActionType = {
   CHANGE_SIDE_MENU_STATE: `CHANGE_SIDE_MENU_STATE`,
+  OPEN_SIDE_MENU: `OPEN_SIDE_MENU`,
+  CLOSE_SIDE_MENU: `CLOSE_SIDE_MENU`,
 };
 
 export const ActionCreator = {
-  changeSideMenuState: (isOpened: boolean) => {
+  changeSideMenuState: () => {
     return {
       type: ActionType.CHANGE_SIDE_MENU_STATE,
-      payload: isOpened,
+    };
+  },
+
+  openSideMenu: () => {
+    return {
+      type: ActionType.OPEN_SIDE_MENU,
+    };
+  },
+
+  closeSideMenu: () => {
+    return {
+      type: ActionType.CLOSE_SIDE_MENU,
     };
   },
 };
@@ -30,7 +43,17 @@ export const reducer = (state = initialState, action: AppStateActionInterface) =
   switch(action.type) {
     case ActionType.CHANGE_SIDE_MENU_STATE:
       return extend(state, {
-        isSideMenuOpen: action.payload,
+        isSideMenuOpen: !state.isSideMenuOpen,
+      });
+
+    case ActionType.OPEN_SIDE_MENU:
+      return extend(state, {
+        isSideMenuOpen: true,
+      });
+
+    case ActionType.CLOSE_SIDE_MENU:
+      return extend(state, {
+        isSideMenuOpen: false,
       });
 
     default:
