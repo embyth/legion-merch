@@ -16,7 +16,7 @@ const MainPage: React.FC = () => (
     <main className="main-content" id="main-content">
       <h1 className="visually-hidden">Интернет-магазин одежды Legion</h1>
 
-      <SideMenu />
+      <SideMenu currentPage={Pages.MAIN} />
       <SideCart />
       <Showcase />
 

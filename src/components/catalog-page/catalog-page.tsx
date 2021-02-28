@@ -14,7 +14,7 @@ const CatalogPage: React.FC = () => (
   <div className="page page--inner">
     <PageHeader currentPage={Pages.CATALOG} />
 
-    <SideMenu />
+    <SideMenu currentPage={Pages.CATALOG} />
 
     <main className="main-content" id="main-content">
       <h1 className="visually-hidden">

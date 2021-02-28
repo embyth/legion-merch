@@ -24,7 +24,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
 }: ProductPageProps) => (
   <div className="page page--inner">
     <PageHeader currentPage={Pages.PRODUCT} />
-    <SideMenu />
+    <SideMenu currentPage={Pages.PRODUCT} />
 
     <main className="main-content" id="main-content">
       <h1 className="visually-hidden">
