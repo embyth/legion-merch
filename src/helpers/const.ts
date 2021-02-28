@@ -30,6 +30,27 @@ export const indexShowcaseParams = {
   speed: 700,
 };
 
+export const productCarouselParams = {
+  a11y: {
+    prevSlideMessage: `Предыдущее фото`,
+    nextSlideMessage: `Следующие фото`,
+    paginationBulletMessage: `Перейти к фото номер {{index}}`,
+  },
+  pagination: {
+    el: `.product__gallery-controls`,
+    clickable: true,
+    bulletClass: `product__gallery-controls-dot`,
+    bulletActiveClass: `product__gallery-controls-dot--current`,
+    renderBullet: (index, className) => (
+      `<span class="${className}">${index + 1}</span>`
+    ),
+  },
+  grabCursor: true,
+  slidesPerView: 1,
+  effect: `fade` as const,
+  direction: `horizontal` as const,
+};
+
 export enum AppRoute {
   ROOT = `/`,
   CATALOG = `/catalog`,
