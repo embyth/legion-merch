@@ -14,6 +14,7 @@ interface PageHeaderProps {
   isSideMenuOpen: boolean;
   onMenuOpenButtonClick(): void;
   onMenuToggleButtonClick(): void;
+  onSearchOpenButtonClick(): void;
 }
 
 const PageHeader: React.FC<PageHeaderProps> = ({
@@ -21,6 +22,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   isSideMenuOpen,
   onMenuOpenButtonClick,
   onMenuToggleButtonClick,
+  onSearchOpenButtonClick,
 }: PageHeaderProps) => (
   <header className="site-header" id="site-header">
     <div className="site-header__inner">
@@ -72,6 +74,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               type="button"
               title="Поиск"
               aria-label="Открыть окно поиска"
+              onClick={onSearchOpenButtonClick}
             >
               <svg className="user-nav__svg" width="20" height="20">
                 <use xlinkHref="img/sprite.svg#icon-search"></use>
@@ -124,6 +127,10 @@ const mapDispatchToProps = (dispatch) => ({
 
   onMenuToggleButtonClick() {
     dispatch(ActionCreator.changeSideMenuState());
+  },
+
+  onSearchOpenButtonClick() {
+    dispatch(ActionCreator.openSearchPopup());
   },
 });
 
