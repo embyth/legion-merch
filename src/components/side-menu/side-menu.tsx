@@ -5,6 +5,7 @@ import { ActionCreator } from "../../store/app/app";
 import { getIsSideMenuOpen } from "../../store/app/selectors";
 
 import { Pages } from "../../helpers/const";
+import { showBodyScroll } from "../../helpers/utils";
 
 import LegionerLogo from "./logo--legioner.svg";
 
@@ -249,6 +250,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   onMenuCloseEvent() {
     dispatch(ActionCreator.closeSideMenu());
+    showBodyScroll();
   },
 });
 
