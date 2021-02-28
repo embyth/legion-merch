@@ -1,21 +1,20 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
+
+import { AppRoute, Pages } from "../../helpers/const";
 
 import LegionLogo from "./logo.svg";
 
-const PageHeader: React.FC = () => (
+interface PageHeaderProps {
+  currentPage: string;
+}
+
+const PageHeader: React.FC<PageHeaderProps> = ({
+  currentPage,
+}: PageHeaderProps) => (
   <header className="site-header" id="site-header">
     <div className="site-header__inner">
-      {false ? (
-        <div className="site-header__logo">
-          <a
-            className="site-header__logo-link"
-            href="index.html"
-            aria-label="На главную страницу"
-          >
-            <LegionLogo />
-          </a>
-        </div>
-      ) : (
+      {currentPage === Pages.MAIN ? (
         <div className="site-header__hamburger">
           <button
             className="site-header__toggler menu-toggler hamburger"
@@ -27,6 +26,16 @@ const PageHeader: React.FC = () => (
             <span className="hamburger--bar"></span>
             <span className="hamburger--bar"></span>
           </button>
+        </div>
+      ) : (
+        <div className="site-header__logo">
+          <Link
+            to={AppRoute.ROOT}
+            className="site-header__logo-link"
+            aria-label="На главную страницу"
+          >
+            <LegionLogo />
+          </Link>
         </div>
       )}
 
@@ -67,6 +76,18 @@ const PageHeader: React.FC = () => (
                 <use xlinkHref="img/sprite.svg#icon-account"></use>
               </svg>
             </a>
+          </li>
+          <li className="user-nav__item user-nav__item--hamburger">
+            <button
+              className="user-nav__button user-nav__button--menu hamburger menu-toggler"
+              type="button"
+              title="Меню"
+              aria-label="Показать меню"
+            >
+              <span className="hamburger--bar"></span>
+              <span className="hamburger--bar"></span>
+              <span className="hamburger--bar"></span>
+            </button>
           </li>
         </ul>
       </nav>

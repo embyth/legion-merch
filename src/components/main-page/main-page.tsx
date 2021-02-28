@@ -7,11 +7,11 @@ import PageHeader from "../page-header/page-header";
 import SideCart from "../side-cart/side-cart";
 import SearchPopup from "../search-popup/search-popup";
 
-import { AppRoute } from "../../helpers/const";
+import { AppRoute, Pages } from "../../helpers/const";
 
 const MainPage: React.FC = () => (
   <div className="page page--front">
-    <PageHeader />
+    <PageHeader currentPage={Pages.MAIN} />
 
     <main className="main-content" id="main-content">
       <h1 className="visually-hidden">Интернет-магазин одежды Legion</h1>

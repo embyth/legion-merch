@@ -9,7 +9,7 @@ import SearchPopup from "../search-popup/search-popup";
 import SideCart from "../side-cart/side-cart";
 
 import { ProductInterface } from "../../helpers/my-types";
-import { productCarouselParams } from "../../helpers/const";
+import { productCarouselParams, Pages } from "../../helpers/const";
 
 import { productItem } from "../../mocks/product";
 
@@ -22,8 +22,8 @@ interface ProductPageProps {
 const ProductPage: React.FC<ProductPageProps> = ({
   product,
 }: ProductPageProps) => (
-  <div className="page page--inner preload">
-    <PageHeader />
+  <div className="page page--inner">
+    <PageHeader currentPage={Pages.PRODUCT} />
     <SideMenu />
 
     <main className="main-content" id="main-content">

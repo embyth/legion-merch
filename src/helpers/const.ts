@@ -56,3 +56,9 @@ export enum AppRoute {
   CATALOG = `/catalog`,
   PRODUCT = `/product`,
 }
+
+export enum Pages {
+  MAIN = `MAIN`,
+  CATALOG = `CATALOG`,
+  PRODUCT = `PRODUCT`,
+}

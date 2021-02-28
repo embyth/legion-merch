@@ -7,11 +7,12 @@ import PageFooter from "../page-footer/page-footer";
 import SearchPopup from "../search-popup/search-popup";
 import SideCart from "../side-cart/side-cart";
 
+import { Pages } from "../../helpers/const";
 import { products } from "../../mocks/product";
 
 const CatalogPage: React.FC = () => (
-  <div className="page page--inner preload">
-    <PageHeader />
+  <div className="page page--inner">
+    <PageHeader currentPage={Pages.CATALOG} />
 
     <SideMenu />
 
