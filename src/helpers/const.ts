@@ -31,24 +31,31 @@ export const indexShowcaseParams = {
 };
 
 export const productCarouselParams = {
-  a11y: {
-    prevSlideMessage: `Предыдущее фото`,
-    nextSlideMessage: `Следующие фото`,
-    paginationBulletMessage: `Перейти к фото номер {{index}}`,
+  MOBILE: {
+    pagination: {
+      el: `.product__gallery-controls`,
+      clickable: true,
+      bulletClass: `product__gallery-controls-dot`,
+      bulletActiveClass: `product__gallery-controls-dot--current`,
+      renderBullet: (index, className) => (
+        `<span class="${className}">${index + 1}</span>`
+      ),
+    },
+    a11y: {
+      paginationBulletMessage: `Перейти к фото номер {{index}}`,
+    },
+    grabCursor: true,
+    loop: true,
+    autoHeight: true,
+    slidesPerView: 1,
+    effect: `fade` as const,
+    direction: `horizontal` as const,
   },
-  pagination: {
-    el: `.product__gallery-controls`,
-    clickable: true,
-    bulletClass: `product__gallery-controls-dot`,
-    bulletActiveClass: `product__gallery-controls-dot--current`,
-    renderBullet: (index, className) => (
-      `<span class="${className}">${index + 1}</span>`
-    ),
+  DESKTOP: {
+    allowTouchMove: false,
+    slidesPerView: `auto` as const,
+    direction: `vertical` as const,
   },
-  grabCursor: true,
-  slidesPerView: 1,
-  effect: `fade` as const,
-  direction: `horizontal` as const,
 };
 
 export enum AppRoute {
@@ -61,4 +68,9 @@ export enum Pages {
   MAIN = `MAIN`,
   CATALOG = `CATALOG`,
   PRODUCT = `PRODUCT`,
+}
+
+export enum AppMediaQuery {
+  MOBILE = `(min-width: 0px) and (max-width: 1365px)`,
+  DESKTOP = `(min-width: 1366px)`,
 }
