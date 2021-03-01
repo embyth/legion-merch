@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import PageHeader from "../page-header/page-header";
 import SideMenu from "../side-menu/side-menu";
+import Breadcrumbs from "../breadcrumbs/breadcrumbs";
 import PageFooter from "../page-footer/page-footer";
 import SearchPopup from "../search-popup/search-popup";
 import SideCart from "../side-cart/side-cart";
@@ -25,6 +26,8 @@ interface ProductPageProps {
 
 interface ProductPageState {
   isDesktop: boolean;
+  isTablet: boolean;
+  isMobile: boolean;
 }
 
 class ProductPage extends React.PureComponent<
@@ -36,27 +39,31 @@ class ProductPage extends React.PureComponent<
 
     this.state = {
       isDesktop: window.matchMedia(AppMediaQuery.DESKTOP).matches,
+      isTablet: window.matchMedia(AppMediaQuery.TABLET).matches,
+      isMobile: window.matchMedia(AppMediaQuery.MOBILE).matches,
     };
 
-    this.updateMediaBreakpoint = this.updateMediaBreakpoint.bind(this);
+    this.updateMediaBreakpoints = this.updateMediaBreakpoints.bind(this);
   }
 
-  private updateMediaBreakpoint() {
+  private updateMediaBreakpoints() {
     this.setState({
       isDesktop: window.matchMedia(AppMediaQuery.DESKTOP).matches,
+      isTablet: window.matchMedia(AppMediaQuery.TABLET).matches,
+      isMobile: window.matchMedia(AppMediaQuery.MOBILE).matches,
     });
   }
 
   componentDidMount() {
-    window.addEventListener(`resize`, this.updateMediaBreakpoint);
+    window.addEventListener(`resize`, this.updateMediaBreakpoints);
   }
 
   componentWillUnmount() {
-    window.removeEventListener(`resize`, this.updateMediaBreakpoint);
+    window.removeEventListener(`resize`, this.updateMediaBreakpoints);
   }
 
   render() {
-    const { isDesktop } = this.state;
+    const { isDesktop, isTablet, isMobile } = this.state;
     const {
       MOBILE: mobileSwiperParams,
       DESKTOP: desktopSwiperParams,
@@ -75,19 +82,7 @@ class ProductPage extends React.PureComponent<
           <section className="product">
             <h2 className="visually-hidden">Информация о товаре</h2>
             <div className="product__inner">
-              <ul className="breadcrumbs">
-                <li className="breadcrumbs__item">
-                  <a href="index.html" className="breadcrumbs__link">
-                    Главная
-                  </a>
-                </li>
-                <li className="breadcrumbs__item">
-                  <a href="catalog.html" className="breadcrumbs__link">
-                    Новинки
-                  </a>
-                </li>
-                <li className="breadcrumbs__item">{productItem.name}</li>
-              </ul>
+              {isMobile && <Breadcrumbs product={productItem} />}
 
               {isDesktop ? (
                 <Swiper
@@ -131,19 +126,9 @@ class ProductPage extends React.PureComponent<
               )}
 
               <div className="product__info">
-                <ul className="breadcrumbs">
-                  <li className="breadcrumbs__item">
-                    <a href="index.html" className="breadcrumbs__link">
-                      Главная
-                    </a>
-                  </li>
-                  <li className="breadcrumbs__item">
-                    <a href="catalog.html" className="breadcrumbs__link">
-                      Новинки
-                    </a>
-                  </li>
-                  <li className="breadcrumbs__item">{productItem.name}</li>
-                </ul>
+                {(isDesktop || isTablet) && (
+                  <Breadcrumbs product={productItem} />
+                )}
                 <h3 className="product__name">{productItem.name}</h3>
                 <strong
                   className="product__price"
