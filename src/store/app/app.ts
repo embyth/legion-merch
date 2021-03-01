@@ -8,11 +8,13 @@ interface AppStateActionInterface {
 interface InitialStateInterface {
   isSideMenuOpen?: boolean;
   isSearchPopupOpen?: boolean;
+  isSideCartOpen?: boolean;
 }
 
 export const initialState: InitialStateInterface = {
   isSideMenuOpen: false,
   isSearchPopupOpen: false,
+  isSideCartOpen: false,
 };
 
 export const ActionType = {
@@ -21,6 +23,9 @@ export const ActionType = {
   CLOSE_SIDE_MENU: `CLOSE_SIDE_MENU`,
   OPEN_SEARCH_POPUP: `OPEN_SEARCH_POPUP`,
   CLOSE_SEARCH_POPUP: `CLOSE_SEARCH_POPUP`,
+  CHANGE_SIDE_CART_STATE: `CHANGE_SIDE_CART_STATE`,
+  OPEN_SIDE_CART: `OPEN_SIDE_CART`,
+  CLOSE_SIDE_CART: `CLOSE_SIDE_CART`,
 };
 
 export const ActionCreator = {
@@ -53,6 +58,24 @@ export const ActionCreator = {
       type: ActionType.CLOSE_SEARCH_POPUP,
     };
   },
+
+  changeSideCartState: () => {
+    return {
+      type: ActionType.CHANGE_SIDE_CART_STATE,
+    };
+  },
+
+  openSideCart: () => {
+    return {
+      type: ActionType.OPEN_SIDE_CART,
+    };
+  },
+
+  closeSideCart: () => {
+    return {
+      type: ActionType.CLOSE_SIDE_CART,
+    };
+  },
 };
 
 export const reducer = (state = initialState, action: AppStateActionInterface) => {
@@ -80,6 +103,21 @@ export const reducer = (state = initialState, action: AppStateActionInterface) =
     case ActionType.CLOSE_SEARCH_POPUP:
       return extend(state, {
         isSearchPopupOpen: false,
+      });
+
+    case ActionType.CHANGE_SIDE_CART_STATE:
+      return extend(state, {
+        isSideCartOpen: !state.isSideCartOpen,
+      });
+
+    case ActionType.OPEN_SIDE_CART:
+      return extend(state, {
+        isSideCartOpen: true,
+      });
+
+    case ActionType.CLOSE_SIDE_CART:
+      return extend(state, {
+        isSideCartOpen: false,
       });
 
     default:

@@ -16,6 +16,7 @@ interface PageHeaderProps {
   onMenuOpenButtonClick(): void;
   onMenuToggleButtonClick(): void;
   onSearchOpenButtonClick(): void;
+  onCartToggleButtonClick(): void;
 }
 
 const PageHeader: React.FC<PageHeaderProps> = ({
@@ -24,6 +25,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   onMenuOpenButtonClick,
   onMenuToggleButtonClick,
   onSearchOpenButtonClick,
+  onCartToggleButtonClick,
 }: PageHeaderProps) => (
   <header className="site-header" id="site-header">
     <div className="site-header__inner">
@@ -63,6 +65,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               type="button"
               title="Корзина"
               aria-label="Показать корзину"
+              onClick={onCartToggleButtonClick}
             >
               <svg className="user-nav__svg" width="20" height="20">
                 <use xlinkHref="img/sprite.svg#icon-bag"></use>
@@ -135,6 +138,11 @@ const mapDispatchToProps = (dispatch) => ({
   onSearchOpenButtonClick() {
     dispatch(ActionCreator.openSearchPopup());
     hideBodyScroll();
+  },
+
+  onCartToggleButtonClick() {
+    dispatch(ActionCreator.changeSideCartState());
+    toggleBodyScroll();
   },
 });
 
