@@ -1,20 +1,4 @@
 export const indexShowcaseParams = {
-  breakpoints: {
-    320: {
-      autoplay: false,
-      allowTouchMove: false,
-      allowSlidePrev: false,
-      allowSlideNext: false,
-    },
-    1366: {
-      allowTouchMove: false,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-        enabled: true,
-      },
-    }
-  },
   navigation: {
     nextEl: `.bg-controls__button--next`,
     prevEl: `.bg-controls__button--prev`,
@@ -23,7 +7,11 @@ export const indexShowcaseParams = {
     prevSlideMessage: `Предыдущее фото`,
     nextSlideMessage: `Следующие фото`,
   },
-  className: `showcase`,
+  autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+      enabled: true,
+  },
   loop: true,
   direction: `vertical` as const,
   slidesPerView: 1,
@@ -51,6 +39,7 @@ export const productCarouselParams = {
     effect: `fade` as const,
     direction: `horizontal` as const,
   },
+
   DESKTOP: {
     allowTouchMove: false,
     slidesPerView: `auto` as const,
