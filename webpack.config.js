@@ -24,12 +24,14 @@ export default {
         use: {
           loader: `babel-loader`,
         },
-      }, {
+      },
+      {
         test: /\.(tsx|ts)?$/,
         loader: `ts-loader`,
-      }, {
+      },
+      {
         test: /\.svg$/,
-        use: ['@svgr/webpack'],
+        use: [`@svgr/webpack`],
       },
     ],
   },
