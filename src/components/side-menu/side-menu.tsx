@@ -1,10 +1,11 @@
 import * as React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { ActionCreator } from "../../store/app/app";
 import { getIsSideMenuOpen } from "../../store/app/selectors";
 
-import { Pages } from "../../helpers/const";
+import { AppRoute, Pages } from "../../helpers/const";
 import { showBodyScroll } from "../../helpers/utils";
 
 import LegionerLogo from "./logo--legioner.svg";
@@ -130,9 +131,9 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
                   </a>
                 </li>
                 <li className="site-nav__item">
-                  <a href="about.html" className="site-nav__item-link">
+                  <Link to={AppRoute.ABOUT} className="site-nav__item-link">
                     О нас
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>

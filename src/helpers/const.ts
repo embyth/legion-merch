@@ -51,12 +51,14 @@ export enum AppRoute {
   ROOT = `/`,
   CATALOG = `/catalog`,
   PRODUCT = `/product`,
+  ABOUT = `/about`,
 }
 
 export enum Pages {
   MAIN = `MAIN`,
   CATALOG = `CATALOG`,
   PRODUCT = `PRODUCT`,
+  ABOUT = `ABOUT`,
 }
 
 export enum AppMediaQuery {
