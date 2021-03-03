@@ -54,6 +54,7 @@ export enum AppRoute {
   ABOUT = `/about`,
   CONTACTS = `/contacts`,
   DELIVERY = `/delivery`,
+  SIZES = `/sizes`,
 }
 
 export enum Pages {
@@ -68,4 +69,19 @@ export enum AppMediaQuery {
   MOBILE = `(min-width: 0px) and (max-width: 767px)`,
   TABLET = `(min-width: 768px) and (max-width: 1365px)`,
   DESKTOP = `(min-width: 1366px)`,
+}
+
+export enum ProductType {
+  TSHIRT = `TSHIRT`,
+  HOODIE = `HOODIE`,
+  PANTS = `PANTS`,
+}
+
+export enum Sizes {
+  XS = `X-SMALL`,
+  S = `SMALL`,
+  M = `MEDIUM`,
+  L = `LARGE`,
+  XL = `X-LARGE`,
+  XXL = `XX-LARGE`,
 }
