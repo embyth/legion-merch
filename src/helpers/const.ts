@@ -53,6 +53,7 @@ export enum AppRoute {
   PRODUCT = `/product`,
   ABOUT = `/about`,
   CONTACTS = `/contacts`,
+  DELIVERY = `/delivery`,
 }
 
 export enum Pages {

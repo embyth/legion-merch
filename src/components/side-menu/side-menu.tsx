@@ -138,9 +138,12 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
                         <a className="site-nav__item-link">Связь с нами</a>
                       </li>
                       <li className="site-nav__client-item">
-                        <a href="delivery.html" className="site-nav__item-link">
+                        <Link
+                          to={AppRoute.DELIVERY}
+                          className="site-nav__item-link"
+                        >
                           Доставка&nbsp;&amp;&nbsp;Возврат
-                        </a>
+                        </Link>
                       </li>
                       <li className="site-nav__client-item">
                         <a

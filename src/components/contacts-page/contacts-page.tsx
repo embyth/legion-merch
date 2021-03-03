@@ -13,12 +13,8 @@ interface ContactsPageState {
 }
 
 class ContactsPage extends React.PureComponent<{}, ContactsPageState> {
-  private _selectLabelRef: React.RefObject<HTMLLabelElement>;
-
   constructor(props) {
     super(props);
-
-    this._selectLabelRef = React.createRef();
 
     this.state = {
       selectValue: `not-selected`,
@@ -44,8 +40,7 @@ class ContactsPage extends React.PureComponent<{}, ContactsPageState> {
 
     return (
       <div className="page page--inner page--customer-care">
-        <PageHeader />
-        <SideMenu currentPage={Pages.CLIENT} />
+        <PageHeader currentPage={Pages.CLIENT} />
 
         <main className="main-content" id="main-content">
           <h1 className="visually-hidden">
@@ -157,8 +152,9 @@ class ContactsPage extends React.PureComponent<{}, ContactsPageState> {
         </main>
 
         <PageFooter />
-        <SearchPopup />
+        <SideMenu currentPage={Pages.CLIENT} />
         <SideCart />
+        <SearchPopup />
       </div>
     );
   }
