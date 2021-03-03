@@ -1,4 +1,4 @@
-import {extend} from "../../helpers/utils";
+import {extend, showBodyScroll, hideBodyScroll, toggleBodyScroll} from "../../helpers/utils";
 
 interface AppStateActionInterface {
   type: string;
@@ -26,54 +26,79 @@ export const ActionType = {
   CHANGE_SIDE_CART_STATE: `CHANGE_SIDE_CART_STATE`,
   OPEN_SIDE_CART: `OPEN_SIDE_CART`,
   CLOSE_SIDE_CART: `CLOSE_SIDE_CART`,
+  HANDLE_PAGE_CHANGE: `HANDLE_PAGE_CHANGE`,
 };
 
 export const ActionCreator = {
   changeSideMenuState: () => {
+    toggleBodyScroll();
+
     return {
       type: ActionType.CHANGE_SIDE_MENU_STATE,
     };
   },
 
   openSideMenu: () => {
+    hideBodyScroll();
+
     return {
       type: ActionType.OPEN_SIDE_MENU,
     };
   },
 
   closeSideMenu: () => {
+    showBodyScroll();
+
     return {
       type: ActionType.CLOSE_SIDE_MENU,
     };
   },
 
   openSearchPopup: () => {
+    hideBodyScroll();
+
     return {
       type: ActionType.OPEN_SEARCH_POPUP,
     };
   },
 
   closeSearchPopup: () => {
+    showBodyScroll();
+
     return {
       type: ActionType.CLOSE_SEARCH_POPUP,
     };
   },
 
   changeSideCartState: () => {
+    toggleBodyScroll();
+
     return {
       type: ActionType.CHANGE_SIDE_CART_STATE,
     };
   },
 
   openSideCart: () => {
+    hideBodyScroll();
+
     return {
       type: ActionType.OPEN_SIDE_CART,
     };
   },
 
   closeSideCart: () => {
+    showBodyScroll();
+
     return {
       type: ActionType.CLOSE_SIDE_CART,
+    };
+  },
+
+  handlePageChange: () => {
+    showBodyScroll();
+
+    return {
+      type: ActionType.HANDLE_PAGE_CHANGE,
     };
   },
 };
@@ -118,6 +143,13 @@ export const reducer = (state = initialState, action: AppStateActionInterface) =
     case ActionType.CLOSE_SIDE_CART:
       return extend(state, {
         isSideCartOpen: false,
+      });
+
+    case ActionType.HANDLE_PAGE_CHANGE:
+      return extend(state, {
+        isSearchPopupOpen: false,
+        isSideCartOpen: false,
+        isSideMenuOpen: false,
       });
 
     default:

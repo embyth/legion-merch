@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 import { getIsSearchPopupOpen } from "../../store/app/selectors";
 import { ActionCreator } from "../../store/app/app";
 
-import { showBodyScroll } from "../../helpers/utils";
-
 interface SearchPopupProps {
   isSearchPopupOpen: boolean;
   onSearchCloseAction(): void;
@@ -91,7 +89,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   onSearchCloseAction() {
     dispatch(ActionCreator.closeSearchPopup());
-    showBodyScroll();
   },
 });
 

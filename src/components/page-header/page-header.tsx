@@ -6,7 +6,6 @@ import { getIsSideMenuOpen } from "../../store/app/selectors";
 import { ActionCreator } from "../../store/app/app";
 
 import { AppRoute, Pages } from "../../helpers/const";
-import { hideBodyScroll, toggleBodyScroll } from "../../helpers/utils";
 
 import LegionLogo from "./logo.svg";
 
@@ -127,22 +126,18 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   onMenuOpenButtonClick() {
     dispatch(ActionCreator.openSideMenu());
-    hideBodyScroll();
   },
 
   onMenuToggleButtonClick() {
     dispatch(ActionCreator.changeSideMenuState());
-    toggleBodyScroll();
   },
 
   onSearchOpenButtonClick() {
     dispatch(ActionCreator.openSearchPopup());
-    hideBodyScroll();
   },
 
   onCartToggleButtonClick() {
     dispatch(ActionCreator.changeSideCartState());
-    toggleBodyScroll();
   },
 });
 

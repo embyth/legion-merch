@@ -1,6 +1,5 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { showBodyScroll } from "../../helpers/utils";
 
 import { ActionCreator } from "../../store/app/app";
 import { getIsSideCartOpen } from "../../store/app/selectors";
@@ -201,7 +200,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   onCartCloseEvent() {
     dispatch(ActionCreator.closeSideCart());
-    showBodyScroll();
   },
 });
 
