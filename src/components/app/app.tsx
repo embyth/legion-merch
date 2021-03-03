@@ -7,6 +7,7 @@ import MainPage from "../main-page/main-page";
 import CatalogPage from "../catalog-page/catalog-page";
 import ProductPage from "../product-page/product-page";
 import AboutPage from "../about-page/about-page";
+import ContactsPage from "../contacts-page/contacts-page";
 import NotFound from "../not-found/not-found";
 
 import { AppRoute } from "../../helpers/const";
@@ -19,6 +20,7 @@ const App: React.FC = () => (
         <Route exact path={AppRoute.CATALOG} component={CatalogPage} />
         <Route exact path={AppRoute.PRODUCT} component={ProductPage} />
         <Route exact path={AppRoute.ABOUT} component={AboutPage} />
+        <Route exact path={AppRoute.CONTACTS} component={ContactsPage} />
 
         <Route component={NotFound} />
       </Switch>

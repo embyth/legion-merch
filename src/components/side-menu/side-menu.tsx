@@ -124,11 +124,58 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
                     Войти&nbsp;/&nbsp;Регистрация
                   </a>
                 </li>
-                <li className="site-nav__item">
-                  <a href="contact.html" className="site-nav__item-link">
-                    Клиентам
-                  </a>
-                </li>
+
+                {currentPage === Pages.CLIENT ? (
+                  <li className="site-nav__item">
+                    <Link
+                      to={AppRoute.CONTACTS}
+                      className="site-nav__item-link"
+                    >
+                      Клиентам
+                    </Link>
+                    <ul className="site-nav__client-list">
+                      <li className="site-nav__client-item">
+                        <a className="site-nav__item-link">Связь с нами</a>
+                      </li>
+                      <li className="site-nav__client-item">
+                        <a href="delivery.html" className="site-nav__item-link">
+                          Доставка&nbsp;&amp;&nbsp;Возврат
+                        </a>
+                      </li>
+                      <li className="site-nav__client-item">
+                        <a
+                          href="size-tables.html"
+                          className="site-nav__item-link"
+                        >
+                          Таблица размеров
+                        </a>
+                      </li>
+                      <li className="site-nav__client-item">
+                        <a href="faq.html" className="site-nav__item-link">
+                          FAQ
+                        </a>
+                      </li>
+                      <li className="site-nav__client-item">
+                        <a
+                          href="public-offer.html"
+                          className="site-nav__item-link"
+                        >
+                          Публичная оферта
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                ) : (
+                  <li className="site-nav__item">
+                    <Link
+                      to={AppRoute.CONTACTS}
+                      className="site-nav__item-link"
+                    >
+                      Клиентам
+                    </Link>
+                  </li>
+                )}
+
                 <li className="site-nav__item">
                   <Link to={AppRoute.ABOUT} className="site-nav__item-link">
                     О нас

@@ -52,6 +52,7 @@ export enum AppRoute {
   CATALOG = `/catalog`,
   PRODUCT = `/product`,
   ABOUT = `/about`,
+  CONTACTS = `/contacts`,
 }
 
 export enum Pages {
@@ -59,6 +60,7 @@ export enum Pages {
   CATALOG = `CATALOG`,
   PRODUCT = `PRODUCT`,
   ABOUT = `ABOUT`,
+  CLIENT = `CLIENT`,
 }
 
 export enum AppMediaQuery {
