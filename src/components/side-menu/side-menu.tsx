@@ -154,9 +154,9 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
                         </Link>
                       </li>
                       <li className="site-nav__client-item">
-                        <a href="faq.html" className="site-nav__item-link">
+                        <Link to={AppRoute.FAQ} className="site-nav__item-link">
                           FAQ
-                        </a>
+                        </Link>
                       </li>
                       <li className="site-nav__client-item">
                         <a

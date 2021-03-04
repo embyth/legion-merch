@@ -55,6 +55,7 @@ export enum AppRoute {
   CONTACTS = `/contacts`,
   DELIVERY = `/delivery`,
   SIZES = `/sizes`,
+  FAQ = `/faq`,
 }
 
 export enum Pages {
