@@ -3,6 +3,8 @@ import { Router, Route, Switch } from "react-router-dom";
 
 import history from "../../history";
 
+import withMediaQueries from "../../hocs/with-media-queries/with-media-queries";
+
 import Page from "../page/page";
 import MainPage from "../main-page/main-page";
 import CatalogPage from "../catalog-page/catalog-page";
@@ -16,6 +18,8 @@ import PrivacyPage from "../privacy-page/privacy-page";
 import NotFound from "../not-found/not-found";
 
 import { AppRoute } from "../../helpers/const";
+
+const ProductPageWrapped = withMediaQueries(ProductPage);
 
 const App: React.FC = () => (
   <React.Fragment>
@@ -47,7 +51,7 @@ const App: React.FC = () => (
           render={(props) => (
             <Page
               {...props}
-              component={ProductPage}
+              component={ProductPageWrapped}
               currentPage={AppRoute.PRODUCT}
             />
           )}

@@ -1,16 +1,20 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 
+import withMediaQueries from "../../hocs/with-media-queries/with-media-queries";
+
 import Showcase from "../showcase/showcase";
 
 import { AppRoute } from "../../helpers/const";
+
+const ShowcaseWrapped = withMediaQueries(Showcase);
 
 const MainPage: React.FC = () => (
   <React.Fragment>
     <main className="main-content" id="main-content">
       <h1 className="visually-hidden">Интернет-магазин одежды Legion</h1>
 
-      <Showcase />
+      <ShowcaseWrapped />
 
       <div className="bg-controls">
         <button
