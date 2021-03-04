@@ -7,16 +7,16 @@ import PageHeader from "../page-header/page-header";
 import SideCart from "../side-cart/side-cart";
 import SearchPopup from "../search-popup/search-popup";
 
-import { AppRoute, Pages } from "../../helpers/const";
+import { AppRoute } from "../../helpers/const";
 
 const MainPage: React.FC = () => (
   <div className="page page--front">
-    <PageHeader currentPage={Pages.MAIN} />
+    <PageHeader currentPage={AppRoute.ROOT} />
 
     <main className="main-content" id="main-content">
       <h1 className="visually-hidden">Интернет-магазин одежды Legion</h1>
 
-      <SideMenu currentPage={Pages.MAIN} />
+      <SideMenu currentPage={AppRoute.ROOT} />
       <SideCart />
       <Showcase />
 
@@ -41,7 +41,7 @@ const MainPage: React.FC = () => (
 
       <div className="button-holder">
         <Link
-          to={AppRoute.CATALOG}
+          to={AppRoute.CATALOG.path}
           className="button button--secondary button--glitch"
           aria-label="Перейти на страницу каталога"
         >

@@ -12,7 +12,7 @@ import SideCart from "../side-cart/side-cart";
 import { ProductInterface } from "../../helpers/my-types";
 import {
   productCarouselParams,
-  Pages,
+  AppRoute,
   AppMediaQuery,
 } from "../../helpers/const";
 
@@ -71,8 +71,8 @@ class ProductPage extends React.PureComponent<
 
     return (
       <div className="page page--inner">
-        <PageHeader currentPage={Pages.PRODUCT} />
-        <SideMenu currentPage={Pages.PRODUCT} />
+        <PageHeader currentPage={AppRoute.PRODUCT} />
+        <SideMenu currentPage={AppRoute.PRODUCT} />
 
         <main className="main-content" id="main-content">
           <h1 className="visually-hidden">

@@ -20,15 +20,15 @@ const App: React.FC = () => (
   <React.Fragment>
     <Router history={history}>
       <Switch>
-        <Route exact path={AppRoute.ROOT} component={MainPage} />
-        <Route exact path={AppRoute.CATALOG} component={CatalogPage} />
-        <Route exact path={AppRoute.PRODUCT} component={ProductPage} />
-        <Route exact path={AppRoute.ABOUT} component={AboutPage} />
-        <Route exact path={AppRoute.CONTACTS} component={ContactsPage} />
-        <Route exact path={AppRoute.DELIVERY} component={DeliveryPage} />
-        <Route exact path={AppRoute.SIZES} component={SizePage} />
-        <Route exact path={AppRoute.FAQ} component={FaqPage} />
-        <Route exact path={AppRoute.PRIVACY} component={PrivacyPage} />
+        <Route exact path={AppRoute.ROOT.path} component={MainPage} />
+        <Route exact path={AppRoute.CATALOG.path} component={CatalogPage} />
+        <Route exact path={AppRoute.PRODUCT.path} component={ProductPage} />
+        <Route exact path={AppRoute.ABOUT.path} component={AboutPage} />
+        <Route exact path={AppRoute.CONTACTS.path} component={ContactsPage} />
+        <Route exact path={AppRoute.DELIVERY.path} component={DeliveryPage} />
+        <Route exact path={AppRoute.SIZES.path} component={SizePage} />
+        <Route exact path={AppRoute.FAQ.path} component={FaqPage} />
+        <Route exact path={AppRoute.PRIVACY.path} component={PrivacyPage} />
 
         <Route component={NotFound} />
       </Switch>

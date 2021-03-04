@@ -7,7 +7,7 @@ import SearchPopup from "../search-popup/search-popup";
 import SideCart from "../side-cart/side-cart";
 import SideMenu from "../side-menu/side-menu";
 
-import { AppRoute, Pages } from "../../helpers/const";
+import { AppRoute } from "../../helpers/const";
 
 interface FaqPageState {
   activeQuestionIndex: number | null;
@@ -56,7 +56,7 @@ class FaqPage extends React.PureComponent<{}, FaqPageState> {
 
     return (
       <div className="page page--inner page--customer-care">
-        <PageHeader currentPage={Pages.CLIENT} />
+        <PageHeader currentPage={AppRoute.FAQ} />
 
         <main className="main-content" id="main-content">
           <h1 className="visually-hidden">
@@ -129,7 +129,7 @@ class FaqPage extends React.PureComponent<{}, FaqPageState> {
                   убедитесь, что вы используете последнюю версию своего
                   веб-браузера. Если вы продолжаете получать сообщения об
                   ошибках, обратитесь в службу поддержки клиентов{" "}
-                  <Link to={AppRoute.CONTACTS}>здесь</Link>.
+                  <Link to={AppRoute.CONTACTS.path}>здесь</Link>.
                 </p>
               </li>
               <li
@@ -186,7 +186,7 @@ class FaqPage extends React.PureComponent<{}, FaqPageState> {
                   однако мы иногда используем дизайнеров-фрилансеров в наших
                   моделях. Если вы хотите представить какую-либо работу на
                   рассмотрение, отправьте электронное письмо&nbsp;
-                  <Link to={AppRoute.CONTACTS} target="_blank">
+                  <Link to={AppRoute.CONTACTS.path} target="_blank">
                     здесь
                   </Link>
                   . Пожалуйста, включите ссылку на онлайн-портфолио, и мы
@@ -303,7 +303,7 @@ class FaqPage extends React.PureComponent<{}, FaqPageState> {
         </main>
 
         <PageFooter />
-        <SideMenu currentPage={Pages.CLIENT} />
+        <SideMenu currentPage={AppRoute.FAQ} />
         <SideCart />
         <SearchPopup />
       </div>

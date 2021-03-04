@@ -47,25 +47,60 @@ export const productCarouselParams = {
   },
 };
 
-export enum AppRoute {
-  ROOT = `/`,
-  CATALOG = `/catalog`,
-  PRODUCT = `/product`,
-  ABOUT = `/about`,
-  CONTACTS = `/contacts`,
-  DELIVERY = `/delivery`,
-  SIZES = `/sizes`,
-  FAQ = `/faq`,
-  PRIVACY = `/privacy`,
+export enum PageCategories {
+  MAIN = `MAIN`,
+  SHOP = `SHOP`,
+  CLIENT = `CLIENT`,
+  OTHER = `OTHER`,
 }
 
-export enum Pages {
-  MAIN = `MAIN`,
-  CATALOG = `CATALOG`,
-  PRODUCT = `PRODUCT`,
-  ABOUT = `ABOUT`,
-  CLIENT = `CLIENT`,
-}
+export const AppRoute = {
+  ROOT: {
+    path: `/`,
+    title: `Главная`,
+    category: PageCategories.MAIN,
+  },
+  CATALOG: {
+    path: `/catalog`,
+    title: `Каталог`,
+    category: PageCategories.SHOP,
+  },
+  PRODUCT: {
+    path: `/product`,
+    title: ``,
+    category: PageCategories.SHOP,
+  },
+  ABOUT: {
+    path: `/about`,
+    title: `О нас`,
+    category: PageCategories.OTHER,
+  },
+  CONTACTS: {
+    path: `/contacts`,
+    title: `Связь с нами`,
+    category: PageCategories.CLIENT,
+  },
+  DELIVERY: {
+    path: `/delivery`,
+    title: `Доставка и Возврат`,
+    category: PageCategories.CLIENT,
+  },
+  SIZES: {
+    path: `/sizes`,
+    title: `Таблица размеров`,
+    category: PageCategories.CLIENT,
+  },
+  FAQ: {
+    path: `/faq`,
+    title: `FAQ`,
+    category: PageCategories.CLIENT,
+  },
+  PRIVACY: {
+    path: `/privacy`,
+    title: `Публичная оферта`,
+    category: PageCategories.CLIENT,
+  },
+};
 
 export enum AppMediaQuery {
   MOBILE = `(min-width: 0px) and (max-width: 767px)`,

@@ -6,12 +6,12 @@ import SearchPopup from "../search-popup/search-popup";
 import SideMenu from "../side-menu/side-menu";
 import SideCart from "../side-cart/side-cart";
 
-import { Pages } from "../../helpers/const";
+import { AppRoute } from "../../helpers/const";
 
 const AboutPage: React.FC = () => (
   <div className="page page--inner">
-    <PageHeader currentPage={Pages.ABOUT} />
-    <SideMenu currentPage={Pages.ABOUT} />
+    <PageHeader currentPage={AppRoute.ABOUT} />
+    <SideMenu currentPage={AppRoute.ABOUT} />
 
     <main className="main-content" id="main-content">
       <h1 className="visually-hidden">О интернет-магазине Legion</h1>

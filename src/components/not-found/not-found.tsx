@@ -72,13 +72,13 @@ class NotFound extends React.PureComponent<{}, {}> {
           </h2>
           <div className="error__buttons">
             <Link
-              to={AppRoute.ROOT}
+              to={AppRoute.ROOT.path}
               className="button button--secondary button--glitch"
             >
               Главная
             </Link>
             <Link
-              to={AppRoute.CATALOG}
+              to={AppRoute.CATALOG.path}
               className="button button--secondary button--glitch"
             >
               Каталог

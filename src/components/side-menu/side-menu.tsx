@@ -5,12 +5,16 @@ import { Link } from "react-router-dom";
 import { ActionCreator } from "../../store/app/app";
 import { getIsSideMenuOpen } from "../../store/app/selectors";
 
-import { AppRoute, Pages } from "../../helpers/const";
+import { AppRoute, PageCategories } from "../../helpers/const";
 
 import LegionerLogo from "./logo--legioner.svg";
 
 interface SideMenuProps {
-  currentPage: string;
+  currentPage: {
+    path: string;
+    title: string;
+    category: string;
+  };
   isSideMenuOpen: boolean;
   onMenuCloseEvent(): void;
 }
@@ -62,7 +66,7 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
           id="site-nav"
         >
           <div className="site-nav__inner">
-            {currentPage === Pages.MAIN && (
+            {currentPage.category === PageCategories.MAIN && (
               <header className="site-nav__header">
                 <div className="site-nav__logo">
                   <LegionerLogo />
@@ -125,53 +129,84 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
                   </a>
                 </li>
 
-                {currentPage === Pages.CLIENT ? (
+                {currentPage.category === PageCategories.CLIENT ? (
                   <li className="site-nav__item">
-                    <Link
-                      to={AppRoute.CONTACTS}
-                      className="site-nav__item-link"
-                    >
+                    <span className="site-nav__item-link site-nav__item-link--sub">
                       Клиентам
-                    </Link>
+                    </span>
                     <ul className="site-nav__client-list">
                       <li className="site-nav__client-item">
-                        <a className="site-nav__item-link">Связь с нами</a>
+                        {currentPage === AppRoute.CONTACTS ? (
+                          <a className="site-nav__item-link">Связь с нами</a>
+                        ) : (
+                          <Link
+                            to={AppRoute.CONTACTS.path}
+                            className="site-nav__item-link"
+                          >
+                            Связь с нами
+                          </Link>
+                        )}
                       </li>
                       <li className="site-nav__client-item">
-                        <Link
-                          to={AppRoute.DELIVERY}
-                          className="site-nav__item-link"
-                        >
-                          Доставка&nbsp;&amp;&nbsp;Возврат
-                        </Link>
+                        {currentPage === AppRoute.DELIVERY ? (
+                          <a className="site-nav__item-link">
+                            Доставка&nbsp;&amp;&nbsp;Возврат
+                          </a>
+                        ) : (
+                          <Link
+                            to={AppRoute.DELIVERY.path}
+                            className="site-nav__item-link"
+                          >
+                            Доставка&nbsp;&amp;&nbsp;Возврат
+                          </Link>
+                        )}
                       </li>
                       <li className="site-nav__client-item">
-                        <Link
-                          to={AppRoute.SIZES}
-                          className="site-nav__item-link"
-                        >
-                          Таблица размеров
-                        </Link>
+                        {currentPage === AppRoute.SIZES ? (
+                          <a className="site-nav__item-link">
+                            Таблица размеров
+                          </a>
+                        ) : (
+                          <Link
+                            to={AppRoute.SIZES.path}
+                            className="site-nav__item-link"
+                          >
+                            Таблица размеров
+                          </Link>
+                        )}
                       </li>
                       <li className="site-nav__client-item">
-                        <Link to={AppRoute.FAQ} className="site-nav__item-link">
-                          FAQ
-                        </Link>
+                        {currentPage === AppRoute.FAQ ? (
+                          <a className="site-nav__item-link">FAQ</a>
+                        ) : (
+                          <Link
+                            to={AppRoute.FAQ.path}
+                            className="site-nav__item-link"
+                          >
+                            FAQ
+                          </Link>
+                        )}
                       </li>
                       <li className="site-nav__client-item">
-                        <Link
-                          to={AppRoute.PRIVACY}
-                          className="site-nav__item-link"
-                        >
-                          Публичная оферта
-                        </Link>
+                        {currentPage === AppRoute.PRIVACY ? (
+                          <a className="site-nav__item-link">
+                            Публичная оферта
+                          </a>
+                        ) : (
+                          <Link
+                            to={AppRoute.PRIVACY.path}
+                            className="site-nav__item-link"
+                          >
+                            Публичная оферта
+                          </Link>
+                        )}
                       </li>
                     </ul>
                   </li>
                 ) : (
                   <li className="site-nav__item">
                     <Link
-                      to={AppRoute.CONTACTS}
+                      to={AppRoute.CONTACTS.path}
                       className="site-nav__item-link"
                     >
                       Клиентам
@@ -180,14 +215,17 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
                 )}
 
                 <li className="site-nav__item">
-                  <Link to={AppRoute.ABOUT} className="site-nav__item-link">
+                  <Link
+                    to={AppRoute.ABOUT.path}
+                    className="site-nav__item-link"
+                  >
                     О нас
                   </Link>
                 </li>
               </ul>
             </nav>
 
-            {currentPage === Pages.MAIN && (
+            {currentPage.category === PageCategories.MAIN && (
               <footer className="site-nav__footer">
                 <div className="site-nav__socials socials">
                   <ul className="socials__list">

@@ -7,14 +7,13 @@ import PageFooter from "../page-footer/page-footer";
 import SearchPopup from "../search-popup/search-popup";
 import SideCart from "../side-cart/side-cart";
 
-import { Pages } from "../../helpers/const";
+import { AppRoute } from "../../helpers/const";
 import { products } from "../../mocks/product";
 
 const CatalogPage: React.FC = () => (
   <div className="page page--inner">
-    <PageHeader currentPage={Pages.CATALOG} />
-
-    <SideMenu currentPage={Pages.CATALOG} />
+    <PageHeader currentPage={AppRoute.CATALOG} />
+    <SideMenu currentPage={AppRoute.CATALOG} />
 
     <main className="main-content" id="main-content">
       <h1 className="visually-hidden">
@@ -32,9 +31,7 @@ const CatalogPage: React.FC = () => (
     </main>
 
     <PageFooter />
-
     <SearchPopup />
-
     <SideCart />
   </div>
 );

@@ -13,12 +13,12 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
 }: BreadcrumbsProps) => (
   <ul className="breadcrumbs">
     <li className="breadcrumbs__item">
-      <Link to={AppRoute.ROOT} className="breadcrumbs__link">
+      <Link to={AppRoute.ROOT.path} className="breadcrumbs__link">
         Главная
       </Link>
     </li>
     <li className="breadcrumbs__item">
-      <Link to={AppRoute.CATALOG} className="breadcrumbs__link">
+      <Link to={AppRoute.CATALOG.path} className="breadcrumbs__link">
         {product.category}
       </Link>
     </li>

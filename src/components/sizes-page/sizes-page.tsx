@@ -11,7 +11,7 @@ import SideCart from "../side-cart/side-cart";
 
 import withActiveSize from "../../hocs/with-active-size/with-active-size";
 
-import { Pages, ProductType, Sizes } from "../../helpers/const";
+import { AppRoute, ProductType } from "../../helpers/const";
 
 const SizesTshirtWrapped = withActiveSize(SizesTshirt);
 const SizesHoodieWrapped = withActiveSize(SizesHoodie);
@@ -61,7 +61,7 @@ class SizesPage extends React.PureComponent<{}, SizesPageState> {
 
     return (
       <div className="page page--inner page--customer-care">
-        <PageHeader currentPage={Pages.CLIENT} />
+        <PageHeader currentPage={AppRoute.SIZES} />
 
         <main className="main-content" id="main-content">
           <h1 className="visually-hidden">
@@ -127,7 +127,7 @@ class SizesPage extends React.PureComponent<{}, SizesPageState> {
         </main>
 
         <PageFooter />
-        <SideMenu currentPage={Pages.CLIENT} />
+        <SideMenu currentPage={AppRoute.SIZES} />
         <SideCart />
         <SearchPopup />
       </div>

@@ -6,12 +6,11 @@ import SearchPopup from "../search-popup/search-popup";
 import SideMenu from "../side-menu/side-menu";
 import SideCart from "../side-cart/side-cart";
 
-import { Pages } from "../../helpers/const";
+import { AppRoute } from "../../helpers/const";
 
 const DeliveryPage: React.FC = () => (
   <div className="page page--inner page--customer-care page--text">
-    <PageHeader currentPage={Pages.CLIENT} />
-    <SideMenu />
+    <PageHeader currentPage={AppRoute.DELIVERY} />
 
     <main className="main-content" id="main-content">
       <h1 className="visually-hidden">
@@ -139,7 +138,7 @@ const DeliveryPage: React.FC = () => (
     </main>
 
     <PageFooter />
-    <SideMenu currentPage={Pages.CLIENT} />
+    <SideMenu currentPage={AppRoute.DELIVERY} />
     <SideCart />
     <SearchPopup />
   </div>

@@ -6,12 +6,12 @@ import SearchPopup from "../search-popup/search-popup";
 import SideCart from "../side-cart/side-cart";
 import SideMenu from "../side-menu/side-menu";
 
-import { Pages } from "../../helpers/const";
+import { AppRoute } from "../../helpers/const";
 
 const PrivacyPage: React.FC = () => (
   <div className="page page--inner page--customer-care page--text">
-    <PageHeader currentPage={Pages.CLIENT} />
-    <SideMenu currentPage={Pages.CLIENT} />
+    <PageHeader currentPage={AppRoute.PRIVACY} />
+    <SideMenu currentPage={AppRoute.PRIVACY} />
 
     <main className="main-content" id="main-content">
       <h1 className="visually-hidden">

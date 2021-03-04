@@ -12,7 +12,10 @@ const CatalogItem: React.FC<CatalogItemProps> = ({
   item,
 }: CatalogItemProps) => (
   <article className="catalog__item">
-    <Link to={`${AppRoute.PRODUCT}/${item.alias}`} className="catalog__link">
+    <Link
+      to={`${AppRoute.PRODUCT.path}/${item.alias}`}
+      className="catalog__link"
+    >
       <div className="catalog__image-wrapper">
         <img
           className="catalog__item-thumbnail"

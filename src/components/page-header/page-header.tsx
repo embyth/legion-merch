@@ -5,12 +5,16 @@ import { connect } from "react-redux";
 import { getIsSideMenuOpen } from "../../store/app/selectors";
 import { ActionCreator } from "../../store/app/app";
 
-import { AppRoute, Pages } from "../../helpers/const";
+import { AppRoute, PageCategories } from "../../helpers/const";
 
 import LegionLogo from "./logo.svg";
 
 interface PageHeaderProps {
-  currentPage: string;
+  currentPage: {
+    path: string;
+    title: string;
+    category: string;
+  };
   isSideMenuOpen: boolean;
   onMenuOpenButtonClick(): void;
   onMenuToggleButtonClick(): void;
@@ -28,7 +32,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
 }: PageHeaderProps) => (
   <header className="site-header" id="site-header">
     <div className="site-header__inner">
-      {currentPage === Pages.MAIN ? (
+      {currentPage.category === PageCategories.MAIN ? (
         <div className="site-header__hamburger">
           <button
             className={`site-header__toggler menu-toggler hamburger ${
@@ -47,7 +51,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
       ) : (
         <div className="site-header__logo">
           <Link
-            to={AppRoute.ROOT}
+            to={AppRoute.ROOT.path}
             className="site-header__logo-link"
             aria-label="На главную страницу"
           >
@@ -96,7 +100,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               </svg>
             </a>
           </li>
-          {currentPage !== Pages.MAIN && (
+          {currentPage.category !== PageCategories.MAIN && (
             <li className="user-nav__item user-nav__item--hamburger">
               <button
                 className={`user-nav__button user-nav__button--menu hamburger menu-toggler ${

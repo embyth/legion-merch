@@ -6,7 +6,7 @@ import SearchPopup from "../search-popup/search-popup";
 import SideCart from "../side-cart/side-cart";
 import SideMenu from "../side-menu/side-menu";
 
-import { Pages } from "../../helpers/const";
+import { AppRoute } from "../../helpers/const";
 
 interface ContactsPageState {
   selectValue: string;
@@ -40,7 +40,7 @@ class ContactsPage extends React.PureComponent<{}, ContactsPageState> {
 
     return (
       <div className="page page--inner page--customer-care">
-        <PageHeader currentPage={Pages.CLIENT} />
+        <PageHeader currentPage={AppRoute.CONTACTS} />
 
         <main className="main-content" id="main-content">
           <h1 className="visually-hidden">
@@ -152,7 +152,7 @@ class ContactsPage extends React.PureComponent<{}, ContactsPageState> {
         </main>
 
         <PageFooter />
-        <SideMenu currentPage={Pages.CLIENT} />
+        <SideMenu currentPage={AppRoute.CONTACTS} />
         <SideCart />
         <SearchPopup />
       </div>
