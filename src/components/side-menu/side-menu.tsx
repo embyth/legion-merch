@@ -159,12 +159,12 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
                         </Link>
                       </li>
                       <li className="site-nav__client-item">
-                        <a
-                          href="public-offer.html"
+                        <Link
+                          to={AppRoute.PRIVACY}
                           className="site-nav__item-link"
                         >
                           Публичная оферта
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>

@@ -11,6 +11,7 @@ import ContactsPage from "../contacts-page/contacts-page";
 import DeliveryPage from "../delivery-page/delivery-page";
 import SizePage from "../sizes-page/sizes-page";
 import FaqPage from "../faq-page/faq-page";
+import PrivacyPage from "../privacy-page/privacy-page";
 import NotFound from "../not-found/not-found";
 
 import { AppRoute } from "../../helpers/const";
@@ -27,6 +28,7 @@ const App: React.FC = () => (
         <Route exact path={AppRoute.DELIVERY} component={DeliveryPage} />
         <Route exact path={AppRoute.SIZES} component={SizePage} />
         <Route exact path={AppRoute.FAQ} component={FaqPage} />
+        <Route exact path={AppRoute.PRIVACY} component={PrivacyPage} />
 
         <Route component={NotFound} />
       </Switch>
