@@ -1,11 +1,12 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import SwiperCore, { Pagination, EffectFade, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import Breadcrumbs from "../breadcrumbs/breadcrumbs";
 
 import { ProductInterface } from "../../helpers/my-types";
-import { productCarouselParams } from "../../helpers/const";
+import { productCarouselParams, AppRoute } from "../../helpers/const";
 
 import { productItem } from "../../mocks/product";
 
@@ -140,22 +141,22 @@ const ProductPage: React.FC<ProductPageProps> = ({
 
               <ul className="product__helpers">
                 <li className="product__helper-item">
-                  <a
-                    href="size-tables.html"
+                  <Link
+                    to={AppRoute.SIZES.path}
                     className="product__helper-link"
                     target="_blank"
                   >
                     Таблица&nbsp;размеров
-                  </a>
+                  </Link>
                 </li>
                 <li className="product__helper-item">
-                  <a
-                    href="delivery.html"
+                  <Link
+                    to={AppRoute.DELIVERY.path}
                     className="product__helper-link"
                     target="_blank"
                   >
                     Доставка&nbsp;&amp;&nbsp;Возврат
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

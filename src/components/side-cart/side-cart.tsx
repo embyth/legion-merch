@@ -4,16 +4,28 @@ import { connect } from "react-redux";
 import { ActionCreator } from "../../store/app/app";
 import { getIsSideCartOpen } from "../../store/app/selectors";
 
+import { PageCategories } from "../../helpers/const";
+
 interface SideCartProps {
+  currentPage: {
+    path: string;
+    title: string;
+    category: string;
+  };
   isSideCartOpen: boolean;
   onCartCloseEvent(): void;
 }
 
 class SideCart extends React.PureComponent<SideCartProps, {}> {
+  private myCart: React.RefObject<HTMLDivElement>;
+
   constructor(props) {
     super(props);
 
+    this.myCart = React.createRef();
+
     this.onEscKeyDown = this.onEscKeyDown.bind(this);
+    this.handleCartHeight = this.handleCartHeight.bind(this);
   }
 
   private onEscKeyDown(evt) {
@@ -22,13 +34,28 @@ class SideCart extends React.PureComponent<SideCartProps, {}> {
     }
   }
 
+  private handleCartHeight() {
+    if (this.props.currentPage.category !== PageCategories.MAIN) {
+      const headerHeight = +document.querySelector<HTMLElement>(`.site-header`)
+        .offsetHeight;
+
+      this.myCart.current.style.height = `${
+        window.innerHeight - headerHeight
+      }px`;
+    }
+  }
+
   componentDidMount() {
+    this.handleCartHeight();
+
     if (this.props.isSideCartOpen) {
       document.addEventListener(`keydown`, this.onEscKeyDown);
     }
   }
 
   componentDidUpdate() {
+    this.handleCartHeight();
+
     if (this.props.isSideCartOpen) {
       document.addEventListener(`keydown`, this.onEscKeyDown);
     } else {
@@ -51,7 +78,11 @@ class SideCart extends React.PureComponent<SideCartProps, {}> {
           }`}
           onClick={onCartCloseEvent}
         ></div>
-        <div className={`cart ${isSideCartOpen && `cart--open`}`} id="cart-pop">
+        <div
+          className={`cart ${isSideCartOpen && `cart--open`}`}
+          id="cart-pop"
+          ref={this.myCart}
+        >
           <div className="cart__inner">
             <header className="cart__header">
               <button

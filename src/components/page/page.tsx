@@ -1,6 +1,8 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router";
 
+import withMediaQueries from "../../hocs/with-media-queries/with-media-queries";
+
 import PageHeader from "../page-header/page-header";
 import PageFooter from "../page-footer/page-footer";
 import SearchPopup from "../search-popup/search-popup";
@@ -8,6 +10,9 @@ import SideCart from "../side-cart/side-cart";
 import SideMenu from "../side-menu/side-menu";
 
 import { AppRoute, PageCategories } from "../../helpers/const";
+
+const SideMenuWrapped = withMediaQueries(SideMenu);
+const SideCartWrapped = withMediaQueries(SideCart);
 
 interface PageProps extends RouteComponentProps {
   component: React.ComponentType<any>;
@@ -57,8 +62,8 @@ class Page extends React.PureComponent<PageProps, {}> {
         <PageHeader currentPage={currentPage} />
         <Component />
         {currentPage.category !== PageCategories.MAIN ? <PageFooter /> : null}
-        <SideMenu currentPage={currentPage} />
-        <SideCart />
+        <SideMenuWrapped currentPage={currentPage} />
+        <SideCartWrapped currentPage={currentPage} />
         <SearchPopup />
       </div>
     );

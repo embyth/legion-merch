@@ -15,15 +15,25 @@ interface SideMenuProps {
     title: string;
     category: string;
   };
+  mediaQueries: {
+    isDesktop: boolean;
+    isTablet: boolean;
+    isMobile: boolean;
+  };
   isSideMenuOpen: boolean;
   onMenuCloseEvent(): void;
 }
 
 class SideMenu extends React.PureComponent<SideMenuProps, {}> {
+  private myMenu: React.RefObject<HTMLElement>;
+
   constructor(props) {
     super(props);
 
+    this.myMenu = React.createRef();
+
     this.onEscKeyDown = this.onEscKeyDown.bind(this);
+    this.handleMenuHeight = this.handleMenuHeight.bind(this);
   }
 
   private onEscKeyDown(evt) {
@@ -32,13 +42,43 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
     }
   }
 
+  private handleMenuHeight() {
+    if (this.props.currentPage.category !== PageCategories.MAIN) {
+      const { isDesktop, isTablet, isMobile } = this.props.mediaQueries;
+      const headerHeight = +document.querySelector<HTMLElement>(`.site-header`)
+        .offsetHeight;
+      const footerHeight = +document.querySelector<HTMLElement>(`.site-footer`)
+        .offsetHeight;
+
+      if (isDesktop) {
+        this.myMenu.current.style.height = `${
+          window.innerHeight - headerHeight - footerHeight
+        }px`;
+      } else if (isTablet) {
+        this.myMenu.current.style.height = `${
+          window.innerHeight - headerHeight
+        }px`;
+      } else if (isMobile) {
+        this.myMenu.current.style.height = `${
+          window.innerHeight - headerHeight
+        }px`;
+      } else {
+        this.myMenu.current.style.height = `${window.innerHeight}px`;
+      }
+    }
+  }
+
   componentDidMount() {
+    this.handleMenuHeight();
+
     if (this.props.isSideMenuOpen) {
       document.addEventListener(`keydown`, this.onEscKeyDown);
     }
   }
 
   componentDidUpdate() {
+    this.handleMenuHeight();
+
     if (this.props.isSideMenuOpen) {
       document.addEventListener(`keydown`, this.onEscKeyDown);
     } else {
@@ -64,6 +104,7 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
         <aside
           className={`site-nav ${isSideMenuOpen && `site-nav--open`}`}
           id="site-nav"
+          ref={this.myMenu}
         >
           <div className="site-nav__inner">
             {currentPage.category === PageCategories.MAIN && (
