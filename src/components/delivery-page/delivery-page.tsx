@@ -1,17 +1,7 @@
 import * as React from "react";
 
-import PageHeader from "../page-header/page-header";
-import PageFooter from "../page-footer/page-footer";
-import SearchPopup from "../search-popup/search-popup";
-import SideMenu from "../side-menu/side-menu";
-import SideCart from "../side-cart/side-cart";
-
-import { AppRoute } from "../../helpers/const";
-
 const DeliveryPage: React.FC = () => (
-  <div className="page page--inner page--customer-care page--text">
-    <PageHeader currentPage={AppRoute.DELIVERY} />
-
+  <React.Fragment>
     <main className="main-content" id="main-content">
       <h1 className="visually-hidden">
         Условия доставки или возврата интернет-магазина Legion
@@ -136,12 +126,7 @@ const DeliveryPage: React.FC = () => (
         </article>
       </section>
     </main>
-
-    <PageFooter />
-    <SideMenu currentPage={AppRoute.DELIVERY} />
-    <SideCart />
-    <SearchPopup />
-  </div>
+  </React.Fragment>
 );
 
 export default DeliveryPage;

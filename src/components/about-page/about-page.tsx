@@ -1,18 +1,7 @@
 import * as React from "react";
 
-import PageFooter from "../page-footer/page-footer";
-import PageHeader from "../page-header/page-header";
-import SearchPopup from "../search-popup/search-popup";
-import SideMenu from "../side-menu/side-menu";
-import SideCart from "../side-cart/side-cart";
-
-import { AppRoute } from "../../helpers/const";
-
 const AboutPage: React.FC = () => (
-  <div className="page page--inner">
-    <PageHeader currentPage={AppRoute.ABOUT} />
-    <SideMenu currentPage={AppRoute.ABOUT} />
-
+  <React.Fragment>
     <main className="main-content" id="main-content">
       <h1 className="visually-hidden">О интернет-магазине Legion</h1>
 
@@ -632,11 +621,7 @@ const AboutPage: React.FC = () => (
         </div>
       </section>
     </main>
-
-    <SideCart />
-    <PageFooter />
-    <SearchPopup />
-  </div>
+  </React.Fragment>
 );
 
 export default AboutPage;

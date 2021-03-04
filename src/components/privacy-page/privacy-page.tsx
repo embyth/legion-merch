@@ -1,18 +1,7 @@
 import * as React from "react";
 
-import PageHeader from "../page-header/page-header";
-import PageFooter from "../page-footer/page-footer";
-import SearchPopup from "../search-popup/search-popup";
-import SideCart from "../side-cart/side-cart";
-import SideMenu from "../side-menu/side-menu";
-
-import { AppRoute } from "../../helpers/const";
-
 const PrivacyPage: React.FC = () => (
-  <div className="page page--inner page--customer-care page--text">
-    <PageHeader currentPage={AppRoute.PRIVACY} />
-    <SideMenu currentPage={AppRoute.PRIVACY} />
-
+  <React.Fragment>
     <main className="main-content" id="main-content">
       <h1 className="visually-hidden">
         Договор публичной оферты интернет-магазина Legion
@@ -285,11 +274,7 @@ const PrivacyPage: React.FC = () => (
         </article>
       </section>
     </main>
-
-    <PageFooter />
-    <SideCart />
-    <SearchPopup />
-  </div>
+  </React.Fragment>
 );
 
 export default PrivacyPage;

@@ -2,19 +2,10 @@ import * as React from "react";
 import SwiperCore, { Pagination, EffectFade, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import PageHeader from "../page-header/page-header";
-import SideMenu from "../side-menu/side-menu";
 import Breadcrumbs from "../breadcrumbs/breadcrumbs";
-import PageFooter from "../page-footer/page-footer";
-import SearchPopup from "../search-popup/search-popup";
-import SideCart from "../side-cart/side-cart";
 
 import { ProductInterface } from "../../helpers/my-types";
-import {
-  productCarouselParams,
-  AppRoute,
-  AppMediaQuery,
-} from "../../helpers/const";
+import { productCarouselParams, AppMediaQuery } from "../../helpers/const";
 
 import { productItem } from "../../mocks/product";
 
@@ -70,10 +61,7 @@ class ProductPage extends React.PureComponent<
     } = productCarouselParams;
 
     return (
-      <div className="page page--inner">
-        <PageHeader currentPage={AppRoute.PRODUCT} />
-        <SideMenu currentPage={AppRoute.PRODUCT} />
-
+      <React.Fragment>
         <main className="main-content" id="main-content">
           <h1 className="visually-hidden">
             {`${productItem.category} цвета ${productItem.color} «${productItem.name}»`}
@@ -208,11 +196,7 @@ class ProductPage extends React.PureComponent<
             </div>
           </section>
         </main>
-
-        <PageFooter />
-        <SearchPopup />
-        <SideCart />
-      </div>
+      </React.Fragment>
     );
   }
 }

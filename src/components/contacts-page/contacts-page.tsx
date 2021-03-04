@@ -1,13 +1,5 @@
 import * as React from "react";
 
-import PageHeader from "../page-header/page-header";
-import PageFooter from "../page-footer/page-footer";
-import SearchPopup from "../search-popup/search-popup";
-import SideCart from "../side-cart/side-cart";
-import SideMenu from "../side-menu/side-menu";
-
-import { AppRoute } from "../../helpers/const";
-
 interface ContactsPageState {
   selectValue: string;
 }
@@ -39,9 +31,7 @@ class ContactsPage extends React.PureComponent<{}, ContactsPageState> {
     const { selectValue } = this.state;
 
     return (
-      <div className="page page--inner page--customer-care">
-        <PageHeader currentPage={AppRoute.CONTACTS} />
-
+      <React.Fragment>
         <main className="main-content" id="main-content">
           <h1 className="visually-hidden">
             Контактная форма интернет-магазина Legion
@@ -150,12 +140,7 @@ class ContactsPage extends React.PureComponent<{}, ContactsPageState> {
             </form>
           </section>
         </main>
-
-        <PageFooter />
-        <SideMenu currentPage={AppRoute.CONTACTS} />
-        <SideCart />
-        <SearchPopup />
-      </div>
+      </React.Fragment>
     );
   }
 }

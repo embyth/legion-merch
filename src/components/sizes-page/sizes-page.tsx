@@ -3,15 +3,10 @@ import * as React from "react";
 import SizesTshirt from "../sizes-tshirt/sizes-tshirt";
 import SizesHoodie from "../sizes-hoodie/sizes-hoodie";
 import SizesPants from "../sizes-pants/sizes-pants";
-import PageHeader from "../page-header/page-header";
-import PageFooter from "../page-footer/page-footer";
-import SearchPopup from "../search-popup/search-popup";
-import SideMenu from "../side-menu/side-menu";
-import SideCart from "../side-cart/side-cart";
 
 import withActiveSize from "../../hocs/with-active-size/with-active-size";
 
-import { AppRoute, ProductType } from "../../helpers/const";
+import { ProductType } from "../../helpers/const";
 
 const SizesTshirtWrapped = withActiveSize(SizesTshirt);
 const SizesHoodieWrapped = withActiveSize(SizesHoodie);
@@ -60,9 +55,7 @@ class SizesPage extends React.PureComponent<{}, SizesPageState> {
     const { currentProductType } = this.state;
 
     return (
-      <div className="page page--inner page--customer-care">
-        <PageHeader currentPage={AppRoute.SIZES} />
-
+      <React.Fragment>
         <main className="main-content" id="main-content">
           <h1 className="visually-hidden">
             Условия доставки или возврата интернет-магазина Legion
@@ -125,12 +118,7 @@ class SizesPage extends React.PureComponent<{}, SizesPageState> {
             {this.renderProductType()}
           </section>
         </main>
-
-        <PageFooter />
-        <SideMenu currentPage={AppRoute.SIZES} />
-        <SideCart />
-        <SearchPopup />
-      </div>
+      </React.Fragment>
     );
   }
 }

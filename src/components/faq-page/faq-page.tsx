@@ -1,12 +1,6 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 
-import PageHeader from "../page-header/page-header";
-import PageFooter from "../page-footer/page-footer";
-import SearchPopup from "../search-popup/search-popup";
-import SideCart from "../side-cart/side-cart";
-import SideMenu from "../side-menu/side-menu";
-
 import { AppRoute } from "../../helpers/const";
 
 interface FaqPageState {
@@ -55,9 +49,7 @@ class FaqPage extends React.PureComponent<{}, FaqPageState> {
     const { activeQuestionIndex } = this.state;
 
     return (
-      <div className="page page--inner page--customer-care">
-        <PageHeader currentPage={AppRoute.FAQ} />
-
+      <React.Fragment>
         <main className="main-content" id="main-content">
           <h1 className="visually-hidden">
             Часто задаваемые вопросы интернет-магазина Legion
@@ -301,12 +293,7 @@ class FaqPage extends React.PureComponent<{}, FaqPageState> {
             </ul>
           </section>
         </main>
-
-        <PageFooter />
-        <SideMenu currentPage={AppRoute.FAQ} />
-        <SideCart />
-        <SearchPopup />
-      </div>
+      </React.Fragment>
     );
   }
 }
