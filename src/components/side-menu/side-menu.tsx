@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 
 import { ActionCreator } from "../../store/app/app";
 import { getIsSideMenuOpen } from "../../store/app/selectors";
+import { getProductsCategories } from "../../store/data/selectors";
 
 import { AppRoute, PageCategories } from "../../helpers/const";
 
 import LegionerLogo from "./logo--legioner.svg";
+import { ProductInterface } from "../../helpers/my-types";
 
 interface SideMenuProps {
   currentPage: {
@@ -20,6 +22,7 @@ interface SideMenuProps {
     isTablet: boolean;
     isMobile: boolean;
   };
+  categories: ProductInterface[`category`][];
   isSideMenuOpen: boolean;
   onMenuCloseEvent(): void;
 }
@@ -91,7 +94,12 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
   }
 
   render() {
-    const { currentPage, isSideMenuOpen, onMenuCloseEvent } = this.props;
+    const {
+      currentPage,
+      categories,
+      isSideMenuOpen,
+      onMenuCloseEvent,
+    } = this.props;
 
     return (
       <React.Fragment>
@@ -125,30 +133,23 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
             <nav className="site-nav__menu">
               <ul className="site-nav__list">
                 <li className="site-nav__item">
-                  <a href="catalog.html" className="site-nav__item-link">
-                    Новинки
-                  </a>
+                  <Link
+                    to={AppRoute.CATALOG.path}
+                    className="site-nav__item-link"
+                  >
+                    Каталог
+                  </Link>
                 </li>
-                <li className="site-nav__item">
-                  <a href="catalog.html" className="site-nav__item-link">
-                    Футболки
-                  </a>
-                </li>
-                <li className="site-nav__item">
-                  <a href="catalog.html" className="site-nav__item-link">
-                    Худи
-                  </a>
-                </li>
-                <li className="site-nav__item">
-                  <a href="catalog.html" className="site-nav__item-link">
-                    Аксессуары
-                  </a>
-                </li>
-                <li className="site-nav__item">
-                  <a href="catalog.html" className="site-nav__item-link">
-                    Подарочные карты
-                  </a>
-                </li>
+                {categories.map((category) => (
+                  <li key={category.alias} className="site-nav__item">
+                    <Link
+                      to={`${AppRoute.CATALOG.path}/${category.alias}`}
+                      className="site-nav__item-link"
+                    >
+                      {category.label}
+                    </Link>
+                  </li>
+                ))}
                 <li className="site-nav__item site-nav__item--spacer">
                   <a href="catalog.html" className="site-nav__item-link">
                     Коллекции
@@ -279,7 +280,7 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
                         aria-label="Наш профиль в инстаграм"
                       >
                         <svg className="socials__svg" width="20" height="20">
-                          <use xlinkHref="img/sprite.svg#icon-instagram"></use>
+                          <use xlinkHref="/img/sprite.svg#icon-instagram"></use>
                         </svg>
                       </a>
                     </li>
@@ -292,7 +293,7 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
                         aria-label="Наша страница во вконтакте"
                       >
                         <svg className="socials__svg" width="20" height="20">
-                          <use xlinkHref="img/sprite.svg#icon-vk"></use>
+                          <use xlinkHref="/img/sprite.svg#icon-vk"></use>
                         </svg>
                       </a>
                     </li>
@@ -305,7 +306,7 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
                         aria-label="Наш канал в телеграм"
                       >
                         <svg className="socials__svg" width="20" height="20">
-                          <use xlinkHref="img/sprite.svg#icon-telegram"></use>
+                          <use xlinkHref="/img/sprite.svg#icon-telegram"></use>
                         </svg>
                       </a>
                     </li>
@@ -318,7 +319,7 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
                         aria-label="Наш канал на ютьюб"
                       >
                         <svg className="socials__svg" width="20" height="20">
-                          <use xlinkHref="img/sprite.svg#icon-youtube"></use>
+                          <use xlinkHref="/img/sprite.svg#icon-youtube"></use>
                         </svg>
                       </a>
                     </li>
@@ -340,7 +341,7 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
                           width="20"
                           height="20"
                         >
-                          <use xlinkHref="img/sprite.svg#icon-github"></use>
+                          <use xlinkHref="/img/sprite.svg#icon-github"></use>
                         </svg>
                       </a>
                     </li>
@@ -357,7 +358,7 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
                           width="20"
                           height="20"
                         >
-                          <use xlinkHref="img/sprite.svg#icon-telegram"></use>
+                          <use xlinkHref="/img/sprite.svg#icon-telegram"></use>
                         </svg>
                       </a>
                     </li>
@@ -374,6 +375,7 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
 
 const mapStateToProps = (state) => ({
   isSideMenuOpen: getIsSideMenuOpen(state),
+  categories: getProductsCategories(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
