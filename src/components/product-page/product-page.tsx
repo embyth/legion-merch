@@ -1,19 +1,25 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import SwiperCore, { Pagination, EffectFade, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+
+import {
+  getProductByAlias,
+  getProductsRequestStatus,
+} from "../../store/data/selectors";
 
 import Breadcrumbs from "../breadcrumbs/breadcrumbs";
 
 import { ProductInterface } from "../../helpers/my-types";
-import { productCarouselParams, AppRoute } from "../../helpers/const";
-
-import { productItem } from "../../mocks/product";
+import { productCarouselParams } from "../../helpers/swiper-params";
+import { AppRoute, RequestStatus } from "../../helpers/const";
 
 SwiperCore.use([Pagination, EffectFade, A11y]);
 
 interface ProductPageProps {
   product: ProductInterface;
+  productsRequestStatus: string;
   mediaQueries: {
     isDesktop: boolean;
     isTablet: boolean;
@@ -23,6 +29,7 @@ interface ProductPageProps {
 
 const ProductPage: React.FC<ProductPageProps> = ({
   product,
+  productsRequestStatus,
   mediaQueries,
 }: ProductPageProps) => {
   const {
@@ -31,17 +38,21 @@ const ProductPage: React.FC<ProductPageProps> = ({
   } = productCarouselParams;
   const { isDesktop, isTablet, isMobile } = mediaQueries;
 
+  if (productsRequestStatus !== RequestStatus.SUCCESS) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <React.Fragment>
       <main className="main-content" id="main-content">
         <h1 className="visually-hidden">
-          {`${productItem.category} цвета ${productItem.color} «${productItem.name}»`}
+          {`${product.type} цвета ${product.color} «${product.name}»`}
         </h1>
 
         <section className="product">
           <h2 className="visually-hidden">Информация о товаре</h2>
           <div className="product__inner">
-            {isMobile && <Breadcrumbs product={productItem} />}
+            {isMobile && <Breadcrumbs product={product} />}
 
             {isDesktop ? (
               <Swiper
@@ -49,12 +60,15 @@ const ProductPage: React.FC<ProductPageProps> = ({
                 direction={desktopSwiperParams.direction}
                 slidesPerView={desktopSwiperParams.slidesPerView}
                 allowTouchMove={desktopSwiperParams.allowTouchMove}
+                spaceBetween={desktopSwiperParams.spaceBetween}
               >
-                {productItem.pictures.map((pic, index) => (
+                {product.pictures.map((pic, index) => (
                   <SwiperSlide key={pic}>
                     <img
                       src={pic}
-                      alt="Белая футболка с перечеркнутым текстом зритель и надписью актер"
+                      alt={`${product.type} цвета ${product.color} «${
+                        product.name
+                      }», ${index + 1} из ${product.pictures.length}`}
                     />
                   </SwiperSlide>
                 ))}
@@ -72,11 +86,13 @@ const ProductPage: React.FC<ProductPageProps> = ({
                 loop={mobileSwiperParams.loop}
                 autoHeight={mobileSwiperParams.autoHeight}
               >
-                {productItem.pictures.map((pic, index) => (
+                {product.pictures.map((pic, index) => (
                   <SwiperSlide key={pic}>
                     <img
                       src={pic}
-                      alt="Белая футболка с перечеркнутым текстом зритель и надписью актер"
+                      alt={`${product.type} цвета ${product.color} «${
+                        product.name
+                      }», ${index + 1} из ${product.pictures.length}`}
                     />
                   </SwiperSlide>
                 ))}
@@ -85,21 +101,21 @@ const ProductPage: React.FC<ProductPageProps> = ({
             )}
 
             <div className="product__info">
-              {(isDesktop || isTablet) && <Breadcrumbs product={productItem} />}
-              <h3 className="product__name">{productItem.name}</h3>
+              {(isDesktop || isTablet) && <Breadcrumbs product={product} />}
+              <h3 className="product__name">{product.name}</h3>
               <strong
                 className="product__price"
-                aria-label={`Цена ${productItem.price.value} ${productItem.price.currency}`}
+                aria-label={`Цена ${product.price.value} ${product.price.currency}`}
               >
                 <span className="product__price--value">
-                  {productItem.price.value}
+                  {product.price.value}
                 </span>
                 &nbsp;&#8372;
               </strong>
-              <p className="product__description">{productItem.description}</p>
+              <p className="product__description">{product.description}</p>
               <ul className="product__care-info">
-                <li>{productItem.about.comp}</li>
-                <li>{productItem.about.wash}</li>
+                <li>{product.about.comp}</li>
+                <li>{product.about.wash}</li>
               </ul>
 
               <form
@@ -116,7 +132,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
                     name="product-size"
                     id="product-size"
                   >
-                    {Object.entries(productItem.sizes).map(
+                    {Object.entries(product.sizes).map(
                       ([sizeLabel, sizeValue]) => (
                         <option
                           key={sizeLabel}
@@ -126,7 +142,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
                     )}
                   </select>
                   <svg className="product__select-svg" width="15" height="15">
-                    <use xlinkHref="img/sprite.svg#icon-caret"></use>
+                    <use xlinkHref="/img/sprite.svg#icon-caret"></use>
                   </svg>
                 </div>
                 <button
@@ -167,4 +183,9 @@ const ProductPage: React.FC<ProductPageProps> = ({
   );
 };
 
-export default ProductPage;
+const mapStateToProps = (state, ownProps) => ({
+  productsRequestStatus: getProductsRequestStatus(state),
+  product: getProductByAlias(state, ownProps),
+});
+
+export default connect(mapStateToProps)(ProductPage);
