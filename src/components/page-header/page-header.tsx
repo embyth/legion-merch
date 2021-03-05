@@ -71,7 +71,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               onClick={onCartToggleButtonClick}
             >
               <svg className="user-nav__svg" width="20" height="20">
-                <use xlinkHref="img/sprite.svg#icon-bag"></use>
+                <use xlinkHref="/img/sprite.svg#icon-bag"></use>
               </svg>
             </button>
           </li>
@@ -84,7 +84,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               onClick={onSearchOpenButtonClick}
             >
               <svg className="user-nav__svg" width="20" height="20">
-                <use xlinkHref="img/sprite.svg#icon-search"></use>
+                <use xlinkHref="/img/sprite.svg#icon-search"></use>
               </svg>
             </button>
           </li>
@@ -96,7 +96,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               aria-label="Перейти в свой профиль"
             >
               <svg className="user-nav__svg" width="20" height="20">
-                <use xlinkHref="img/sprite.svg#icon-account"></use>
+                <use xlinkHref="/img/sprite.svg#icon-account"></use>
               </svg>
             </a>
           </li>

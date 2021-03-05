@@ -14,9 +14,9 @@ const SizesPants: React.FC<SizesPantsProps> = ({
   <article className="size__item size__item--active" id="pants-body">
     <div className="size__image-wrapper">
       <picture>
-        <source type="image/webp" srcSet="img/content/pants-size.webp" />
+        <source type="image/webp" srcSet="/img/content/pants-size.webp" />
         <img
-          src="img/content/pants-size.jpg"
+          src="/img/content/pants-size.jpg"
           alt="Схема измерения размеров на штанах"
           className="size__image"
           width="290"

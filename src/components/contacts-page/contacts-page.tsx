@@ -110,7 +110,7 @@ class ContactsPage extends React.PureComponent<{}, ContactsPageState> {
                       Чем можем помочь?
                     </label>
                     <svg className="form__select-svg" width="15" height="15">
-                      <use xlinkHref="img/sprite.svg#icon-caret"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-caret"></use>
                     </svg>
                   </div>
                   <div className="form__input-group">

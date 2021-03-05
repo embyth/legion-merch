@@ -14,9 +14,9 @@ const SizesTshirt: React.FC<SizesTshirtProps> = ({
   <article className="size__item size__item--active" id="tshirt-body">
     <div className="size__image-wrapper">
       <picture>
-        <source type="image/webp" srcSet="img/content/tshirt-size.webp" />
+        <source type="image/webp" srcSet="/img/content/tshirt-size.webp" />
         <img
-          src="img/content/tshirt-size.jpg"
+          src="/img/content/tshirt-size.jpg"
           alt="Схема измерения размеров на футболке"
           className="size__image"
           width="290"

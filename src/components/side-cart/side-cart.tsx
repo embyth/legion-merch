@@ -116,7 +116,7 @@ class SideCart extends React.PureComponent<SideCartProps, {}> {
                   <a className="cart__image-link" href="starina.html">
                     <img
                       className="cart__image"
-                      src="img/products/wycc-h-starina.jpg"
+                      src="/img/products/wycc-h-starina.jpg"
                       alt="Худи черного цвета «Starina»"
                     />
                   </a>
@@ -156,7 +156,7 @@ class SideCart extends React.PureComponent<SideCartProps, {}> {
                   >
                     <img
                       className="cart__image"
-                      src="img/products/beast-t-front.jpg"
+                      src="/img/products/beast-t-front.jpg"
                       alt="Футболка черного цвета «Dont Make Me Beast»"
                     />
                   </a>

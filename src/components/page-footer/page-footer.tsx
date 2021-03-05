@@ -20,7 +20,7 @@ const PageFooter: React.FC = () => (
             aria-label="Наш профиль в инстаграм"
           >
             <svg className="socials__svg" width="20" height="20">
-              <use xlinkHref="img/sprite.svg#icon-instagram"></use>
+              <use xlinkHref="/img/sprite.svg#icon-instagram"></use>
             </svg>
           </a>
         </li>
@@ -33,7 +33,7 @@ const PageFooter: React.FC = () => (
             aria-label="Наша страница во вконтакте"
           >
             <svg className="socials__svg" width="20" height="20">
-              <use xlinkHref="img/sprite.svg#icon-vk"></use>
+              <use xlinkHref="/img/sprite.svg#icon-vk"></use>
             </svg>
           </a>
         </li>
@@ -46,7 +46,7 @@ const PageFooter: React.FC = () => (
             aria-label="Наш канал в телеграм"
           >
             <svg className="socials__svg" width="20" height="20">
-              <use xlinkHref="img/sprite.svg#icon-telegram"></use>
+              <use xlinkHref="/img/sprite.svg#icon-telegram"></use>
             </svg>
           </a>
         </li>
@@ -59,7 +59,7 @@ const PageFooter: React.FC = () => (
             aria-label="Наш канал на ютьюб"
           >
             <svg className="socials__svg" width="20" height="20">
-              <use xlinkHref="img/sprite.svg#icon-youtube"></use>
+              <use xlinkHref="/img/sprite.svg#icon-youtube"></use>
             </svg>
           </a>
         </li>
@@ -77,7 +77,7 @@ const PageFooter: React.FC = () => (
             target="_blank"
           >
             <svg className="site-footer__developer-svg" width="20" height="20">
-              <use xlinkHref="img/sprite.svg#icon-github"></use>
+              <use xlinkHref="/img/sprite.svg#icon-github"></use>
             </svg>
           </a>
         </li>
@@ -90,7 +90,7 @@ const PageFooter: React.FC = () => (
             target="_blank"
           >
             <svg className="site-footer__developer-svg" width="20" height="20">
-              <use xlinkHref="img/sprite.svg#icon-telegram"></use>
+              <use xlinkHref="/img/sprite.svg#icon-telegram"></use>
             </svg>
           </a>
         </li>

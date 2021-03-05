@@ -14,9 +14,9 @@ const SizesHoodie: React.FC<SizesHoodieProps> = ({
   <article className="size__item size__item--active" id="hoodie-body">
     <div className="size__image-wrapper">
       <picture>
-        <source type="image/webp" srcSet="img/content/hoodie-size.webp" />
+        <source type="image/webp" srcSet="/img/content/hoodie-size.webp" />
         <img
-          src="img/content/hoodie-size.jpg"
+          src="/img/content/hoodie-size.jpg"
           alt="Схема измерения размеров на толстовке"
           className="size__image"
           width="290"

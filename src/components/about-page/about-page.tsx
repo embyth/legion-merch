@@ -16,9 +16,9 @@ const AboutPage: React.FC = () => (
           <article className="team__member">
             <div className="team__member-image">
               <picture>
-                <source type="image/webp" srcSet="img/content/wycc.webp" />
+                <source type="image/webp" srcSet="/img/content/wycc.webp" />
                 <img
-                  src="img/content/wycc.png"
+                  src="/img/content/wycc.png"
                   alt="Макс «Шустрила» Козлов"
                   className="team__member-photo"
                   width="290"
@@ -45,7 +45,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Профиль Макса в инстаграм"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-instagram"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-instagram"></use>
                     </svg>
                   </a>
                 </li>
@@ -58,7 +58,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Страница Макса во вконтакте"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-vk"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-vk"></use>
                     </svg>
                   </a>
                 </li>
@@ -71,7 +71,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Канал Макса на ютьюб"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-youtube"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-youtube"></use>
                     </svg>
                   </a>
                 </li>
@@ -84,7 +84,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Канал Макса на твитче"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-twitch"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-twitch"></use>
                     </svg>
                   </a>
                 </li>
@@ -95,9 +95,9 @@ const AboutPage: React.FC = () => (
           <article className="team__member">
             <div className="team__member-image">
               <picture>
-                <source type="image/webp" srcSet="img/content/cemka.webp" />
+                <source type="image/webp" srcSet="/img/content/cemka.webp" />
                 <img
-                  src="img/content/cemka.png"
+                  src="/img/content/cemka.png"
                   alt="Арсений «CeMka» Стребков"
                   className="team__member-photo"
                   width="290"
@@ -124,7 +124,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Профиль Арсения в инстаграм"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-instagram"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-instagram"></use>
                     </svg>
                   </a>
                 </li>
@@ -137,7 +137,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Страница Арсения во вконтакте"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-vk"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-vk"></use>
                     </svg>
                   </a>
                 </li>
@@ -150,7 +150,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Канал Арсения на ютьюб"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-youtube"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-youtube"></use>
                     </svg>
                   </a>
                 </li>
@@ -163,7 +163,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Канал Арсения на твитче"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-twitch"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-twitch"></use>
                     </svg>
                   </a>
                 </li>
@@ -174,9 +174,9 @@ const AboutPage: React.FC = () => (
           <article className="team__member">
             <div className="team__member-image">
               <picture>
-                <source type="image/webp" srcSet="img/content/taer.webp" />
+                <source type="image/webp" srcSet="/img/content/taer.webp" />
                 <img
-                  src="img/content/taer.png"
+                  src="/img/content/taer.png"
                   alt="Терентий «TaeR» Стребков"
                   className="team__member-photo"
                   width="290"
@@ -203,7 +203,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Профиль Терентия в инстаграм"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-instagram"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-instagram"></use>
                     </svg>
                   </a>
                 </li>
@@ -216,7 +216,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Страница Терентия во вконтакте"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-vk"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-vk"></use>
                     </svg>
                   </a>
                 </li>
@@ -229,7 +229,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Канал Терентия на ютьюб"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-youtube"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-youtube"></use>
                     </svg>
                   </a>
                 </li>
@@ -242,7 +242,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Канал Терентия на твитче"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-twitch"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-twitch"></use>
                     </svg>
                   </a>
                 </li>
@@ -253,9 +253,9 @@ const AboutPage: React.FC = () => (
           <article className="team__member">
             <div className="team__member-image">
               <picture>
-                <source type="image/webp" srcSet="img/content/raduga.webp" />
+                <source type="image/webp" srcSet="/img/content/raduga.webp" />
                 <img
-                  src="img/content/raduga.png"
+                  src="/img/content/raduga.png"
                   alt="Раду «PagyrA» Чернов"
                   className="team__member-photo"
                   width="290"
@@ -282,7 +282,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Страница Раду во вконтакте"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-vk"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-vk"></use>
                     </svg>
                   </a>
                 </li>
@@ -295,7 +295,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Канал Раду на ютьюб"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-youtube"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-youtube"></use>
                     </svg>
                   </a>
                 </li>
@@ -308,7 +308,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Канал Раду на твитче"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-twitch"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-twitch"></use>
                     </svg>
                   </a>
                 </li>
@@ -319,9 +319,9 @@ const AboutPage: React.FC = () => (
           <article className="team__member">
             <div className="team__member-image">
               <picture>
-                <source type="image/webp" srcSet="img/content/beastqt.webp" />
+                <source type="image/webp" srcSet="/img/content/beastqt.webp" />
                 <img
-                  src="img/content/beastqt.png"
+                  src="/img/content/beastqt.png"
                   alt="Дмитрий «BeastQT» Локоть"
                   className="team__member-photo"
                   width="290"
@@ -348,7 +348,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Профиль Димы в инстаграм"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-instagram"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-instagram"></use>
                     </svg>
                   </a>
                 </li>
@@ -361,7 +361,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Страница Димы во вконтакте"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-vk"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-vk"></use>
                     </svg>
                   </a>
                 </li>
@@ -374,7 +374,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Канал Димы на ютьюб"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-youtube"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-youtube"></use>
                     </svg>
                   </a>
                 </li>
@@ -387,7 +387,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Канал Димы на твитче"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-twitch"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-twitch"></use>
                     </svg>
                   </a>
                 </li>
@@ -398,9 +398,9 @@ const AboutPage: React.FC = () => (
           <article className="team__member">
             <div className="team__member-image">
               <picture>
-                <source type="image/webp" srcSet="img/content/insize.webp" />
+                <source type="image/webp" srcSet="/img/content/insize.webp" />
                 <img
-                  src="img/content/insize.png"
+                  src="/img/content/insize.png"
                   alt="Георгий «insize» Сергеевич"
                   className="team__member-photo"
                   width="290"
@@ -427,7 +427,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Профиль Георгия в инстаграм"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-instagram"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-instagram"></use>
                     </svg>
                   </a>
                 </li>
@@ -440,7 +440,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Страница Георгия во вконтакте"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-vk"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-vk"></use>
                     </svg>
                   </a>
                 </li>
@@ -453,7 +453,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Канал Георгия на ютьюб"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-youtube"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-youtube"></use>
                     </svg>
                   </a>
                 </li>
@@ -466,7 +466,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Канал Георгия на твитче"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-twitch"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-twitch"></use>
                     </svg>
                   </a>
                 </li>
@@ -477,9 +477,9 @@ const AboutPage: React.FC = () => (
           <article className="team__member">
             <div className="team__member-image">
               <picture>
-                <source type="image/webp" srcSet="img/content/alcore.webp" />
+                <source type="image/webp" srcSet="/img/content/alcore.webp" />
                 <img
-                  src="img/content/alcore.png"
+                  src="/img/content/alcore.png"
                   alt="Алексей «AlCore» Бессараб"
                   className="team__member-photo"
                   width="290"
@@ -506,7 +506,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Профиль Алексея в инстаграм"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-instagram"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-instagram"></use>
                     </svg>
                   </a>
                 </li>
@@ -519,7 +519,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Страница Алексея во вконтакте"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-vk"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-vk"></use>
                     </svg>
                   </a>
                 </li>
@@ -532,7 +532,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Канал Алексея на ютьюб"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-youtube"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-youtube"></use>
                     </svg>
                   </a>
                 </li>
@@ -545,7 +545,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Канал Алексея на твитче"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-twitch"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-twitch"></use>
                     </svg>
                   </a>
                 </li>
@@ -556,9 +556,9 @@ const AboutPage: React.FC = () => (
           <article className="team__member">
             <div className="team__member-image">
               <picture>
-                <source type="image/webp" srcSet="img/content/huler.webp" />
+                <source type="image/webp" srcSet="/img/content/huler.webp" />
                 <img
-                  src="img/content/huler.png"
+                  src="/img/content/huler.png"
                   alt="Артем «Soroket» Товстенко"
                   className="team__member-photo"
                   width="290"
@@ -585,7 +585,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Профиль Артема в инстаграм"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-instagram"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-instagram"></use>
                     </svg>
                   </a>
                 </li>
@@ -598,7 +598,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Страница Артема во вконтакте"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-vk"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-vk"></use>
                     </svg>
                   </a>
                 </li>
@@ -611,7 +611,7 @@ const AboutPage: React.FC = () => (
                     aria-label="Канал Артема на твитче"
                   >
                     <svg className="socials__svg" width="20" height="20">
-                      <use xlinkHref="img/sprite.svg#icon-twitch"></use>
+                      <use xlinkHref="/img/sprite.svg#icon-twitch"></use>
                     </svg>
                   </a>
                 </li>

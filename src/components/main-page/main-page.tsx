@@ -22,7 +22,7 @@ const MainPage: React.FC = () => (
           type="button"
         >
           <svg className="bg-controls__svg" width="20" height="20">
-            <use xlinkHref="img/sprite.svg#icon-caret"></use>
+            <use xlinkHref="/img/sprite.svg#icon-caret"></use>
           </svg>
         </button>
         <button
@@ -30,7 +30,7 @@ const MainPage: React.FC = () => (
           type="button"
         >
           <svg className="bg-controls__svg" width="20" height="20">
-            <use xlinkHref="img/sprite.svg#icon-caret"></use>
+            <use xlinkHref="/img/sprite.svg#icon-caret"></use>
           </svg>
         </button>
       </div>
