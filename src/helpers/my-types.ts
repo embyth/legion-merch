@@ -3,7 +3,11 @@ export interface ProductInterface {
   description: string;
   alias: string;
   id: number;
-  category: string;
+  category: {
+    label: string;
+    alias: string;
+  };
+  type: string;
   color: string;
   isAvailable: boolean;
   about: {
