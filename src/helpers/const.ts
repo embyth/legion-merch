@@ -1,52 +1,3 @@
-export const indexShowcaseParams = {
-  navigation: {
-    nextEl: `.bg-controls__button--next`,
-    prevEl: `.bg-controls__button--prev`,
-  },
-  a11y: {
-    prevSlideMessage: `Предыдущее фото`,
-    nextSlideMessage: `Следующие фото`,
-  },
-  autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-      enabled: true,
-  },
-  loop: true,
-  direction: `vertical` as const,
-  slidesPerView: 1,
-  speed: 700,
-};
-
-export const productCarouselParams = {
-  MOBILE: {
-    pagination: {
-      el: `.product__gallery-controls`,
-      clickable: true,
-      bulletClass: `product__gallery-controls-dot`,
-      bulletActiveClass: `product__gallery-controls-dot--current`,
-      renderBullet: (index, className) => (
-        `<span class="${className}">${index + 1}</span>`
-      ),
-    },
-    a11y: {
-      paginationBulletMessage: `Перейти к фото номер {{index}}`,
-    },
-    grabCursor: true,
-    loop: true,
-    autoHeight: true,
-    slidesPerView: 1,
-    effect: `fade` as const,
-    direction: `horizontal` as const,
-  },
-
-  DESKTOP: {
-    allowTouchMove: false,
-    slidesPerView: `auto` as const,
-    direction: `vertical` as const,
-  },
-};
-
 export enum PageCategories {
   MAIN = `MAIN`,
   SHOP = `SHOP`,
@@ -121,4 +72,32 @@ export enum Sizes {
   L = `LARGE`,
   XL = `X-LARGE`,
   XXL = `XX-LARGE`,
+}
+
+export enum RequestStatus {
+  NOT_SENT = `NOT_SENT`,
+  SENDING = `SENDING`,
+  SUCCESS = `SUCCESS`,
+  ERROR = `ERROR`,
+}
+
+interface ApiConfigInterface {
+  URL: string;
+  TIMEOUT: number;
+  COOKIES: boolean;
+}
+
+export const ApiConfig: ApiConfigInterface = {
+  URL: `/api`,
+  TIMEOUT: 5000,
+  COOKIES: true,
+};
+
+export enum ErrorStatusCode {
+  BAD_REQUEST = 400,
+  UNAUTHORIZED = 401,
+  FORBIDDEN = 403,
+  NOT_FOUND = 404,
+  INTERNAL = 500,
+  SERVICE_UNAVAILABLE = 503,
 }
