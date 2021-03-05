@@ -29,16 +29,20 @@ const App: React.FC = () => (
           exact
           path={AppRoute.ROOT.path}
           render={(props) => (
-            <Page {...props} component={MainPage} currentPage={AppRoute.ROOT} />
+            <Page
+              routeProps={props}
+              component={MainPage}
+              currentPage={AppRoute.ROOT}
+            />
           )}
         />
 
         <Route
           exact
-          path={AppRoute.CATALOG.path}
+          path={`${AppRoute.CATALOG.path}/:category?`}
           render={(props) => (
             <Page
-              {...props}
+              routeProps={props}
               component={CatalogPage}
               currentPage={AppRoute.CATALOG}
             />
@@ -47,10 +51,10 @@ const App: React.FC = () => (
 
         <Route
           exact
-          path={AppRoute.PRODUCT.path}
+          path={`${AppRoute.PRODUCT.path}/:alias`}
           render={(props) => (
             <Page
-              {...props}
+              routeProps={props}
               component={ProductPageWrapped}
               currentPage={AppRoute.PRODUCT}
             />
@@ -62,7 +66,7 @@ const App: React.FC = () => (
           path={AppRoute.ABOUT.path}
           render={(props) => (
             <Page
-              {...props}
+              routeProps={props}
               component={AboutPage}
               currentPage={AppRoute.ABOUT}
             />
@@ -74,7 +78,7 @@ const App: React.FC = () => (
           path={AppRoute.CONTACTS.path}
           render={(props) => (
             <Page
-              {...props}
+              routeProps={props}
               component={ContactsPage}
               currentPage={AppRoute.CONTACTS}
             />
@@ -86,7 +90,7 @@ const App: React.FC = () => (
           path={AppRoute.DELIVERY.path}
           render={(props) => (
             <Page
-              {...props}
+              routeProps={props}
               component={DeliveryPage}
               currentPage={AppRoute.DELIVERY}
             />
@@ -98,7 +102,7 @@ const App: React.FC = () => (
           path={AppRoute.SIZES.path}
           render={(props) => (
             <Page
-              {...props}
+              routeProps={props}
               component={SizesPage}
               currentPage={AppRoute.SIZES}
             />
@@ -109,7 +113,11 @@ const App: React.FC = () => (
           exact
           path={AppRoute.FAQ.path}
           render={(props) => (
-            <Page {...props} component={FaqPage} currentPage={AppRoute.FAQ} />
+            <Page
+              routeProps={props}
+              component={FaqPage}
+              currentPage={AppRoute.FAQ}
+            />
           )}
         />
 
@@ -118,7 +126,7 @@ const App: React.FC = () => (
           path={AppRoute.PRIVACY.path}
           render={(props) => (
             <Page
-              {...props}
+              routeProps={props}
               component={PrivacyPage}
               currentPage={AppRoute.PRIVACY}
             />
