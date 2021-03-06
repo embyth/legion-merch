@@ -6,7 +6,7 @@ import SizesPants from "../sizes-pants/sizes-pants";
 
 import withActiveSize from "../../hocs/with-active-size/with-active-size";
 
-import { ProductType } from "../../helpers/const";
+import {ProductType} from "../../helpers/const";
 
 const SizesTshirtWrapped = withActiveSize(SizesTshirt);
 const SizesHoodieWrapped = withActiveSize(SizesHoodie);
@@ -16,8 +16,8 @@ interface SizesPageState {
   currentProductType: string;
 }
 
-class SizesPage extends React.PureComponent<{}, SizesPageState> {
-  constructor(props) {
+class SizesPage extends React.PureComponent<Record<string, never>, SizesPageState> {
+  constructor(props: Record<string, never>) {
     super(props);
 
     this.state = {
@@ -25,7 +25,7 @@ class SizesPage extends React.PureComponent<{}, SizesPageState> {
     };
 
     this.handlePrudctTypeButtonClick = this.handlePrudctTypeButtonClick.bind(
-      this
+        this
     );
     this.renderProductType = this.renderProductType.bind(this);
   }
@@ -37,7 +37,7 @@ class SizesPage extends React.PureComponent<{}, SizesPageState> {
   }
 
   private renderProductType() {
-    const { currentProductType } = this.state;
+    const {currentProductType} = this.state;
 
     switch (currentProductType) {
       case ProductType.TSHIRT:
@@ -51,8 +51,8 @@ class SizesPage extends React.PureComponent<{}, SizesPageState> {
     }
   }
 
-  render() {
-    const { currentProductType } = this.state;
+  render(): React.ReactNode {
+    const {currentProductType} = this.state;
 
     return (
       <React.Fragment>

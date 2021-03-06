@@ -8,9 +8,9 @@ export const indexShowcaseParams = {
     nextSlideMessage: `Следующие фото`,
   },
   autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-      enabled: true,
+    delay: 3000,
+    disableOnInteraction: false,
+    enabled: true,
   },
   loop: true,
   direction: `vertical` as const,
@@ -25,7 +25,7 @@ export const productCarouselParams = {
       clickable: true,
       bulletClass: `product__gallery-controls-dot`,
       bulletActiveClass: `product__gallery-controls-dot--current`,
-      renderBullet: (index, className) => (
+      renderBullet: (index: number, className: string): string => (
         `<span class="${className}">${index + 1}</span>`
       ),
     },

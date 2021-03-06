@@ -41,6 +41,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://www.instagram.com/realwycc220"
                     target="_blank"
+                    rel="noreferrer"
                     title="Instagram"
                     aria-label="Профиль Макса в инстаграм"
                   >
@@ -54,6 +55,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://vk.com/wyctpujla"
                     target="_blank"
+                    rel="noreferrer"
                     title="VK"
                     aria-label="Страница Макса во вконтакте"
                   >
@@ -67,6 +69,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://youtube.com/wycc220"
                     target="_blank"
+                    rel="noreferrer"
                     title="YouTube"
                     aria-label="Канал Макса на ютьюб"
                   >
@@ -80,6 +83,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://www.twitch.tv/elwycco"
                     target="_blank"
+                    rel="noreferrer"
                     title="Twitch"
                     aria-label="Канал Макса на твитче"
                   >
@@ -120,6 +124,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://www.instagram.com/cemka7721"
                     target="_blank"
+                    rel="noreferrer"
                     title="Instagram"
                     aria-label="Профиль Арсения в инстаграм"
                   >
@@ -133,6 +138,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://vk.com/fuck_yeah_cemka"
                     target="_blank"
+                    rel="noreferrer"
                     title="VK"
                     aria-label="Страница Арсения во вконтакте"
                   >
@@ -146,6 +152,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://www.youtube.com/channel/UChbaToovYyqbzOJtpGRLjsg"
                     target="_blank"
+                    rel="noreferrer"
                     title="YouTube"
                     aria-label="Канал Арсения на ютьюб"
                   >
@@ -159,6 +166,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://www.twitch.tv/cemka"
                     target="_blank"
+                    rel="noreferrer"
                     title="Twitch"
                     aria-label="Канал Арсения на твитче"
                   >
@@ -199,6 +207,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://www.instagram.com/t.strebkov"
                     target="_blank"
+                    rel="noreferrer"
                     title="Instagram"
                     aria-label="Профиль Терентия в инстаграм"
                   >
@@ -212,6 +221,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://vk.com/taerok"
                     target="_blank"
+                    rel="noreferrer"
                     title="VK"
                     aria-label="Страница Терентия во вконтакте"
                   >
@@ -225,6 +235,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://www.youtube.com/user/lTAeRl"
                     target="_blank"
+                    rel="noreferrer"
                     title="YouTube"
                     aria-label="Канал Терентия на ютьюб"
                   >
@@ -238,6 +249,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://www.twitch.tv/taerss"
                     target="_blank"
+                    rel="noreferrer"
                     title="Twitch"
                     aria-label="Канал Терентия на твитче"
                   >
@@ -278,6 +290,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://vk.com/mojigobah"
                     target="_blank"
+                    rel="noreferrer"
                     title="VK"
                     aria-label="Страница Раду во вконтакте"
                   >
@@ -291,6 +304,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://www.youtube.com/channel/UChgRLu6TR6OxZu9EJVZ1IEQ"
                     target="_blank"
+                    rel="noreferrer"
                     title="YouTube"
                     aria-label="Канал Раду на ютьюб"
                   >
@@ -304,6 +318,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://www.twitch.tv/thepagyyy"
                     target="_blank"
+                    rel="noreferrer"
                     title="Twitch"
                     aria-label="Канал Раду на твитче"
                   >
@@ -344,6 +359,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://instagram.com/beastqt/"
                     target="_blank"
+                    rel="noreferrer"
                     title="Instagram"
                     aria-label="Профиль Димы в инстаграм"
                   >
@@ -357,6 +373,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://vk.com/beastqt"
                     target="_blank"
+                    rel="noreferrer"
                     title="VK"
                     aria-label="Страница Димы во вконтакте"
                   >
@@ -370,6 +387,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://www.youtube.com/channel/UC28Or9A84nu8gpQc3Mw6j4Q"
                     target="_blank"
+                    rel="noreferrer"
                     title="YouTube"
                     aria-label="Канал Димы на ютьюб"
                   >
@@ -383,6 +401,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://www.twitch.tv/beastqt"
                     target="_blank"
+                    rel="noreferrer"
                     title="Twitch"
                     aria-label="Канал Димы на твитче"
                   >
@@ -423,6 +442,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="http://instagram.com/the.insize"
                     target="_blank"
+                    rel="noreferrer"
                     title="Instagram"
                     aria-label="Профиль Георгия в инстаграм"
                   >
@@ -436,6 +456,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://vk.com/insizee"
                     target="_blank"
+                    rel="noreferrer"
                     title="VK"
                     aria-label="Страница Георгия во вконтакте"
                   >
@@ -449,6 +470,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://www.youtube.com/user/insize2h"
                     target="_blank"
+                    rel="noreferrer"
                     title="YouTube"
                     aria-label="Канал Георгия на ютьюб"
                   >
@@ -462,6 +484,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://www.twitch.tv/insize"
                     target="_blank"
+                    rel="noreferrer"
                     title="Twitch"
                     aria-label="Канал Георгия на твитче"
                   >
@@ -502,6 +525,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://www.instagram.com/alcoreru1313/"
                     target="_blank"
+                    rel="noreferrer"
                     title="Instagram"
                     aria-label="Профиль Алексея в инстаграм"
                   >
@@ -515,6 +539,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://vk.com/greshnik013"
                     target="_blank"
+                    rel="noreferrer"
                     title="VK"
                     aria-label="Страница Алексея во вконтакте"
                   >
@@ -528,6 +553,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://www.youtube.com/user/QuietDante"
                     target="_blank"
+                    rel="noreferrer"
                     title="YouTube"
                     aria-label="Канал Алексея на ютьюб"
                   >
@@ -541,6 +567,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://www.twitch.tv/alcoreru"
                     target="_blank"
+                    rel="noreferrer"
                     title="Twitch"
                     aria-label="Канал Алексея на твитче"
                   >
@@ -581,6 +608,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://www.instagram.com/rap_igrok1997/"
                     target="_blank"
+                    rel="noreferrer"
                     title="Instagram"
                     aria-label="Профиль Артема в инстаграм"
                   >
@@ -594,6 +622,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://vk.com/id22058243"
                     target="_blank"
+                    rel="noreferrer"
                     title="VK"
                     aria-label="Страница Артема во вконтакте"
                   >
@@ -607,6 +636,7 @@ const AboutPage: React.FC = () => (
                     className="socials__link"
                     href="https://www.twitch.tv/soroket"
                     target="_blank"
+                    rel="noreferrer"
                     title="Twitch"
                     aria-label="Канал Артема на твитче"
                   >

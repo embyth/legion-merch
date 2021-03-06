@@ -1,15 +1,15 @@
 import * as React from "react";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 
-import { getIsSearchPopupOpen } from "../../store/app/selectors";
-import { ActionCreator } from "../../store/app/app";
+import {getIsSearchPopupOpen} from "../../store/app/selectors";
+import {ActionCreator} from "../../store/app/app";
 
 interface SearchPopupProps {
   isSearchPopupOpen: boolean;
   onSearchCloseAction(): void;
 }
 
-class SearchPopup extends React.PureComponent<SearchPopupProps, {}> {
+class SearchPopup extends React.PureComponent<SearchPopupProps> {
   constructor(props) {
     super(props);
 
@@ -41,7 +41,7 @@ class SearchPopup extends React.PureComponent<SearchPopupProps, {}> {
   }
 
   render() {
-    const { isSearchPopupOpen, onSearchCloseAction } = this.props;
+    const {isSearchPopupOpen, onSearchCloseAction} = this.props;
 
     return (
       <div

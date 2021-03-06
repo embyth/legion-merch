@@ -1,6 +1,6 @@
 import * as React from "react";
-import { connect } from "react-redux";
-import { RouteComponentProps } from "react-router";
+import {connect} from "react-redux";
+import {RouteComponentProps} from "react-router";
 
 import {
   getProductByAlias,
@@ -16,8 +16,8 @@ import SearchPopup from "../search-popup/search-popup";
 import SideCart from "../side-cart/side-cart";
 import SideMenu from "../side-menu/side-menu";
 
-import { AppRoute, PageCategories, RequestStatus } from "../../helpers/const";
-import { ProductInterface } from "../../helpers/my-types";
+import {AppRoute, PageCategories, RequestStatus} from "../../helpers/const";
+import {ProductInterface} from "../../helpers/my-types";
 
 const SideMenuWrapped = withMediaQueries(SideMenu);
 const SideCartWrapped = withMediaQueries(SideCart);
@@ -27,26 +27,29 @@ interface MatchParams {
   alias?: string;
 }
 
-interface PageProps {
-  component: React.ComponentType<any>;
+interface RouteProps {
+  routeProps: RouteComponentProps<MatchParams>;
+}
+
+interface PageProps extends RouteProps {
+  component: React.ComponentType<RouteProps>;
   currentPage: {
     path: string;
     title: string;
     category: string;
   };
-  routeProps: RouteComponentProps<MatchParams>;
   product: ProductInterface;
   categories: Array<ProductInterface[`category`]>;
   productsRequestStatus: string;
 }
 
-class Page extends React.PureComponent<PageProps, {}> {
+class Page extends React.PureComponent<PageProps> {
   private setDocumentTitle() {
     const {
-      currentPage: { title },
+      currentPage: {title},
       routeProps: {
         match: {
-          params: { category },
+          params: {category},
         },
       },
       product,
@@ -55,7 +58,7 @@ class Page extends React.PureComponent<PageProps, {}> {
     } = this.props;
 
     const currentCategory = categories.find(
-      (categoryIt) => categoryIt.alias === category
+        (categoryIt) => categoryIt.alias === category
     );
 
     if (productsRequestStatus !== RequestStatus.SUCCESS) {
@@ -86,7 +89,7 @@ class Page extends React.PureComponent<PageProps, {}> {
 
   render() {
     const Component = this.props.component;
-    const { currentPage, routeProps } = this.props;
+    const {currentPage, routeProps} = this.props;
 
     return (
       <div

@@ -1,6 +1,23 @@
 import * as React from "react";
+import {Subtract} from "utility-types";
 
-import { AppMediaQuery } from "../../helpers/const";
+import {AppMediaQuery} from "../../helpers/const";
+
+interface InjectedProps {
+  mediaQueries: {
+    isDesktop: boolean;
+    isTablet: boolean;
+    isMobile: boolean;
+  };
+}
+
+interface WithMediaQueriesProps {
+  currentPage?: {
+    path: string;
+    title: string;
+    category: string;
+  };
+}
 
 interface WithMediaQueriesState {
   isDesktop: boolean;
@@ -8,10 +25,13 @@ interface WithMediaQueriesState {
   isMobile: boolean;
 }
 
-const withMediaQueries = (Component) => {
-  type P = React.ComponentProps<typeof Component>;
-
-  class WithMediaQueries extends React.PureComponent<P, WithMediaQueriesState> {
+const withMediaQueries = <P extends InjectedProps>(
+  Component: React.ComponentType<P>
+): React.ComponentClass<WithMediaQueriesProps> => {
+  class WithMediaQueries extends React.PureComponent<
+    Subtract<P, InjectedProps> & WithMediaQueriesProps,
+    WithMediaQueriesState
+  > {
     constructor(props) {
       super(props);
 
@@ -47,7 +67,11 @@ const withMediaQueries = (Component) => {
         isMobile: this.state.isMobile,
       };
 
-      return <Component {...this.props} mediaQueries={mediaQueries} />;
+      return (
+        <Component
+          {...this.props as P}
+          mediaQueries={mediaQueries} />
+      );
     }
   }
 

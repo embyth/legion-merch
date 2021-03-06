@@ -1,10 +1,10 @@
 import * as React from "react";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 
-import { ActionCreator } from "../../store/app/app";
-import { getIsSideCartOpen } from "../../store/app/selectors";
+import {ActionCreator} from "../../store/app/app";
+import {getIsSideCartOpen} from "../../store/app/selectors";
 
-import { PageCategories } from "../../helpers/const";
+import {PageCategories} from "../../helpers/const";
 
 interface SideCartProps {
   currentPage: {
@@ -12,11 +12,16 @@ interface SideCartProps {
     title: string;
     category: string;
   };
+  mediaQueries: {
+    isDesktop: boolean;
+    isTablet: boolean;
+    isMobile: boolean;
+  };
   isSideCartOpen: boolean;
   onCartCloseEvent(): void;
 }
 
-class SideCart extends React.PureComponent<SideCartProps, {}> {
+class SideCart extends React.PureComponent<SideCartProps> {
   private myCart: React.RefObject<HTMLDivElement>;
 
   constructor(props) {
@@ -68,7 +73,7 @@ class SideCart extends React.PureComponent<SideCartProps, {}> {
   }
 
   render() {
-    const { isSideCartOpen, onCartCloseEvent } = this.props;
+    const {isSideCartOpen, onCartCloseEvent} = this.props;
 
     return (
       <React.Fragment>

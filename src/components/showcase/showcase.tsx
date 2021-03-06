@@ -1,8 +1,8 @@
 import * as React from "react";
-import SwiperCore, { Navigation, A11y, Autoplay } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, {Navigation, A11y, Autoplay} from "swiper";
+import {Swiper, SwiperSlide} from "swiper/react";
 
-import { indexShowcaseParams } from "../../helpers/swiper-params";
+import {indexShowcaseParams} from "../../helpers/swiper-params";
 
 SwiperCore.use([Navigation, A11y, Autoplay]);
 
@@ -17,7 +17,7 @@ interface SwiperShowcaseProps {
 const SwiperShowcase: React.FC<SwiperShowcaseProps> = ({
   mediaQueries,
 }: SwiperShowcaseProps) => {
-  const { isDesktop } = mediaQueries;
+  const {isDesktop} = mediaQueries;
 
   return isDesktop ? (
     <Swiper

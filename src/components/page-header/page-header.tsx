@@ -1,11 +1,11 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 
-import { getIsSideMenuOpen } from "../../store/app/selectors";
-import { ActionCreator } from "../../store/app/app";
+import {getIsSideMenuOpen} from "../../store/app/selectors";
+import {ActionCreator} from "../../store/app/app";
 
-import { AppRoute, PageCategories } from "../../helpers/const";
+import {AppRoute, PageCategories} from "../../helpers/const";
 
 import LegionLogo from "./logo.svg";
 

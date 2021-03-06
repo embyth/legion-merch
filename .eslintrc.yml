@@ -4,16 +4,34 @@ env:
   commonjs: true
   jest: true
 
-extends: ['htmlacademy/es6', 'plugin:react/recommended']
+parser: "@typescript-eslint/parser"
+
+plugins: ["react", "@typescript-eslint"]
+
+extends:
+  [
+    "htmlacademy/es6",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+  ]
 
 parserOptions:
   ecmaFeatures:
     jsx: true
-  ecmaVersion: 6
+  ecmaVersion: 2018
   sourceType: module
-
-plugins: ['react']
+  project: "./tsconfig.json"
 
 settings:
   react:
-    version: '16'
+    version: "16"
+
+globals:
+  Atomics: "readonly"
+  SharedArrayBuffer: "readonly"
+
+rules:
+  "@typescript-eslint/explicit-function-return-type": "off"
+  "@typescript-eslint/no-use-before-define": "off"
+  "no-shadow": "off"
+  "@typescript-eslint/no-shadow": ["error"]

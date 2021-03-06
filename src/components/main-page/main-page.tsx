@@ -1,11 +1,11 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 import withMediaQueries from "../../hocs/with-media-queries/with-media-queries";
 
 import Showcase from "../showcase/showcase";
 
-import { AppRoute } from "../../helpers/const";
+import {AppRoute} from "../../helpers/const";
 
 const ShowcaseWrapped = withMediaQueries(Showcase);
 

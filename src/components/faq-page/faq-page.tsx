@@ -1,14 +1,14 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
-import { AppRoute } from "../../helpers/const";
+import {AppRoute} from "../../helpers/const";
 
 interface FaqPageState {
   activeQuestionIndex: number | null;
 }
 
-class FaqPage extends React.PureComponent<{}, FaqPageState> {
-  constructor(props) {
+class FaqPage extends React.PureComponent<Record<string, never>, FaqPageState> {
+  constructor(props: Record<string, never>) {
     super(props);
 
     this.state = {
@@ -36,17 +36,17 @@ class FaqPage extends React.PureComponent<{}, FaqPageState> {
     });
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     this.updateQuestionsStyle();
     window.onresize = this.updateQuestionsStyle;
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     window.onresize = null;
   }
 
-  render() {
-    const { activeQuestionIndex } = this.state;
+  render(): React.ReactNode {
+    const {activeQuestionIndex} = this.state;
 
     return (
       <React.Fragment>
@@ -120,7 +120,7 @@ class FaqPage extends React.PureComponent<{}, FaqPageState> {
                   Если вы получаете сообщение об ошибке во время оплаты,
                   убедитесь, что вы используете последнюю версию своего
                   веб-браузера. Если вы продолжаете получать сообщения об
-                  ошибках, обратитесь в службу поддержки клиентов{" "}
+                  ошибках, обратитесь в службу поддержки клиентов{` `}
                   <Link to={AppRoute.CONTACTS.path}>здесь</Link>.
                 </p>
               </li>
@@ -146,8 +146,8 @@ class FaqPage extends React.PureComponent<{}, FaqPageState> {
                   ограниченным тиражом. Если вы ищете предыдущий товар, который
                   сейчас распродан на нашем сайте, мы иногда на нашем складе
                   обнаруживаем скрытые драгоценности, которые продаем в нашем
-                  профиле{" "}
-                  <a href="https://t.me/legionco" target="_blank">
+                  профиле{` `}
+                  <a href="https://t.me/legionco" target="_blank" rel="noreferrer">
                     Telegram
                   </a>
                   . К сожалению, эти распроданные товары не будут пополняться на
@@ -260,7 +260,7 @@ class FaqPage extends React.PureComponent<{}, FaqPageState> {
                   курса, перейдите по ссылке ниже:
                   <br />
                   <br />
-                  <a href="https://cuex.com/ru" target="_blank">
+                  <a href="https://cuex.com/ru" target="_blank" rel="noreferrer">
                     Cuex
                   </a>
                   <br />

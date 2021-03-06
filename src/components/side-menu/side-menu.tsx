@@ -1,15 +1,15 @@
 import * as React from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import {connect} from "react-redux";
+import {Link} from "react-router-dom";
 
-import { ActionCreator } from "../../store/app/app";
-import { getIsSideMenuOpen } from "../../store/app/selectors";
-import { getProductsCategories } from "../../store/data/selectors";
+import {ActionCreator} from "../../store/app/app";
+import {getIsSideMenuOpen} from "../../store/app/selectors";
+import {getProductsCategories} from "../../store/data/selectors";
 
-import { AppRoute, PageCategories } from "../../helpers/const";
+import {AppRoute, PageCategories} from "../../helpers/const";
 
 import LegionerLogo from "./logo--legioner.svg";
-import { ProductInterface } from "../../helpers/my-types";
+import {ProductInterface} from "../../helpers/my-types";
 
 interface SideMenuProps {
   currentPage: {
@@ -27,7 +27,7 @@ interface SideMenuProps {
   onMenuCloseEvent(): void;
 }
 
-class SideMenu extends React.PureComponent<SideMenuProps, {}> {
+class SideMenu extends React.PureComponent<SideMenuProps> {
   private myMenu: React.RefObject<HTMLElement>;
 
   constructor(props) {
@@ -47,7 +47,7 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
 
   private handleMenuHeight() {
     if (this.props.currentPage.category !== PageCategories.MAIN) {
-      const { isDesktop, isTablet, isMobile } = this.props.mediaQueries;
+      const {isDesktop, isTablet, isMobile} = this.props.mediaQueries;
       const headerHeight = +document.querySelector<HTMLElement>(`.site-header`)
         .offsetHeight;
       const footerHeight = +document.querySelector<HTMLElement>(`.site-footer`)
@@ -276,6 +276,7 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
                         className="socials__link"
                         href="https://instagram.com/legionco"
                         target="_blank"
+                        rel="noreferrer"
                         title="Instagram"
                         aria-label="Наш профиль в инстаграм"
                       >
@@ -289,6 +290,7 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
                         className="socials__link"
                         href="https://vk.com/legionco"
                         target="_blank"
+                        rel="noreferrer"
                         title="VK"
                         aria-label="Наша страница во вконтакте"
                       >
@@ -302,6 +304,7 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
                         className="socials__link"
                         href="https://t.me/legionco"
                         target="_blank"
+                        rel="noreferrer"
                         title="Telegram"
                         aria-label="Наш канал в телеграм"
                       >
@@ -315,6 +318,7 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
                         className="socials__link"
                         href="https://youtube.com/legionco"
                         target="_blank"
+                        rel="noreferrer"
                         title="YouTube"
                         aria-label="Наш канал на ютьюб"
                       >
@@ -335,6 +339,7 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
                         title="GitHub"
                         aria-label="ГитХаб разработчика"
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <svg
                           className="site-nav__developer-svg"
@@ -352,6 +357,7 @@ class SideMenu extends React.PureComponent<SideMenuProps, {}> {
                         title="Telegram"
                         aria-label="Телеграм разработчика"
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <svg
                           className="site-nav__developer-svg"

@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import SwiperCore, { Pagination, EffectFade, A11y } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import {Link} from "react-router-dom";
+import {connect} from "react-redux";
+import SwiperCore, {Pagination, EffectFade, A11y} from "swiper";
+import {Swiper, SwiperSlide} from "swiper/react";
 
 import {
   getProductByAlias,
@@ -11,9 +11,9 @@ import {
 
 import Breadcrumbs from "../breadcrumbs/breadcrumbs";
 
-import { ProductInterface } from "../../helpers/my-types";
-import { productCarouselParams } from "../../helpers/swiper-params";
-import { AppRoute, RequestStatus } from "../../helpers/const";
+import {ProductInterface} from "../../helpers/my-types";
+import {productCarouselParams} from "../../helpers/swiper-params";
+import {AppRoute, RequestStatus} from "../../helpers/const";
 
 SwiperCore.use([Pagination, EffectFade, A11y]);
 
@@ -36,7 +36,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
     DESKTOP: desktopSwiperParams,
     MOBILE: mobileSwiperParams,
   } = productCarouselParams;
-  const { isDesktop, isTablet, isMobile } = mediaQueries;
+  const {isDesktop, isTablet, isMobile} = mediaQueries;
 
   if (productsRequestStatus !== RequestStatus.SUCCESS) {
     return <div>Loading...</div>;
@@ -133,12 +133,12 @@ const ProductPage: React.FC<ProductPageProps> = ({
                     id="product-size"
                   >
                     {Object.entries(product.sizes).map(
-                      ([sizeLabel, sizeValue]) => (
-                        <option
-                          key={sizeLabel}
-                          value={sizeLabel}
-                        >{`${sizeValue.label} - ${sizeValue.stock} шт`}</option>
-                      )
+                        ([sizeLabel, sizeValue]) => (
+                          <option
+                            key={sizeLabel}
+                            value={sizeLabel}
+                          >{`${sizeValue.label} - ${sizeValue.stock} шт`}</option>
+                        )
                     )}
                   </select>
                   <svg className="product__select-svg" width="15" height="15">

@@ -16,6 +16,7 @@ const PageFooter: React.FC = () => (
             className="socials__link"
             href="https://instagram.com/legionco"
             target="_blank"
+            rel="noreferrer"
             title="Instagram"
             aria-label="Наш профиль в инстаграм"
           >
@@ -29,6 +30,7 @@ const PageFooter: React.FC = () => (
             className="socials__link"
             href="https://vk.com/legionco"
             target="_blank"
+            rel="noreferrer"
             title="VK"
             aria-label="Наша страница во вконтакте"
           >
@@ -42,6 +44,7 @@ const PageFooter: React.FC = () => (
             className="socials__link"
             href="https://t.me/legionco"
             target="_blank"
+            rel="noreferrer"
             title="Telegram"
             aria-label="Наш канал в телеграм"
           >
@@ -55,6 +58,7 @@ const PageFooter: React.FC = () => (
             className="socials__link"
             href="https://youtube.com/legionco"
             target="_blank"
+            rel="noreferrer"
             title="YouTube"
             aria-label="Наш канал на ютьюб"
           >
@@ -75,6 +79,7 @@ const PageFooter: React.FC = () => (
             title="GitHub"
             aria-label="ГитХаб разработчика"
             target="_blank"
+            rel="noreferrer"
           >
             <svg className="site-footer__developer-svg" width="20" height="20">
               <use xlinkHref="/img/sprite.svg#icon-github"></use>
@@ -88,6 +93,7 @@ const PageFooter: React.FC = () => (
             title="Telegram"
             aria-label="Телеграм разработчика"
             target="_blank"
+            rel="noreferrer"
           >
             <svg className="site-footer__developer-svg" width="20" height="20">
               <use xlinkHref="/img/sprite.svg#icon-telegram"></use>

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Router, Route, Switch } from "react-router-dom";
+import {Router, Route, Switch} from "react-router-dom";
 
 import history from "../../history";
 
@@ -17,7 +17,7 @@ import FaqPage from "../faq-page/faq-page";
 import PrivacyPage from "../privacy-page/privacy-page";
 import NotFound from "../not-found/not-found";
 
-import { AppRoute } from "../../helpers/const";
+import {AppRoute} from "../../helpers/const";
 
 const ProductPageWrapped = withMediaQueries(ProductPage);
 

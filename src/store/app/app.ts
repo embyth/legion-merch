@@ -5,13 +5,13 @@ interface AppStateActionInterface {
   payload?: boolean;
 }
 
-interface InitialStateInterface {
+export interface StateInterface {
   isSideMenuOpen?: boolean;
   isSearchPopupOpen?: boolean;
   isSideCartOpen?: boolean;
 }
 
-export const initialState: InitialStateInterface = {
+export const initialState: StateInterface = {
   isSideMenuOpen: false,
   isSearchPopupOpen: false,
   isSideCartOpen: false,
@@ -30,7 +30,7 @@ export const ActionType = {
 };
 
 export const ActionCreator = {
-  changeSideMenuState: () => {
+  changeSideMenuState: (): AppStateActionInterface => {
     toggleBodyScroll();
 
     return {
@@ -38,7 +38,7 @@ export const ActionCreator = {
     };
   },
 
-  openSideMenu: () => {
+  openSideMenu: (): AppStateActionInterface => {
     hideBodyScroll();
 
     return {
@@ -46,7 +46,7 @@ export const ActionCreator = {
     };
   },
 
-  closeSideMenu: () => {
+  closeSideMenu: (): AppStateActionInterface => {
     showBodyScroll();
 
     return {
@@ -54,7 +54,7 @@ export const ActionCreator = {
     };
   },
 
-  openSearchPopup: () => {
+  openSearchPopup: (): AppStateActionInterface => {
     hideBodyScroll();
 
     return {
@@ -62,7 +62,7 @@ export const ActionCreator = {
     };
   },
 
-  closeSearchPopup: () => {
+  closeSearchPopup: (): AppStateActionInterface => {
     showBodyScroll();
 
     return {
@@ -70,7 +70,7 @@ export const ActionCreator = {
     };
   },
 
-  changeSideCartState: () => {
+  changeSideCartState: (): AppStateActionInterface => {
     toggleBodyScroll();
 
     return {
@@ -78,7 +78,7 @@ export const ActionCreator = {
     };
   },
 
-  openSideCart: () => {
+  openSideCart: (): AppStateActionInterface => {
     hideBodyScroll();
 
     return {
@@ -86,7 +86,7 @@ export const ActionCreator = {
     };
   },
 
-  closeSideCart: () => {
+  closeSideCart: (): AppStateActionInterface => {
     showBodyScroll();
 
     return {
@@ -94,7 +94,7 @@ export const ActionCreator = {
     };
   },
 
-  handlePageChange: () => {
+  handlePageChange: (): AppStateActionInterface => {
     showBodyScroll();
 
     return {
@@ -103,8 +103,8 @@ export const ActionCreator = {
   },
 };
 
-export const reducer = (state = initialState, action: AppStateActionInterface) => {
-  switch(action.type) {
+export const reducer = (state = initialState, action: AppStateActionInterface): StateInterface => {
+  switch (action.type) {
     case ActionType.CHANGE_SIDE_MENU_STATE:
       return extend(state, {
         isSideMenuOpen: !state.isSideMenuOpen,
@@ -155,4 +155,4 @@ export const reducer = (state = initialState, action: AppStateActionInterface) =
     default:
       return state;
   }
-}
+};

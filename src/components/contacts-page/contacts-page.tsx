@@ -4,8 +4,8 @@ interface ContactsPageState {
   selectValue: string;
 }
 
-class ContactsPage extends React.PureComponent<{}, ContactsPageState> {
-  constructor(props) {
+class ContactsPage extends React.PureComponent<Record<string, never>, ContactsPageState> {
+  constructor(props: Record<string, never>) {
     super(props);
 
     this.state = {
@@ -27,8 +27,8 @@ class ContactsPage extends React.PureComponent<{}, ContactsPageState> {
     evt.target.style.height = `${evt.target.scrollHeight + 1}px`;
   }
 
-  render() {
-    const { selectValue } = this.state;
+  render(): React.ReactNode {
+    const {selectValue} = this.state;
 
     return (
       <React.Fragment>

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Sizes } from "../../helpers/const";
+import {Sizes} from "../../helpers/const";
 
 interface SizesHoodieProps {
   currentSize: string;

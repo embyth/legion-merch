@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
-import { ProductInterface } from "../../helpers/my-types";
-import { AppRoute } from "../../helpers/const";
+import {ProductInterface} from "../../helpers/my-types";
+import {AppRoute} from "../../helpers/const";
 
 interface CatalogItemProps {
   item: ProductInterface;

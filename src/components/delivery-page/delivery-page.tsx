@@ -22,7 +22,7 @@ const DeliveryPage: React.FC = () => (
           </p>
           <p>
             Адреса представительств «Новая почта» и их график работы можно&nbsp;
-            <a href="https://novaposhta.ua/timetable" target="_blank">
+            <a href="https://novaposhta.ua/timetable" target="_blank" rel="noreferrer">
               узнать&nbsp;здесь
             </a>
             . Также Вы можете отследить заказ с помощью специального сервиса на

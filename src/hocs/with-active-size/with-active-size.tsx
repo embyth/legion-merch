@@ -1,15 +1,24 @@
 import * as React from "react";
+import {Subtract} from "utility-types";
 
-import { Sizes } from "../../helpers/const";
+import {Sizes} from "../../helpers/const";
+
+interface InjectedProps {
+  currentSize: string;
+  onSizeButtonClick(type: string): void;
+}
 
 interface WithActiveSizeState {
   currentSize: string;
 }
 
-const withActiveSize = (Component) => {
-  type P = React.ComponentProps<typeof Component>;
-
-  class WithActiveSize extends React.PureComponent<P, WithActiveSizeState> {
+const withActiveSize = <P extends InjectedProps>(
+  Component: React.ComponentType<P>
+): React.ComponentClass => {
+  class WithActiveSize extends React.PureComponent<
+    Subtract<P, InjectedProps>,
+    WithActiveSizeState
+  > {
     constructor(props) {
       super(props);
 
@@ -26,18 +35,10 @@ const withActiveSize = (Component) => {
       });
     }
 
-    componentDidUpdate(prevProps) {
-      if (prevProps !== this.props) {
-        this.setState({
-          currentSize: this.props.defaultCurrentSize,
-        });
-      }
-    }
-
     render() {
       return (
         <Component
-          {...this.props}
+          {...this.props as P}
           onSizeButtonClick={this.handleSizeButtonClick}
           currentSize={this.state.currentSize}
         />

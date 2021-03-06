@@ -1,13 +1,13 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
-import { AppRoute } from "../../helpers/const";
+import {AppRoute} from "../../helpers/const";
 
-class NotFound extends React.PureComponent<{}, {}> {
+class NotFound extends React.PureComponent<Record<string, never>> {
   private _titleRef: React.RefObject<HTMLHeadingElement>;
   private _pageRef: React.RefObject<HTMLDivElement>;
 
-  constructor(props) {
+  constructor(props: Record<string, never>) {
     super(props);
 
     this._titleRef = React.createRef();
@@ -20,30 +20,30 @@ class NotFound extends React.PureComponent<{}, {}> {
   private handlePageMouseMove(evt) {
     const title = this._titleRef.current;
 
-    let x = evt.pageX - window.innerWidth / 2;
-    let y = evt.pageY - window.innerHeight / 2;
+    const x = evt.pageX - window.innerWidth / 2;
+    const y = evt.pageY - window.innerHeight / 2;
 
-    title.style.setProperty("--x", x + "px");
-    title.style.setProperty("--y", y + "px");
+    title.style.setProperty(`--x`, x + `px`);
+    title.style.setProperty(`--y`, y + `px`);
   }
 
   private handleTitleMouseMove(evt) {
     const title = this._titleRef.current;
 
-    let x = evt.pageX - window.innerWidth / 2;
-    let y = evt.pageY - window.innerHeight / 2;
+    const x = evt.pageX - window.innerWidth / 2;
+    const y = evt.pageY - window.innerHeight / 2;
 
-    let rad = +Math.atan2(y, x).toFixed(2);
-    let length = Math.round(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)) / 10);
+    const rad = +Math.atan2(y, x).toFixed(2);
+    const length = Math.round(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)) / 10);
 
-    let x_shadow = Math.round(length * Math.cos(rad));
-    let y_shadow = Math.round(length * Math.sin(rad));
+    const xShadow = Math.round(length * Math.cos(rad));
+    const yShadow = Math.round(length * Math.sin(rad));
 
-    title.style.setProperty("--x-shadow", -x_shadow + "px");
-    title.style.setProperty("--y-shadow", -y_shadow + "px");
+    title.style.setProperty(`--x-shadow`, -xShadow + `px`);
+    title.style.setProperty(`--y-shadow`, -yShadow + `px`);
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     const title = this._titleRef.current;
     const page = this._pageRef.current;
 
@@ -51,7 +51,7 @@ class NotFound extends React.PureComponent<{}, {}> {
     page.onmousemove = this.handlePageMouseMove;
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     const title = this._titleRef.current;
     const page = this._pageRef.current;
 
@@ -59,7 +59,7 @@ class NotFound extends React.PureComponent<{}, {}> {
     page.onmousemove = null;
   }
 
-  render() {
+  render(): React.ReactNode {
     return (
       <div className="page page--404" ref={this._pageRef}>
         <h1 className="visually-hidden">Страницу не найдено</h1>

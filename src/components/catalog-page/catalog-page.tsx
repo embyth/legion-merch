@@ -1,5 +1,5 @@
 import * as React from "react";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 
 import CatalogItem from "../catalog-item/catalog-item";
 
@@ -8,7 +8,7 @@ import {
   getProductsRequestStatus,
 } from "../../store/data/selectors";
 
-import { ProductInterface } from "../../helpers/my-types";
+import {ProductInterface} from "../../helpers/my-types";
 
 interface CatalogPageProps {
   productsRequestStatus: string;

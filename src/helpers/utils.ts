@@ -6,15 +6,15 @@ export const extend: ExtendInterface = (state, newStateValue) => {
   return Object.assign({}, state, newStateValue);
 };
 
-export const hideBodyScroll = () => {
+export const hideBodyScroll = (): void => {
   document.body.classList.add(`page--no-overflow`);
 };
 
-export const showBodyScroll = () => {
+export const showBodyScroll = (): void => {
   document.body.classList.remove(`page--no-overflow`);
 };
 
-export const toggleBodyScroll = () => {
+export const toggleBodyScroll = (): void => {
   if (document.body.classList.contains(`page--no-overflow`)) {
     showBodyScroll();
   } else {

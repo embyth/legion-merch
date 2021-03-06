@@ -1,11 +1,13 @@
 import {createSelector} from "reselect";
 
 import NameSpace from "../name-space";
+import {StateInterface} from "./data";
+import {ProductInterface} from "../../helpers/my-types";
 
-export const getProducts = (state) => state[NameSpace.DATA].products;
-export const getProductsRequestStatus = (state) => state[NameSpace.DATA].productsRequestStatus;
-export const getIsLoading = (state) => state[NameSpace.DATA].isLoading;
-export const getIsLoadError = (state) => state[NameSpace.DATA].isLoadError;
+export const getProducts = (state: StateInterface): Array<ProductInterface> => state[NameSpace.DATA].products;
+export const getProductsRequestStatus = (state: StateInterface): string => state[NameSpace.DATA].productsRequestStatus;
+export const getIsLoading = (state: StateInterface): boolean => state[NameSpace.DATA].isLoading;
+export const getIsLoadError = (state: StateInterface): boolean => state[NameSpace.DATA].isLoadError;
 
 const getExtraProps = (state, extraProps) => extraProps;
 
@@ -14,7 +16,7 @@ export const getProductByAlias = createSelector(
     getExtraProps,
     (products, ownProps) => {
       const productAlias = ownProps.routeProps.match.params.alias;
-      return products.find((product) => product.alias === productAlias)
+      return products.find((product) => product.alias === productAlias);
     }
 );
 
