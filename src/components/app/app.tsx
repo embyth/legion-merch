@@ -9,6 +9,7 @@ import Page from "../page/page";
 import MainPage from "../main-page/main-page";
 import CatalogPage from "../catalog-page/catalog-page";
 import ProductPage from "../product-page/product-page";
+import CartPage from "../cart-page/cart-page";
 import AboutPage from "../about-page/about-page";
 import ContactsPage from "../contacts-page/contacts-page";
 import DeliveryPage from "../delivery-page/delivery-page";
@@ -57,6 +58,18 @@ const App: React.FC = () => (
               routeProps={props}
               component={ProductPageWrapped}
               currentPage={AppRoute.PRODUCT}
+            />
+          )}
+        />
+
+        <Route
+          exact
+          path={AppRoute.CART.path}
+          render={(props) => (
+            <Page
+              routeProps={props}
+              component={CartPage}
+              currentPage={AppRoute.CART}
             />
           )}
         />

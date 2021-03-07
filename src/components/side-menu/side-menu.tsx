@@ -161,9 +161,9 @@ class SideMenu extends React.PureComponent<SideMenuProps> {
                   </a>
                 </li>
                 <li className="site-nav__item">
-                  <a href="cart.html" className="site-nav__item-link">
+                  <Link to={AppRoute.CART.path} className="site-nav__item-link">
                     Корзина
-                  </a>
+                  </Link>
                 </li>
                 <li className="site-nav__item">
                   <a href="login.html" className="site-nav__item-link">

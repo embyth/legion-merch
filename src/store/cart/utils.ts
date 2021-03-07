@@ -4,7 +4,9 @@ import {getCartProducts} from "./selectors";
 import {CartProductInterface, ProductInterface} from "../../helpers/my-types";
 import {CartUserAction} from "../../helpers/const";
 
-const updateCartProducts = (cartProducts: Array<CartProductInterface>, item: CartProductInterface, index: number): Array<CartProductInterface> => {
+const updateCartProducts = (
+    cartProducts: Array<CartProductInterface>, item: CartProductInterface, index: number
+): Array<CartProductInterface> => {
   if (item.itemQuantity === 0) {
     return [
       ...cartProducts.slice(0, index),
@@ -26,10 +28,26 @@ const updateCartProducts = (cartProducts: Array<CartProductInterface>, item: Car
   ];
 };
 
-const updateCartItem = (product: ProductInterface, item: CartProductInterface | Record<string, never> = {}, size: string, userAction: number): CartProductInterface => {
-  const {itemQuantity = 0, itemTotal = 0} = item;
+const updateCartItem = (
+    product: ProductInterface, item: CartProductInterface | Record<string, never> = {}, size: string, userAction: string, userQuantity?: number
+): CartProductInterface => {
+  const {itemQuantity = 0} = item;
 
-  const quantity = userAction === CartUserAction.REMOVE ? -itemQuantity : userAction;
+  let quantity;
+  switch (userAction) {
+    case CartUserAction.ADD:
+      quantity = itemQuantity + 1;
+      break;
+    case CartUserAction.REMOVE:
+      quantity = 0;
+      break;
+    case CartUserAction.CUSTOM:
+      quantity = userQuantity;
+      break;
+
+    default:
+      quantity = itemQuantity;
+  }
 
   return {
     ...product,
@@ -37,12 +55,14 @@ const updateCartItem = (product: ProductInterface, item: CartProductInterface | 
       key: size,
       label: product.sizes[size].label,
     },
-    itemQuantity: itemQuantity + quantity as number,
-    itemTotal: +(itemTotal + quantity * product.price.value).toFixed(2),
+    itemQuantity: quantity,
+    itemTotal: +(quantity * product.price.value).toFixed(2),
   };
 };
 
-export const updateCart = (productId: number, size: string, state: unknown, userAction: number): Array<CartProductInterface> => {
+export const updateCart = (
+    productId: number, size: string, state: unknown, userAction: string, userQuantity?: number
+): Array<CartProductInterface> | [] => {
   const products = getProducts(state);
   const cartProducts = getCartProducts(state);
 
@@ -54,7 +74,7 @@ export const updateCart = (productId: number, size: string, state: unknown, user
   const productIndex = cartProducts.findIndex((product) => product.id === productId && product.selectedSize.key === size);
   const product = cartProducts[productIndex];
 
-  const newItem = updateCartItem(targetProduct, product, size, userAction);
+  const newItem = updateCartItem(targetProduct, product, size, userAction, userQuantity);
   const updatedCartProducts = updateCartProducts(cartProducts, newItem, productIndex);
 
   return updatedCartProducts;

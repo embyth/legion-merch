@@ -102,6 +102,10 @@ class Page extends React.PureComponent<PageProps> {
             ? `page--customer-care`
             : ``
         } ${
+          currentPage.category === PageCategories.CART
+            ? `page--cart`
+            : ``
+        } ${
           currentPage === AppRoute.PRIVACY || currentPage === AppRoute.DELIVERY
             ? `page--text`
             : ``

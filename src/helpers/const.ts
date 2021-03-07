@@ -2,6 +2,7 @@ export enum PageCategories {
   MAIN = `MAIN`,
   SHOP = `SHOP`,
   CLIENT = `CLIENT`,
+  CART = `CART`,
   PAYMENT = `PAYMENT`,
   OTHER = `OTHER`,
 }
@@ -25,7 +26,7 @@ export const AppRoute = {
   CART: {
     path: `/cart`,
     title: `Корзина`,
-    category: PageCategories.SHOP,
+    category: PageCategories.CART,
   },
   ABOUT: {
     path: `/about`,
@@ -114,6 +115,7 @@ export enum ErrorStatusCode {
 }
 
 export enum CartUserAction {
-  ADD = 1,
-  REMOVE = -1,
+  ADD = `ADD`,
+  REMOVE = `REMOVE`,
+  CUSTOM = `CUSTOM`,
 }
