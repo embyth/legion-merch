@@ -83,3 +83,7 @@ export const updateCart = (
 export const updateTotalCost = (cartProducts: Array<CartProductInterface>): number => {
   return +cartProducts.reduce((acc, product) => product.itemTotal + acc, 0).toFixed(2);
 };
+
+export const updateTotalItems = (cartProducts: Array<CartProductInterface>): number => {
+  return cartProducts.reduce((acc, product) => product.itemQuantity + acc, 0);
+};

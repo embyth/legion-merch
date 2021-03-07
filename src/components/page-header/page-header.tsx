@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 
 import {getIsSideMenuOpen} from "../../store/app/selectors";
 import {ActionCreator} from "../../store/app/app";
+import {getCartTotalItems} from "../../store/cart/selectors";
 
 import {AppRoute, PageCategories} from "../../helpers/const";
 
@@ -16,6 +17,7 @@ interface PageHeaderProps {
     category: string;
   };
   isSideMenuOpen: boolean;
+  cartTotalItems: number;
   onMenuOpenButtonClick(): void;
   onMenuToggleButtonClick(): void;
   onSearchOpenButtonClick(): void;
@@ -25,6 +27,7 @@ interface PageHeaderProps {
 const PageHeader: React.FC<PageHeaderProps> = ({
   currentPage,
   isSideMenuOpen,
+  cartTotalItems,
   onMenuOpenButtonClick,
   onMenuToggleButtonClick,
   onSearchOpenButtonClick,
@@ -73,6 +76,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               <svg className="user-nav__svg" width="20" height="20">
                 <use xlinkHref="/img/sprite.svg#icon-bag"></use>
               </svg>
+              <span className="user-nav__button--cart-value">{cartTotalItems === 0 ? `` : cartTotalItems}</span>
             </button>
           </li>
           <li className="user-nav__item">
@@ -125,6 +129,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
 
 const mapStateToProps = (state) => ({
   isSideMenuOpen: getIsSideMenuOpen(state),
+  cartTotalItems: getCartTotalItems(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

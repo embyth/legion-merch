@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import {ActionCreator} from "../../store/app/app";
 import {getIsSideCartOpen} from "../../store/app/selectors";
 import {Operations as CartOperations} from "../../store/cart/cart";
-import {getCartProducts, getCartTotalCost} from "../../store/cart/selectors";
+import {getCartProducts, getCartTotalCost, getCartTotalItems} from "../../store/cart/selectors";
 
 import {AppRoute, PageCategories} from "../../helpers/const";
 import {CartProductInterface} from "../../helpers/my-types";
@@ -24,6 +24,7 @@ interface SideCartProps {
   isSideCartOpen: boolean;
   cartProducts: Array<CartProductInterface> | [];
   cartTotalCost: number;
+  cartTotalItems: number;
   onCartCloseEvent(): void;
   onProductRemoveButtonClick(productId: number, size: string): void;
 }
@@ -108,8 +109,7 @@ class SideCart extends React.PureComponent<SideCartProps> {
   }
 
   render() {
-    const {isSideCartOpen, cartProducts, cartTotalCost, onCartCloseEvent} = this.props;
-    const totalProductsAmount = (cartProducts as Array<CartProductInterface>).reduce((acc, product) => product.itemQuantity + acc, 0);
+    const {isSideCartOpen, cartProducts, cartTotalCost, cartTotalItems, onCartCloseEvent} = this.props;
 
     return (
       <React.Fragment>
@@ -121,7 +121,7 @@ class SideCart extends React.PureComponent<SideCartProps> {
         ></div>
         <div
           className={`cart ${isSideCartOpen && `cart--open`} ${
-            cartProducts.length === 0 && `cart--empty`
+            cartTotalItems === 0 && `cart--empty`
           }`}
           id="cart-pop"
           ref={this.myCart}
@@ -137,8 +137,8 @@ class SideCart extends React.PureComponent<SideCartProps> {
               <p className="cart__item-quantity">
                 <span className="cart__item-quantity--empty">empty</span>
                 <small className="cart__item-quantity--fill">
-                  <span className="cart__item-quantity--value">{totalProductsAmount}</span>
-                  &nbsp;{totalProductsAmount === 1 ? `item` : `items`}
+                  <span className="cart__item-quantity--value">{cartTotalItems}</span>
+                  &nbsp;{cartTotalItems === 1 ? `item` : `items`}
                 </small>
               </p>
             </header>
@@ -197,6 +197,7 @@ const mapStateToProps = (state) => ({
   isSideCartOpen: getIsSideCartOpen(state),
   cartProducts: getCartProducts(state),
   cartTotalCost: getCartTotalCost(state),
+  cartTotalItems: getCartTotalItems(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
