@@ -2,6 +2,7 @@ export enum PageCategories {
   MAIN = `MAIN`,
   SHOP = `SHOP`,
   CLIENT = `CLIENT`,
+  PAYMENT = `PAYMENT`,
   OTHER = `OTHER`,
 }
 
@@ -19,6 +20,11 @@ export const AppRoute = {
   PRODUCT: {
     path: `/product`,
     title: ``,
+    category: PageCategories.SHOP,
+  },
+  CART: {
+    path: `/cart`,
+    title: `Корзина`,
     category: PageCategories.SHOP,
   },
   ABOUT: {
@@ -50,6 +56,11 @@ export const AppRoute = {
     path: `/privacy`,
     title: `Публичная оферта`,
     category: PageCategories.CLIENT,
+  },
+  CHECKOUT: {
+    path: `/checkout`,
+    title: `Оформление заказа`,
+    category: PageCategories.PAYMENT,
   },
 };
 
@@ -100,4 +111,9 @@ export enum ErrorStatusCode {
   NOT_FOUND = 404,
   INTERNAL = 500,
   SERVICE_UNAVAILABLE = 503,
+}
+
+export enum CartUserAction {
+  ADD = 1,
+  REMOVE = -1,
 }

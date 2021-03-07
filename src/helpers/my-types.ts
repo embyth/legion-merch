@@ -60,3 +60,12 @@ export interface ProductInterface {
   };
   pictures: Array<string>;
 }
+
+export interface CartProductInterface extends ProductInterface {
+  itemQuantity: number;
+  itemTotal: number;
+  selectedSize: {
+    key: string;
+    label: string;
+  };
+}
