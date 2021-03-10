@@ -5,6 +5,7 @@ import {StateInterface} from "./data";
 import {ProductInterface} from "../../helpers/my-types";
 
 export const getProducts = (state: StateInterface): Array<ProductInterface> => state[NameSpace.DATA].products;
+export const getSourceProducts = (state: StateInterface): Array<ProductInterface> => state[NameSpace.DATA].sourceProducts;
 export const getProductsRequestStatus = (state: StateInterface): string => state[NameSpace.DATA].productsRequestStatus;
 export const getIsLoading = (state: StateInterface): boolean => state[NameSpace.DATA].isLoading;
 export const getIsLoadError = (state: StateInterface): boolean => state[NameSpace.DATA].isLoadError;
