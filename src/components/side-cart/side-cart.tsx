@@ -67,7 +67,7 @@ class SideCart extends React.PureComponent<SideCartProps> {
         <div className="cart__image-wrapper">
           <Link to={`${AppRoute.PRODUCT.path}/${product.alias}`} className="cart__image-link">
             <img className="cart__image" src={product.pictures[0]}
-              alt="Футболка черного цвета «Dont Make Me Beast»" />
+              alt={`${product.type} цвета ${product.color} «${product.name}» из коллекции ${product.collection.name}`} />
           </Link>
         </div>
         <div className="cart__item-info">

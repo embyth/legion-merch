@@ -20,7 +20,7 @@ const CatalogItem: React.FC<CatalogItemProps> = ({
         <img
           className="catalog__item-thumbnail"
           src={item.pictures[0]}
-          alt={`${item.category} цвета ${item.color} и названием ${item.name}`}
+          alt={`${item.type} цвета ${item.color} «${item.name}» из коллекции ${item.collection.name}`}
         />
       </div>
       <div className="catalog__item-info">

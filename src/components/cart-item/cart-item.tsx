@@ -18,7 +18,7 @@ const CartItem: React.FC<CartItemProps> = ({cartProduct, onProductRemoveButtonCl
   <tr className="page-cart__item page-cart__item--product">
     <td className="page-cart__item-image">
       <Link to={`${AppRoute.PRODUCT.path}/${cartProduct.alias}`} className="page-cart__image-link">
-        <img className="page-cart__image" src={cartProduct.pictures[0]} alt="Худи черного цвета «Starina»" />
+        <img className="page-cart__image" src={cartProduct.pictures[0]} alt={`${cartProduct.type} цвета ${cartProduct.color} «${cartProduct.name}» из коллекции ${cartProduct.collection.name}`} />
       </Link>
     </td>
     <td className="page-cart__item-name">

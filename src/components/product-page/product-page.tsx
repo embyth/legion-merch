@@ -90,9 +90,7 @@ class ProductPage extends React.PureComponent<ProductPageProps, ProductPageState
                     <SwiperSlide key={pic}>
                       <img
                         src={pic}
-                        alt={`${product.type} цвета ${product.color} «${
-                          product.name
-                        }», ${index + 1} из ${product.pictures.length}`}
+                        alt={`${product.type} цвета ${product.color} «${product.name}» из коллекции ${product.collection.name}, ${index + 1} из ${product.pictures.length}`}
                       />
                     </SwiperSlide>
                   ))}
@@ -114,9 +112,7 @@ class ProductPage extends React.PureComponent<ProductPageProps, ProductPageState
                     <SwiperSlide key={pic}>
                       <img
                         src={pic}
-                        alt={`${product.type} цвета ${product.color} «${
-                          product.name
-                        }», ${index + 1} из ${product.pictures.length}`}
+                        alt={`${product.type} цвета ${product.color} «${product.name}» из коллекции ${product.collection.name}, ${index + 1} из ${product.pictures.length}`}
                       />
                     </SwiperSlide>
                   ))}
