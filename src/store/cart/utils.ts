@@ -33,6 +33,8 @@ const updateCartItem = (
 ): CartProductInterface => {
   const {itemQuantity = 0} = item;
 
+  const itemStockAmount = product.sizes[size].stock;
+
   let quantity;
   switch (userAction) {
     case CartUserAction.ADD:
@@ -42,11 +44,11 @@ const updateCartItem = (
       quantity = 0;
       break;
     case CartUserAction.CUSTOM:
-      quantity = userQuantity;
+      quantity = (itemStockAmount + itemQuantity >= userQuantity) ? userQuantity : itemStockAmount + itemQuantity;
       break;
 
     default:
-      quantity = itemQuantity;
+      quantity = itemQuantity + 1;
   }
 
   return {
@@ -70,8 +72,8 @@ export const updateCart = (
     return [];
   }
 
-  const targetProduct = products.find((product) => product.id === productId);
-  const productIndex = cartProducts.findIndex((product) => product.id === productId && product.selectedSize.key === size);
+  const targetProduct = products.find((product: ProductInterface) => product.id === productId);
+  const productIndex = cartProducts.findIndex((product: CartProductInterface) => product.id === productId && product.selectedSize.key === size);
   const product = cartProducts[productIndex];
 
   const newItem = updateCartItem(targetProduct, product, size, userAction, userQuantity);

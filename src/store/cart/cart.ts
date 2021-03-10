@@ -57,28 +57,28 @@ export const Operations = {
   addProductToCart: (productId: number, size: string): ThunkAction<void, unknown, AxiosInstance, CartActionInterface> => (dispatch, getState) => {
     const updatedCartProducts = updateCart(productId, size, getState(), CartUserAction.ADD);
     const updatedTotalCartCost = updateTotalCost(updatedCartProducts);
-    const uodatedTotalCartItems = updateTotalItems(updatedCartProducts);
+    const updatedTotalCartItems = updateTotalItems(updatedCartProducts);
     dispatch(ActionCreator.updateCartProducts(updatedCartProducts));
     dispatch(ActionCreator.updateCartTotalPrice(updatedTotalCartCost));
-    dispatch(ActionCreator.updateCartTotalItems(uodatedTotalCartItems));
+    dispatch(ActionCreator.updateCartTotalItems(updatedTotalCartItems));
   },
 
   removeProductFromCart: (productId: number, size: string): ThunkAction<void, unknown, AxiosInstance, CartActionInterface> => (dispatch, getState) => {
     const updatedCartProducts = updateCart(productId, size, getState(), CartUserAction.REMOVE);
     const updatedTotalCartCost = updateTotalCost(updatedCartProducts);
-    const uodatedTotalCartItems = updateTotalItems(updatedCartProducts);
+    const updatedTotalCartItems = updateTotalItems(updatedCartProducts);
     dispatch(ActionCreator.updateCartProducts(updatedCartProducts));
     dispatch(ActionCreator.updateCartTotalPrice(updatedTotalCartCost));
-    dispatch(ActionCreator.updateCartTotalItems(uodatedTotalCartItems));
+    dispatch(ActionCreator.updateCartTotalItems(updatedTotalCartItems));
   },
 
   setCustomQuantityOnProduct: (productId: number, size: string, quantity: number): ThunkAction<void, unknown, AxiosInstance, CartActionInterface> => (dispatch, getState) => {
     const updatedCartProducts = updateCart(productId, size, getState(), CartUserAction.CUSTOM, quantity);
     const updatedTotalCartCost = updateTotalCost(updatedCartProducts);
-    const uodatedTotalCartItems = updateTotalItems(updatedCartProducts);
+    const updatedTotalCartItems = updateTotalItems(updatedCartProducts);
     dispatch(ActionCreator.updateCartProducts(updatedCartProducts));
     dispatch(ActionCreator.updateCartTotalPrice(updatedTotalCartCost));
-    dispatch(ActionCreator.updateCartTotalItems(uodatedTotalCartItems));
+    dispatch(ActionCreator.updateCartTotalItems(updatedTotalCartItems));
   },
 };
 
