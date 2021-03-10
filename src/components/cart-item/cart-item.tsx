@@ -3,8 +3,9 @@ import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 
 import {Operations as CartOperations} from "../../store/cart/cart";
+import {Operations as DataOperations} from "../../store/data/data";
 
-import {AppRoute} from "../../helpers/const";
+import {AppRoute, CartUserAction} from "../../helpers/const";
 import {CartProductInterface} from "../../helpers/my-types";
 
 interface CartItemProps {
@@ -65,10 +66,12 @@ const CartItem: React.FC<CartItemProps> = ({cartProduct, onProductRemoveButtonCl
 const mapDispatchToProps = (dispatch) => ({
   onProductRemoveButtonClick(productId, size) {
     dispatch(CartOperations.removeProductFromCart(productId, size));
+    dispatch(DataOperations.updateProductStock(productId, size, CartUserAction.REMOVE));
   },
 
   onProductQuantityChange(productId, size, quantity) {
     dispatch(CartOperations.setCustomQuantityOnProduct(productId, size, quantity));
+    dispatch(DataOperations.updateProductStock(productId, size, CartUserAction.CUSTOM, quantity));
   },
 });
 

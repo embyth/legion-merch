@@ -8,13 +8,14 @@ import {
   getProductByAlias,
   getProductsRequestStatus,
 } from "../../store/data/selectors";
+import {Operations as DataOperations} from "../../store/data/data";
 import {Operations as CartOperations} from "../../store/cart/cart";
 
 import Breadcrumbs from "../breadcrumbs/breadcrumbs";
 
 import {ProductInterface} from "../../helpers/my-types";
 import {productCarouselParams} from "../../helpers/swiper-params";
-import {AppRoute, RequestStatus} from "../../helpers/const";
+import {AppRoute, CartUserAction, RequestStatus} from "../../helpers/const";
 
 SwiperCore.use([Pagination, EffectFade, A11y]);
 
@@ -62,6 +63,8 @@ class ProductPage extends React.PureComponent<ProductPageProps, ProductPageState
     if (productsRequestStatus !== RequestStatus.SUCCESS) {
       return <div>Loading...</div>;
     }
+
+    const isProductInStock = Object.entries(product.sizes).reduce((acc, [sizeLabel]) => acc + product.sizes[sizeLabel].stock, 0) > 0;
 
     return (
       <React.Fragment>
@@ -128,10 +131,17 @@ class ProductPage extends React.PureComponent<ProductPageProps, ProductPageState
                   className="product__price"
                   aria-label={`Цена ${product.price.value} ${product.price.currency}`}
                 >
-                  <span className="product__price--value">
-                    {product.price.value}
-                  </span>
-                &nbsp;&#8372;
+                  {isProductInStock
+                    ? (
+                      <span className="product__price--value">
+                        {product.price.value}
+                        &nbsp;&#8372;
+                      </span>
+                    )
+                    : (
+                      <span>Нет в наличии</span>
+                    )
+                  }
                 </strong>
                 <p className="product__description">{product.description}</p>
                 <ul className="product__care-info">
@@ -142,13 +152,14 @@ class ProductPage extends React.PureComponent<ProductPageProps, ProductPageState
                 <form className="product__add-bag">
                   <div className="product__size-select">
                     <label className="visually-hidden" htmlFor="product-size">
-                    Выбрать размер
+                      Выбрать размер
                     </label>
                     <select
                       className="product__size"
                       name="product-size"
                       id="product-size"
                       value={currentSize}
+                      disabled={!isProductInStock}
                       onChange={this.handleSizeSelectChange}
                     >
                       <option
@@ -160,6 +171,7 @@ class ProductPage extends React.PureComponent<ProductPageProps, ProductPageState
                             <option
                               key={sizeLabel}
                               value={sizeLabel}
+                              disabled={product.sizes[sizeLabel].stock === 0}
                             >{`${sizeValue.label} - ${sizeValue.stock} шт`}</option>
                           )
                       )}
@@ -172,7 +184,7 @@ class ProductPage extends React.PureComponent<ProductPageProps, ProductPageState
                     className="product__submit button button--primary button--glitch"
                     name="submit"
                     value="Add to Bag"
-                    disabled={currentSize === `not-selected`}
+                    disabled={currentSize === `not-selected` || product.sizes[currentSize].stock === 0}
                     onClick={(evt) => {
                       evt.preventDefault();
                       onAddToCartButtonClick(product.id, currentSize);
@@ -189,7 +201,7 @@ class ProductPage extends React.PureComponent<ProductPageProps, ProductPageState
                       className="product__helper-link"
                       target="_blank"
                     >
-                    Таблица&nbsp;размеров
+                      Таблица&nbsp;размеров
                     </Link>
                   </li>
                   <li className="product__helper-item">
@@ -198,7 +210,7 @@ class ProductPage extends React.PureComponent<ProductPageProps, ProductPageState
                       className="product__helper-link"
                       target="_blank"
                     >
-                    Доставка&nbsp;&amp;&nbsp;Возврат
+                      Доставка&nbsp;&amp;&nbsp;Возврат
                     </Link>
                   </li>
                 </ul>
@@ -219,6 +231,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch) => ({
   onAddToCartButtonClick(productId, size) {
     dispatch(CartOperations.addProductToCart(productId, size));
+    dispatch(DataOperations.updateProductStock(productId, size, CartUserAction.ADD));
   }
 });
 
