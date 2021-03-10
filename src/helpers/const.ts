@@ -1,8 +1,10 @@
 export enum PageCategories {
   MAIN = `MAIN`,
   SHOP = `SHOP`,
+  CATALOG = `CATALOG`,
   CLIENT = `CLIENT`,
   CART = `CART`,
+  SEARCH = `SEARCH`,
   PAYMENT = `PAYMENT`,
   OTHER = `OTHER`,
 }
@@ -16,7 +18,7 @@ export const AppRoute = {
   CATALOG: {
     path: `/catalog`,
     title: `Каталог`,
-    category: PageCategories.SHOP,
+    category: PageCategories.CATALOG,
   },
   PRODUCT: {
     path: `/product`,
@@ -27,6 +29,11 @@ export const AppRoute = {
     path: `/cart`,
     title: `Корзина`,
     category: PageCategories.CART,
+  },
+  SEARCH: {
+    path: `/search`,
+    title: `Поиск`,
+    category: PageCategories.SEARCH,
   },
   ABOUT: {
     path: `/about`,

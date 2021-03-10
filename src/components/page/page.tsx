@@ -25,6 +25,7 @@ const SideCartWrapped = withMediaQueries(SideCart);
 interface MatchParams {
   category?: string;
   alias?: string;
+  query?: string;
 }
 
 interface RouteProps {
@@ -47,15 +48,13 @@ class Page extends React.PureComponent<PageProps> {
   private setDocumentTitle() {
     const {
       currentPage: {title},
-      routeProps: {
-        match: {
-          params: {category},
-        },
-      },
       product,
       categories,
       productsRequestStatus,
     } = this.props;
+
+    const category = this.props.currentPage.category === PageCategories.CATALOG && this.props.routeProps.match.params.category;
+    const search = this.props.currentPage.category === PageCategories.SEARCH && this.props.routeProps.match.params.query;
 
     const currentCategory = categories.find(
         (categoryIt) => categoryIt.alias === category
@@ -67,6 +66,8 @@ class Page extends React.PureComponent<PageProps> {
       document.title = `${currentCategory.label} ⏆ LEGION`;
     } else if (product) {
       document.title = `${product.name} ⏆ LEGION`;
+    } else if (search) {
+      document.title = `Поиск: ${search} ⏆ LEGION`;
     } else {
       document.title = `${title} ⏆ LEGION`;
     }
@@ -106,6 +107,10 @@ class Page extends React.PureComponent<PageProps> {
             ? `page--cart`
             : ``
         } ${
+          currentPage.category === PageCategories.SEARCH
+            ? `page--search`
+            : ``
+        } ${
           currentPage === AppRoute.PRIVACY || currentPage === AppRoute.DELIVERY
             ? `page--text`
             : ``
@@ -115,8 +120,8 @@ class Page extends React.PureComponent<PageProps> {
         <Component routeProps={routeProps} />
         {currentPage.category !== PageCategories.MAIN ? <PageFooter /> : null}
         <SideMenuWrapped currentPage={currentPage} />
-        <SideCartWrapped currentPage={currentPage} />
-        <SearchPopup />
+        {currentPage.category !== PageCategories.CART ? <SideCartWrapped currentPage={currentPage} /> : null}
+        {currentPage.category !== PageCategories.SEARCH ? <SearchPopup /> : null}
       </div>
     );
   }

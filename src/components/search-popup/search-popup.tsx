@@ -1,8 +1,11 @@
 import * as React from "react";
 import {connect} from "react-redux";
+import history from "../../history";
 
 import {getIsSearchPopupOpen} from "../../store/app/selectors";
 import {ActionCreator} from "../../store/app/app";
+
+import {AppRoute} from "../../helpers/const";
 
 interface SearchPopupProps {
   isSearchPopupOpen: boolean;
@@ -10,16 +13,27 @@ interface SearchPopupProps {
 }
 
 class SearchPopup extends React.PureComponent<SearchPopupProps> {
+  private searchQuery: React.RefObject<HTMLInputElement>;
+
   constructor(props) {
     super(props);
 
+    this.searchQuery = React.createRef();
+
     this.onEscKeyDown = this.onEscKeyDown.bind(this);
+    this.onSearchSubmitClick = this.onSearchSubmitClick.bind(this);
   }
 
   private onEscKeyDown(evt) {
     if (evt.keyCode === 27) {
       this.props.onSearchCloseAction();
     }
+  }
+
+  private onSearchSubmitClick(evt) {
+    evt.preventDefault();
+
+    history.push(`${AppRoute.SEARCH.path}/${this.searchQuery.current.value}`);
   }
 
   componentDidMount() {
@@ -49,11 +63,7 @@ class SearchPopup extends React.PureComponent<SearchPopupProps> {
         id="search-pop"
       >
         <div className="search__inner">
-          <form
-            action="https://echo.htmlacademy.ru"
-            method="get"
-            className="search__form"
-          >
+          <form className="search__form" onSubmit={this.onSearchSubmitClick}>
             <div className="search__input-group">
               <input
                 className="search__input"
@@ -63,9 +73,10 @@ class SearchPopup extends React.PureComponent<SearchPopupProps> {
                 placeholder="Поиск"
                 autoComplete="off"
                 aria-label="Поиск по магазину"
+                ref={this.searchQuery}
               />
               <label className="search__label" htmlFor="search-field">
-                Поиск
+              Поиск
               </label>
             </div>
           </form>
@@ -74,7 +85,7 @@ class SearchPopup extends React.PureComponent<SearchPopupProps> {
             type="button"
             onClick={onSearchCloseAction}
           >
-            Закрыть окно поиска
+          Закрыть окно поиска
           </button>
         </div>
       </div>
