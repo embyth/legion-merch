@@ -45,3 +45,18 @@ export const getProductsCategories = createSelector(
         .map((item) => item.category);
     }
 );
+
+export const getProductBySearchQuery = createSelector(
+    getProducts,
+    getExtraProps,
+    (products, ownProps) => {
+      const routeQuery = ownProps.routeProps.match.params.query;
+      const searchQuery = routeQuery ? routeQuery.replace(/\s\s+/g, ` `).toLowerCase() : null;
+
+      return (searchQuery && products.length > 0)
+        ? products.filter((product) => product.name.toLowerCase().includes(searchQuery)
+          || product.category.label.toLowerCase().includes(searchQuery)
+          || product.description.toLowerCase().includes(searchQuery))
+        : [];
+    }
+);
