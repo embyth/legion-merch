@@ -137,3 +137,8 @@ export enum CartUserAction {
   REMOVE = `REMOVE`,
   CUSTOM = `CUSTOM`,
 }
+
+export enum AuthorizationStatus {
+  AUTH = `AUTH`,
+  NOT_AUTH = `NOT_AUTH`,
+}
