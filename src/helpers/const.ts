@@ -81,6 +81,11 @@ export const AppRoute = {
     title: `Регистрация`,
     category: PageCategories.USER,
   },
+  PROFILE: {
+    path: `/profile`,
+    title: `Профиль`,
+    category: PageCategories.USER,
+  },
 };
 
 export enum AppMediaQuery {
