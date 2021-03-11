@@ -6,6 +6,7 @@ export enum PageCategories {
   CART = `CART`,
   SEARCH = `SEARCH`,
   PAYMENT = `PAYMENT`,
+  USER = `USER`,
   OTHER = `OTHER`,
 }
 
@@ -69,6 +70,16 @@ export const AppRoute = {
     path: `/checkout`,
     title: `Оформление заказа`,
     category: PageCategories.PAYMENT,
+  },
+  LOGIN: {
+    path: `/login`,
+    title: `Вход`,
+    category: PageCategories.USER,
+  },
+  SIGNUP: {
+    path: `/signup`,
+    title: `Регистрация`,
+    category: PageCategories.USER,
   },
 };
 

@@ -17,6 +17,8 @@ import DeliveryPage from "../delivery-page/delivery-page";
 import SizesPage from "../sizes-page/sizes-page";
 import FaqPage from "../faq-page/faq-page";
 import PrivacyPage from "../privacy-page/privacy-page";
+import LoginPage from "../login-page/login-page";
+import SignupPage from "../signup-page/signup-page";
 import NotFound from "../not-found/not-found";
 
 import {AppRoute} from "../../helpers/const";
@@ -155,6 +157,30 @@ const App: React.FC = () => (
               routeProps={props}
               component={PrivacyPage}
               currentPage={AppRoute.PRIVACY}
+            />
+          )}
+        />
+
+        <Route
+          exact
+          path={AppRoute.LOGIN.path}
+          render={(props) => (
+            <Page
+              routeProps={props}
+              component={LoginPage}
+              currentPage={AppRoute.LOGIN}
+            />
+          )}
+        />
+
+        <Route
+          exact
+          path={AppRoute.SIGNUP.path}
+          render={(props) => (
+            <Page
+              routeProps={props}
+              component={SignupPage}
+              currentPage={AppRoute.SIGNUP}
             />
           )}
         />

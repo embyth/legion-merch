@@ -166,9 +166,9 @@ class SideMenu extends React.PureComponent<SideMenuProps> {
                   </Link>
                 </li>
                 <li className="site-nav__item">
-                  <a href="login.html" className="site-nav__item-link">
+                  <Link to={AppRoute.LOGIN.path} className="site-nav__item-link">
                     Войти&nbsp;/&nbsp;Регистрация
-                  </a>
+                  </Link>
                 </li>
 
                 {currentPage.category === PageCategories.CLIENT ? (
