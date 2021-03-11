@@ -5,6 +5,7 @@ import history from "../../history";
 
 import withMediaQueries from "../../hocs/with-media-queries/with-media-queries";
 
+import PrivateRoute from "../private-route/private-route";
 import Page from "../page/page";
 import MainPage from "../main-page/main-page";
 import CatalogPage from "../catalog-page/catalog-page";
@@ -19,6 +20,7 @@ import FaqPage from "../faq-page/faq-page";
 import PrivacyPage from "../privacy-page/privacy-page";
 import LoginPage from "../login-page/login-page";
 import SignupPage from "../signup-page/signup-page";
+import ProfilePage from "../profile-page/profile-page";
 import NotFound from "../not-found/not-found";
 
 import {AppRoute} from "../../helpers/const";
@@ -183,6 +185,13 @@ const App: React.FC = () => (
               currentPage={AppRoute.SIGNUP}
             />
           )}
+        />
+
+        <PrivateRoute
+          exact
+          path={AppRoute.PROFILE.path}
+          currentPage={AppRoute.PROFILE}
+          component={ProfilePage}
         />
 
         <Route component={NotFound} />

@@ -93,16 +93,16 @@ const PageHeader: React.FC<PageHeaderProps> = ({
             </button>
           </li>
           <li className="user-nav__item">
-            <a
+            <Link
+              to={AppRoute.PROFILE.path}
               className="user-nav__button"
-              href="profile.html"
               title="Профиль"
               aria-label="Перейти в свой профиль"
             >
               <svg className="user-nav__svg" width="20" height="20">
                 <use xlinkHref="/img/sprite.svg#icon-account"></use>
               </svg>
-            </a>
+            </Link>
           </li>
           {currentPage.category !== PageCategories.MAIN && (
             <li className="user-nav__item user-nav__item--hamburger">
