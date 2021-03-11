@@ -5,26 +5,100 @@ interface ContactsPageState {
 }
 
 class ContactsPage extends React.PureComponent<Record<string, never>, ContactsPageState> {
+  private userNameRef: React.RefObject<HTMLInputElement>;
+  private userEmailRef: React.RefObject<HTMLInputElement>;
+  private userMessageRef: React.RefObject<HTMLTextAreaElement>;
+
   constructor(props: Record<string, never>) {
     super(props);
 
+    this.userNameRef = React.createRef();
+    this.userEmailRef = React.createRef();
+    this.userMessageRef = React.createRef();
+
     this.state = {
-      selectValue: `not-selected`,
+      selectValue: ``,
     };
 
-    this.handleSelectChange = this.handleSelectChange.bind(this);
-    this.handleUserMessageInput = this.handleUserMessageInput.bind(this);
+    this.handleContactFormSubmit = this.handleContactFormSubmit.bind(this);
+    this.handleUserNameChange = this.handleUserNameChange.bind(this);
+    this.handleUserEmailChange = this.handleUserEmailChange.bind(this);
+    this.handleUserSelectChange = this.handleUserSelectChange.bind(this);
+    this.handleUserMessageChange = this.handleUserMessageChange.bind(this);
   }
 
-  private handleSelectChange(evt) {
+  private handleContactFormSubmit(evt) {
+    evt.preventDefault();
+
+    const userContactData = {
+      userName: this.userNameRef.current.value,
+      userEmail: this.userEmailRef.current.value,
+      userReason: this.state.selectValue,
+      userMessage: this.userMessageRef.current.value,
+    };
+
+    console.log(userContactData); // eslint-disable-line
+  }
+
+  private handleUserNameChange(evt) {
+    const target = evt.target;
+    const validationMassage = target.id === `user-name`
+      ? `У вас должно быть имя!`
+      : `Укажите вашу фамилию!`;
+
+    target.classList.remove(`form__input--error`);
+    target.setCustomValidity(``);
+
+    if (target.validity.valueMissing) {
+      target.classList.add(`form__input--error`);
+      target.setCustomValidity(validationMassage);
+    }
+  }
+
+  private handleUserEmailChange(evt) {
+    const target = evt.target;
+
+    target.classList.remove(`form__input--error`);
+    target.setCustomValidity(``);
+
+    if (target.validity.typeMismatch) {
+      target.classList.add(`form__input--error`);
+      target.setCustomValidity(`Боец, я ожидаю здесь увидить электронную почту!`);
+    } else if (target.validity.valueMissing) {
+      target.classList.add(`form__input--error`);
+      target.setCustomValidity(`Электронная почта обязательна!`);
+    }
+  }
+
+  private handleUserSelectChange(evt) {
+    const target = evt.target;
+
     this.setState({
-      selectValue: evt.target.value,
+      selectValue: target.value,
     });
+
+    target.style.borderColor = ``;
+    target.setCustomValidity(``);
+
+    if (target.value === ``) {
+      target.style.borderColor = `red`;
+      target.setCustomValidity(`Выберите причину обращения к нам!`);
+    }
   }
 
-  private handleUserMessageInput(evt) {
-    evt.target.style.height = `auto`;
-    evt.target.style.height = `${evt.target.scrollHeight + 1}px`;
+  private handleUserMessageChange(evt) {
+    const target = evt.target;
+
+    target.style.height = `auto`;
+    target.style.height = `${target.scrollHeight + 1}px`;
+
+    target.classList.remove(`form__input--error`);
+    target.setCustomValidity(``);
+
+    if (target.validity.valueMissing) {
+      target.classList.add(`form__input--error`);
+      target.setCustomValidity(`Опишите вашу проблему!`);
+    }
   }
 
   render(): React.ReactNode {
@@ -40,11 +114,7 @@ class ContactsPage extends React.PureComponent<Record<string, never>, ContactsPa
           <section className="form form--contact" id="form-contact">
             <h2 className="page-title">Связаться с нами</h2>
 
-            <form
-              className="form__form-field"
-              action="https://echo.htmlacademy.ru"
-              method="post"
-            >
+            <form className="form__form-field" onSubmit={this.handleContactFormSubmit}>
               <fieldset>
                 <div className="form__fieldset">
                   <div className="form__input-group">
@@ -58,6 +128,9 @@ class ContactsPage extends React.PureComponent<Record<string, never>, ContactsPa
                       autoCapitalize="words"
                       aria-label="Ваше имя"
                       required
+                      ref={this.userNameRef}
+                      onChange={this.handleUserNameChange}
+                      onInvalid={this.handleUserNameChange}
                     />
                     <label className="form__label" htmlFor="user-name">
                       Имя
@@ -73,6 +146,9 @@ class ContactsPage extends React.PureComponent<Record<string, never>, ContactsPa
                       autoCapitalize="off"
                       aria-label="Ваша электронная почта"
                       required
+                      ref={this.userEmailRef}
+                      onChange={this.handleUserEmailChange}
+                      onInvalid={this.handleUserEmailChange}
                     />
                     <label className="form__label" htmlFor="user-email">
                       Эл. почта
@@ -85,9 +161,10 @@ class ContactsPage extends React.PureComponent<Record<string, never>, ContactsPa
                       id="contact-reason"
                       value={selectValue}
                       required
-                      onChange={this.handleSelectChange}
+                      onChange={this.handleUserSelectChange}
+                      onInvalid={this.handleUserSelectChange}
                     >
-                      <option disabled value="not-selected"></option>
+                      <option disabled value=""></option>
                       <option value="order-status">Узнать Статус Заказа</option>
                       <option value="request-return">Запрос на Возврат</option>
                       <option value="cancel-change">
@@ -101,7 +178,7 @@ class ContactsPage extends React.PureComponent<Record<string, never>, ContactsPa
                     </select>
                     <label
                       className={`form__label form__label--select ${
-                        selectValue !== `not-selected`
+                        selectValue !== ``
                           ? `form__label--selected`
                           : ``
                       }`}
@@ -120,7 +197,9 @@ class ContactsPage extends React.PureComponent<Record<string, never>, ContactsPa
                       id="user-message"
                       placeholder="Ваше сообщение"
                       required
-                      onInput={this.handleUserMessageInput}
+                      ref={this.userMessageRef}
+                      onChange={this.handleUserMessageChange}
+                      onInvalid={this.handleUserMessageChange}
                     ></textarea>
                     <label className="form__label" htmlFor="user-message">
                       Ваше сообщение
