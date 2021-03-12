@@ -12,6 +12,7 @@ import {Operations as DataOperations} from "../../store/data/data";
 import {Operations as CartOperations} from "../../store/cart/cart";
 
 import Breadcrumbs from "../breadcrumbs/breadcrumbs";
+import ProductLoader from "../product-loader/product-loader";
 
 import {ProductInterface} from "../../helpers/my-types";
 import {productCarouselParams} from "../../helpers/swiper-params";
@@ -61,7 +62,7 @@ class ProductPage extends React.PureComponent<ProductPageProps, ProductPageState
     const {isDesktop, isTablet, isMobile} = mediaQueries;
 
     if (productsRequestStatus !== RequestStatus.SUCCESS) {
-      return <div>Loading...</div>;
+      return <ProductLoader />;
     }
 
     const isProductInStock = Object.entries(product.sizes).reduce((acc, [sizeLabel]) => acc + product.sizes[sizeLabel].stock, 0) > 0;

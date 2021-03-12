@@ -1,6 +1,7 @@
 import * as React from "react";
 import {connect} from "react-redux";
 
+import ProductLoader from "../product-loader/product-loader";
 import CatalogItem from "../catalog-item/catalog-item";
 
 import {
@@ -9,6 +10,7 @@ import {
 } from "../../store/data/selectors";
 
 import {ProductInterface} from "../../helpers/my-types";
+import {RequestStatus} from "../../helpers/const";
 
 interface CatalogPageProps {
   productsRequestStatus: string;
@@ -16,9 +18,14 @@ interface CatalogPageProps {
 }
 
 const CatalogPage: React.FC<CatalogPageProps> = ({
+  productsRequestStatus,
   products,
-}: CatalogPageProps) => (
-  <React.Fragment>
+}: CatalogPageProps) => {
+  if (productsRequestStatus !== RequestStatus.SUCCESS) {
+    return <ProductLoader />;
+  }
+
+  return (
     <main className="main-content" id="main-content">
       <h1 className="visually-hidden">
         Каталог одежды интернет-магазина Legion
@@ -33,8 +40,8 @@ const CatalogPage: React.FC<CatalogPageProps> = ({
         </div>
       </section>
     </main>
-  </React.Fragment>
-);
+  );
+};
 
 const mapStateToProps = (state, ownProps) => ({
   productsRequestStatus: getProductsRequestStatus(state),
