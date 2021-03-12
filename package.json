@@ -107,7 +107,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm test.deploy"
+      "pre-push": "npm run eslint"
     }
   }
 }
