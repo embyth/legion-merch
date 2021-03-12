@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 
 import withMediaQueries from "../../hocs/with-media-queries/with-media-queries";
 
+import LegionGlitchText from "../legion-glitch-text/legion-glitch-text";
 import Showcase from "../showcase/showcase";
 
 import {AppRoute} from "../../helpers/const";
@@ -11,6 +12,7 @@ const ShowcaseWrapped = withMediaQueries(Showcase);
 
 const MainPage: React.FC = () => (
   <React.Fragment>
+    <LegionGlitchText />
     <main className="main-content" id="main-content">
       <h1 className="visually-hidden">Интернет-магазин одежды Legion</h1>
 
