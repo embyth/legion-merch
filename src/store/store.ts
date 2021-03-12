@@ -16,5 +16,6 @@ const store = createStore(reducer,
 );
 
 store.dispatch(DataOperations.loadProducts());
+store.dispatch(DataOperations.loadCollections());
 
 export default store;
