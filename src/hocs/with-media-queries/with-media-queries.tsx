@@ -11,14 +11,6 @@ interface InjectedProps {
   };
 }
 
-interface WithMediaQueriesProps {
-  currentPage?: {
-    path: string;
-    title: string;
-    category: string;
-  };
-}
-
 interface WithMediaQueriesState {
   isDesktop: boolean;
   isTablet: boolean;
@@ -27,9 +19,9 @@ interface WithMediaQueriesState {
 
 const withMediaQueries = <P extends InjectedProps>(
   Component: React.ComponentType<P>
-): React.ComponentClass<WithMediaQueriesProps> => {
+): React.ComponentClass => {
   class WithMediaQueries extends React.PureComponent<
-    Subtract<P, InjectedProps> & WithMediaQueriesProps,
+    Subtract<P, InjectedProps>,
     WithMediaQueriesState
   > {
     constructor(props) {

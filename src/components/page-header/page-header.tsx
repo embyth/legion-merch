@@ -2,7 +2,7 @@ import * as React from "react";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 
-import {getIsSideMenuOpen} from "../../store/app/selectors";
+import {getCurrentPage, getIsSideMenuOpen} from "../../store/app/selectors";
 import {ActionCreator} from "../../store/app/app";
 import {getCartTotalItems} from "../../store/cart/selectors";
 
@@ -130,6 +130,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
 const mapStateToProps = (state) => ({
   isSideMenuOpen: getIsSideMenuOpen(state),
   cartTotalItems: getCartTotalItems(state),
+  currentPage: getCurrentPage(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

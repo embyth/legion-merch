@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 
 import {ActionCreator} from "../../store/app/app";
-import {getIsSideCartOpen} from "../../store/app/selectors";
+import {getCurrentPage, getIsSideCartOpen} from "../../store/app/selectors";
 import {Operations as DataOperations} from "../../store/data/data";
 import {Operations as CartOperations} from "../../store/cart/cart";
 import {getCartProducts, getCartTotalCost, getCartTotalItems} from "../../store/cart/selectors";
@@ -49,6 +49,8 @@ class SideCart extends React.PureComponent<SideCartProps> {
   }
 
   private handleCartHeight() {
+    this.myCart.current.style.height = `${window.innerHeight}px`;
+
     if (this.props.currentPage.category !== PageCategories.MAIN) {
       const headerHeight = +document.querySelector<HTMLElement>(`.site-header`)
         .offsetHeight;
@@ -199,6 +201,7 @@ const mapStateToProps = (state) => ({
   cartProducts: getCartProducts(state),
   cartTotalCost: getCartTotalCost(state),
   cartTotalItems: getCartTotalItems(state),
+  currentPage: getCurrentPage(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -209,7 +212,6 @@ const mapDispatchToProps = (dispatch) => ({
   onProductRemoveButtonClick(productId, size) {
     dispatch(CartOperations.removeProductFromCart(productId, size));
     dispatch(DataOperations.updateProductStock(productId, size, CartUserAction.REMOVE));
-
   },
 });
 

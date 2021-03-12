@@ -2,6 +2,7 @@ import * as React from "react";
 import {connect} from "react-redux";
 import {RouteComponentProps} from "react-router";
 
+import {ActionCreator as AppActionCreator} from "../../store/app/app";
 import {
   getProductByAlias,
   getProductsCategories,
@@ -32,19 +33,28 @@ interface RouteProps {
   routeProps: RouteComponentProps<MatchParams>;
 }
 
+interface CurrentPageInterface {
+  path: string;
+  title: string;
+  category: string;
+}
+
 interface PageProps extends RouteProps {
   component: React.ComponentType<RouteProps>;
-  currentPage: {
-    path: string;
-    title: string;
-    category: string;
-  };
+  currentPage: CurrentPageInterface
   product: ProductInterface;
   categories: Array<ProductInterface[`category`]>;
   productsRequestStatus: string;
+  setCurrentPage(currentPage: CurrentPageInterface): void;
 }
 
 class Page extends React.PureComponent<PageProps> {
+  constructor(props) {
+    super(props);
+
+    props.setCurrentPage(this.props.currentPage);
+  }
+
   private setDocumentTitle() {
     const {
       currentPage: {title},
@@ -86,6 +96,7 @@ class Page extends React.PureComponent<PageProps> {
     }
 
     this.setDocumentTitle();
+    this.props.setCurrentPage(this.props.currentPage);
   }
 
   render() {
@@ -116,11 +127,11 @@ class Page extends React.PureComponent<PageProps> {
             : ``
         }`}
       >
-        <PageHeader currentPage={currentPage} />
+        <PageHeader />
         <Component routeProps={routeProps} />
         {currentPage.category !== PageCategories.MAIN ? <PageFooter /> : null}
-        <SideMenuWrapped currentPage={currentPage} />
-        {currentPage.category !== PageCategories.CART ? <SideCartWrapped currentPage={currentPage} /> : null}
+        <SideMenuWrapped />
+        {currentPage.category !== PageCategories.CART ? <SideCartWrapped /> : null}
         {currentPage.category !== PageCategories.SEARCH ? <SearchPopup /> : null}
       </div>
     );
@@ -133,4 +144,10 @@ const mapStateToProps = (state, ownProps) => ({
   productsRequestStatus: getProductsRequestStatus(state),
 });
 
-export default connect(mapStateToProps)(Page);
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentPage(currentPage) {
+    dispatch(AppActionCreator.setCurrentPage(currentPage));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Page);

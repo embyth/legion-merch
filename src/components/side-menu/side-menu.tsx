@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 
 import {ActionCreator} from "../../store/app/app";
-import {getIsSideMenuOpen} from "../../store/app/selectors";
+import {getCurrentPage, getIsSideMenuOpen} from "../../store/app/selectors";
 import {getProductsCategories} from "../../store/data/selectors";
 
 import {AppRoute, PageCategories} from "../../helpers/const";
@@ -46,6 +46,8 @@ class SideMenu extends React.PureComponent<SideMenuProps> {
   }
 
   private handleMenuHeight() {
+    this.myMenu.current.style.height = `${window.innerHeight}px`;
+
     if (this.props.currentPage.category !== PageCategories.MAIN) {
       const {isDesktop, isTablet, isMobile} = this.props.mediaQueries;
       const headerHeight = +document.querySelector<HTMLElement>(`.site-header`)
@@ -382,6 +384,7 @@ class SideMenu extends React.PureComponent<SideMenuProps> {
 const mapStateToProps = (state) => ({
   isSideMenuOpen: getIsSideMenuOpen(state),
   categories: getProductsCategories(state),
+  currentPage: getCurrentPage(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
