@@ -2,19 +2,31 @@ import {extend, showBodyScroll, hideBodyScroll, toggleBodyScroll} from "../../he
 
 interface AppStateActionInterface {
   type: string;
-  payload?: boolean;
+  payload?: boolean | CurrentPageInterface;
+}
+
+export interface CurrentPageInterface {
+  path: string;
+  title: string;
+  category: string;
 }
 
 export interface StateInterface {
   isSideMenuOpen?: boolean;
   isSearchPopupOpen?: boolean;
   isSideCartOpen?: boolean;
+  currentPage?: CurrentPageInterface;
 }
 
 export const initialState: StateInterface = {
   isSideMenuOpen: false,
   isSearchPopupOpen: false,
   isSideCartOpen: false,
+  currentPage: {
+    path: ``,
+    title: ``,
+    category: ``,
+  }
 };
 
 export const ActionType = {
@@ -27,6 +39,7 @@ export const ActionType = {
   OPEN_SIDE_CART: `OPEN_SIDE_CART`,
   CLOSE_SIDE_CART: `CLOSE_SIDE_CART`,
   HANDLE_PAGE_CHANGE: `HANDLE_PAGE_CHANGE`,
+  SET_CURRENT_PAGE: `SET_CURRENT_PAGE`,
 };
 
 export const ActionCreator = {
@@ -101,6 +114,13 @@ export const ActionCreator = {
       type: ActionType.HANDLE_PAGE_CHANGE,
     };
   },
+
+  setCurrentPage: (currentPage: CurrentPageInterface): AppStateActionInterface => {
+    return {
+      type: ActionType.SET_CURRENT_PAGE,
+      payload: currentPage,
+    };
+  },
 };
 
 export const reducer = (state = initialState, action: AppStateActionInterface): StateInterface => {
@@ -150,6 +170,11 @@ export const reducer = (state = initialState, action: AppStateActionInterface): 
         isSearchPopupOpen: false,
         isSideCartOpen: false,
         isSideMenuOpen: false,
+      });
+
+    case ActionType.SET_CURRENT_PAGE:
+      return extend(state, {
+        currentPage: action.payload as CurrentPageInterface,
       });
 
     default:
