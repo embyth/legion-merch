@@ -9,6 +9,7 @@ import PrivateRoute from "../private-route/private-route";
 import Page from "../page/page";
 import MainPage from "../main-page/main-page";
 import CatalogPage from "../catalog-page/catalog-page";
+import CollectionsPage from "../collections-page/collections-page";
 import ProductPage from "../product-page/product-page";
 import CartPage from "../cart-page/cart-page";
 import SearchPage from "../search-page/search-page";
@@ -51,6 +52,18 @@ const App: React.FC = () => (
               routeProps={props}
               component={CatalogPage}
               currentPage={AppRoute.CATALOG}
+            />
+          )}
+        />
+
+        <Route
+          exact
+          path={`${AppRoute.COLLECTIONS.path}/:collection?`}
+          render={(props) => (
+            <Page
+              routeProps={props}
+              component={CollectionsPage}
+              currentPage={AppRoute.COLLECTIONS}
             />
           )}
         />

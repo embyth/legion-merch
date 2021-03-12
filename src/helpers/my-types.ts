@@ -1,3 +1,5 @@
+import {RouteComponentProps} from "react-router";
+
 export interface ProductInterface {
   name: string;
   description: string;
@@ -68,4 +70,23 @@ export interface CartProductInterface extends ProductInterface {
     key: string;
     label: string;
   };
+}
+
+export interface CollectionInterface {
+  name: string;
+  id: number;
+  alias: string;
+  picture: string;
+  year: number;
+}
+
+interface MatchParams {
+  category?: string;
+  alias?: string;
+  query?: string;
+  collection?: string;
+}
+
+export interface RouteProps {
+  routeProps: RouteComponentProps<MatchParams>;
 }

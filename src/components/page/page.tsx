@@ -1,10 +1,10 @@
 import * as React from "react";
 import {connect} from "react-redux";
-import {RouteComponentProps} from "react-router";
 
 import {ActionCreator as AppActionCreator} from "../../store/app/app";
 import {
   getProductByAlias,
+  getCollectionByAlias,
   getProductsCategories,
   getProductsRequestStatus,
 } from "../../store/data/selectors";
@@ -18,20 +18,10 @@ import SideCart from "../side-cart/side-cart";
 import SideMenu from "../side-menu/side-menu";
 
 import {AppRoute, PageCategories, RequestStatus} from "../../helpers/const";
-import {ProductInterface} from "../../helpers/my-types";
+import {CollectionInterface, ProductInterface, RouteProps} from "../../helpers/my-types";
 
 const SideMenuWrapped = withMediaQueries(SideMenu);
 const SideCartWrapped = withMediaQueries(SideCart);
-
-interface MatchParams {
-  category?: string;
-  alias?: string;
-  query?: string;
-}
-
-interface RouteProps {
-  routeProps: RouteComponentProps<MatchParams>;
-}
 
 interface CurrentPageInterface {
   path: string;
@@ -43,6 +33,7 @@ interface PageProps extends RouteProps {
   component: React.ComponentType<RouteProps>;
   currentPage: CurrentPageInterface
   product: ProductInterface;
+  collection: CollectionInterface,
   categories: Array<ProductInterface[`category`]>;
   productsRequestStatus: string;
   setCurrentPage(currentPage: CurrentPageInterface): void;
@@ -59,6 +50,7 @@ class Page extends React.PureComponent<PageProps> {
     const {
       currentPage: {title},
       product,
+      collection,
       categories,
       productsRequestStatus,
     } = this.props;
@@ -76,6 +68,8 @@ class Page extends React.PureComponent<PageProps> {
       document.title = `${currentCategory.label} ⏆ LEGION`;
     } else if (product) {
       document.title = `${product.name} ⏆ LEGION`;
+    } else if (collection) {
+      document.title = `${collection.name} ⏆ LEGION`;
     } else if (search) {
       document.title = `Поиск: ${search} ⏆ LEGION`;
     } else {
@@ -141,6 +135,7 @@ class Page extends React.PureComponent<PageProps> {
 const mapStateToProps = (state, ownProps) => ({
   categories: getProductsCategories(state),
   product: getProductByAlias(state, ownProps),
+  collection: getCollectionByAlias(state, ownProps),
   productsRequestStatus: getProductsRequestStatus(state),
 });
 

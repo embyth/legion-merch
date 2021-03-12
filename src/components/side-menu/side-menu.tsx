@@ -153,9 +153,9 @@ class SideMenu extends React.PureComponent<SideMenuProps> {
                   </li>
                 ))}
                 <li className="site-nav__item site-nav__item--spacer">
-                  <a href="catalog.html" className="site-nav__item-link">
+                  <Link to={AppRoute.COLLECTIONS.path} className="site-nav__item-link">
                     Коллекции
-                  </a>
+                  </Link>
                 </li>
                 <li className="site-nav__item">
                   <Link to={AppRoute.SEARCH.path} className="site-nav__item-link">

@@ -21,6 +21,11 @@ export const AppRoute = {
     title: `Каталог`,
     category: PageCategories.CATALOG,
   },
+  COLLECTIONS: {
+    path: `/collections`,
+    title: `Коллекции`,
+    category: PageCategories.CATALOG,
+  },
   PRODUCT: {
     path: `/product`,
     title: ``,
